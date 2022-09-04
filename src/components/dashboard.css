@@ -1,0 +1,50 @@
+/* @font-face {
+  font-family: Gilroy-ExtraBold;
+  src: url("fonts/Gilroy-ExtraBold.ttf");
+}
+@font-face {
+  font-family: Gilroy-Light;
+  src: url("fonts/Gilroy-Light.ttf");
+} */
+.container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container .title {
+  text-align: center;
+  font-size: 56px;
+  top: 184px;
+  padding-bottom: 70px;
+}
+.container .accordion {
+  width: 100%;
+  max-width: 800px;
+  margin: -1px auto;
+  border: 2px solid #A9ABAD;
+  border-radius: 32px;
+  padding: 32px 40px;
+}
+.container .accordion .heading {
+  padding: 14px 0;
+  font-weight: 600;
+}
+.container .accordion .parts {
+  border-bottom: 2px solid #A9ABAD;
+  position: relative;
+}
+.container .accordion .parts .flex {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.container .accordion .parts .flex .icon {
+  position: absolute;
+  right: 30px;
+  padding-top: 10px;
+}
+.container .accordion button {
+  background-color: transparent;
+  border: none;
+}/*# sourceMappingURL=dashboard.css.map */

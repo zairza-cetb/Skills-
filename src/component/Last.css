@@ -1,0 +1,44 @@
+.accordion {
+  width: 45rem;
+}
+
+.heading {
+  width: 140px;
+  height: 72px;
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 72px;
+  letter-spacing: -0.02em;
+  color: #333333;
+}
+
+.img-f {
+  width: 400px;
+  height: 500px;
+}
+
+.txt {
+  margin-top: 7rem;
+}
+
+.img {
+  margin-top: 7rem;
+  margin-left: 10rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+@media (max-width: 1024px) {
+  .aacord {
+    width: 100%;
+  }
+  .img-f {
+    display: none;
+  }
+}/*# sourceMappingURL=Last.css.map */

@@ -1,0 +1,30 @@
+.Footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(58, 56, 56);
+  padding: 50px 50px;
+}
+
+.Footer p {
+  font-size: 0.8rem;
+  color: gainsboro;
+  align-items: center;
+  /* text-align: center; */
+}
+
+.icon {
+  border-radius: 50%;
+  padding: 7px;
+  /* border: 2px solid red; */
+  background-color: rgb(114, 110, 110);
+  color: #fff;
+  font-size: 1.3rem;
+  margin: 0.7rem;
+}
+
+@media (max-width: 768) {
+  .Footer-container {
+    width: 100%;
+  }
+}/*# sourceMappingURL=Footer.css.map */

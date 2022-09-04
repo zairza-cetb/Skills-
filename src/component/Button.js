@@ -10,7 +10,7 @@ const Button = () => {
       border:"none",
       cursor:"pointer",
       borderRadius:"5px",
-    }}>Login/Register</button>
+    }}>Login</button>
     </div>
   )
 }

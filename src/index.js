@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import "./Assests/Fonts/Gilroy-Light.otf";
+import "./Assests/Fonts/Gilroy-ExtraBold.otf";
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

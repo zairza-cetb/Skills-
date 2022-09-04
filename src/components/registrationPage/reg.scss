@@ -11,6 +11,8 @@
     padding: 0;
     margin:0;
     font-family: "GilroyL";
+    width: auto;
+
     // width: fit-content;
 }
 h1{
@@ -19,11 +21,11 @@ h1{
 .page{
     display: flex;
     flex-direction: row;
-    background-image: url("../registrationPage/images/Rectangle.png");
+    background-image: url("../registrationPage/images/GroupImg.png");
     height: 1100px;
     background-repeat: no-repeat;
     background-position: bottom;
-    background-size: 100% 50%;
+    background-size: 100% 100%;
 
 p,select{
     font-size: small;
@@ -43,7 +45,8 @@ input:focus{
     flex-direction: column;
     // width: 60%;
     padding-left: 8%;
-    padding-top: 12%;
+    padding-top: 8%;
+    padding-right: 20%;
     .layer1{
         display: flex;
         flex-direction: row;
@@ -75,12 +78,12 @@ input:focus{
             }
         }
         .name{
-            width: 151%;
-            height: 100%;
+            width: 154%;
+            height: 100.5%;
             padding: 2% 25% 2% 5%;
         }
         .phoneNumber{
-            width: 263%;
+            width: 267%;
             height: 116%;
             padding: 2% 25% 2% 5%;
         }
@@ -107,10 +110,10 @@ input:focus{
         display: flex;
         flex-direction: row;
         padding-top: 10%;
-        width: 143%;
+        width: 144%;
         height: auto;
         .e2{
-            padding-left: 15%;
+            padding-left: 15.5%;
             // position: relative;
         }
         .email{
@@ -120,23 +123,23 @@ input:focus{
         }
         .enterEmail{
             width: 90%;
-            height: 105%;
+            height: 116%;
             padding: 2% 25% 2% 5%;
         }
     }
     .layer3{
         display: flex;
         flex-direction: row;
-        padding-top: 10%;
+        padding-top: 11%;
         width: 165%;
         height: auto;
                 .p2{
-                    padding-left: 27%;
+                    padding-left: 27.5%;
                 }
         .enterPassword{
-            width: 187%;
-            height: 138%;
-            padding: 2% 0% 2% 5%;
+            width: 186.1%;
+            height: 150%;
+            padding: 2% 0% 2% 8%;
         }
         .password{
             display: flex;
@@ -144,34 +147,40 @@ input:focus{
             // width: 100%;
             .wrapfield{
                 display: flex;
-                flex-direction: row-reverse;
+                flex-direction: row;
                 flex-wrap: wrap;
+                .shBtn{
+                    position: relative;
+                    left: 70%;
+                    top: 40%;
+                }
                 .showbtn{
                     position: absolute;
-                    height: 5%;
+                    height: 104%;
                     background-color: white;
                     border: none;
+
                     // right: 60%
                 }
-                .b1{
-                    right: 72%;
-                    top: 73%;
+                // .b1{
+            
+                //     top: 73%;
+                // }
+                // .b2{
+                //     // right: 90%;
+                //     top: 73%;
+                // }
                 }
-                .b2{
-                    right: 49%;
-                    top: 73%;
-                }
-            }
         }
     }
     .layer4,.layer5{
         display: flex;
         flex-direction: row;
-        padding-top: 10%;
+        padding-top: 12%;
         width: 165%;
         height: auto;
         .r1{
-            padding-left: 17.6%;
+            padding-left: 17.7%;
         }
         .w1{
             padding-left: 26.8%;
@@ -180,14 +189,14 @@ input:focus{
             display: flex;
             flex-direction: column;
             .branch{
-                width: 137.5%;
+                width: 136.5%;
                 height: 140%;
-                padding: 5.6% 0% 5.6% 5%;
+                padding: 5.4% 0% 5.4% 5%;
                 // background-color: white;
             }
             .regdNo{
-                width: 185%;
-                height: 134.2%;
+                width: 186%;
+                height: 154%;
                 padding: 2% 0% 2% 5%;
                 // background-color: white;
             }
@@ -196,36 +205,36 @@ input:focus{
             display: flex;
             flex-direction: column;
             .member{
-                width: 190%;
+                width: 188%;
                 height: 160%;
-                padding: 7.8% 0% 7.8% 5%;
+                padding: 7.3% 0% 7.3% 5%;
                 // background-color: white;
             }
             .wing{
-                width: 183.5%;
-                height: 134.5%;
+                width: 186%;
+                height: 154%;
                 padding: 2% 0% 2% 5%;
                 // background-color: white;
             }
         }
     }
     .layer5{
-        padding-top: 6%;
+        padding-top: 8%;
     }
     .layer6{
         display: flex;
         flex-direction: column;
         padding-top: 5.5%;
         .domain{
-            width: 156.2%;
+            width: 156.5%;
             height: 100%;
-            padding: 3.5% 0% 3.5% 5%;
+            padding: 3.2% 0% 3.2% 5%;
         }
     }
     .layer7{
         display: flex;
         align-items: center;
-        padding-top: 8%;
+        padding-top: 10%;
         .btn1{
             padding-right: 16%;
         }
@@ -278,3 +287,140 @@ input:focus{
 }
 
 
+@media screen and (min-width:320px) and (max-width:400px) {
+    .page{
+        width: 100%;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        background-attachment: scroll;
+        padding-right: 185%;
+    }
+}
+@media screen and (min-width:401px) and (max-width:500px) {
+    .page{
+        width: 100%;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        background-attachment: scroll;
+        padding-right: 165%;
+    }
+}
+@media screen and (min-width:501px) and (max-width:550px) {
+    .page{
+        width: 100%;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        background-attachment: scroll;
+        padding-right: 150%;
+    }
+}
+@media screen and (min-width:551px) and (max-width:600px) {
+    .page{
+        width: 100%;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        background-attachment: scroll;
+        padding-right: 115%;
+    }
+}
+@media screen and (min-width:601px) and (max-width:650px) {
+    .page{
+        width: 100%;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        background-attachment: scroll;
+        padding-right: 105%;
+    }
+}
+@media screen and (min-width:651px) and (max-width:700px) {
+    .page{
+        width: 100%;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        background-attachment: scroll;
+        padding-right: 92%;
+    }
+}
+@media screen and (min-width:701px) and (max-width:750px) {
+    .page{
+        width: 100%;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        background-attachment: scroll;
+        padding-right: 70%;
+        // background-position: bottom;
+    }
+}
+@media screen and (min-width:751px) and (max-width:800px) {
+    .page{
+        width: 100%;
+        height: 150%;
+        // line-height: 1140px;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        background-attachment: scroll;
+        padding-right: 60%;
+    }
+}
+@media screen and (min-width:801px) and (max-width:860px) {
+    .page{
+        width: 100%;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        background-attachment: scroll;
+        padding-right: 50%;
+    }
+}
+@media screen and (min-width:861px) and (max-width:920px) {
+    .page{
+        width: 100%;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        background-attachment: scroll;
+        padding-right: 40%;
+    }
+}
+@media screen and (min-width:921px) and (max-width:1000px) {
+    .page{
+        width: 100%;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        background-attachment: scroll;
+        padding-right: 32%;
+    }
+}
+@media screen and (min-width:1001px) and (max-width:1100px) {
+    .page{
+        width: 100%;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        background-attachment: scroll;
+        padding-right: 21.5%;
+    }
+}
+// @media screen and (min-width:1101px) and (max-width:1200px) {
+//     .page{
+//         width: 100%;
+//         background-size: 100% 100%;
+//         overflow-x: scroll;
+//         background-attachment: scroll;
+//         padding-right: 18%;
+//     }
+// }
+@media screen and (min-width:1101px) and (max-width:1200px) {
+    .page{
+        width: 100%;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        background-attachment: scroll;
+        padding-right: 11%;
+    }
+}
+@media screen and (min-width:1201px) and (max-width:1300px) {
+    .page{
+        width: 100%;
+        background-size: 100% 100%;
+        overflow-x: scroll;
+        padding-right: 5%;
+    }
+}

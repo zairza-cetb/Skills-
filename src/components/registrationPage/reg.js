@@ -93,14 +93,14 @@ const Registration = () => {
                         <p>Password</p>
                         <div className="wrapfield">
                             <div><input type={showPassword?"text":"password"} className="enterPassword" placeholder="Enter password"/></div>
-                            <button className="showbtn b1" onClick={buttonHandler}>{showPassword?<VisibilityOffIcon/>:<VisibilityIcon/>}</button>
+                            <div className="shBtn"><button className="showbtn b1" onClick={buttonHandler}>{showPassword?<VisibilityOffIcon/>:<VisibilityIcon/>}</button></div>
                         </div>
                     </div>
                     <div className="password p2">
                         <p>Confirm Password</p>
                         <div className="wrapfield">
                             <div><input type={confirmPassword ? "text" : "password"} className="enterPassword" placeholder="Confirm password" /></div>
-                            <button className="showbtn b2" onClick={confirmButtonHandler}>{confirmPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}</button>
+                            <div className="shBtn"><button className="showbtn b2" onClick={confirmButtonHandler}>{confirmPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}</button></div>
                         </div>
                     </div>
                 </div>
@@ -116,6 +116,13 @@ const Registration = () => {
                             <option className="branches">Mechanical</option>
                             <option className="branches">Civil</option>
                             <option className="branches">Biotechnology</option>
+                            <option className="branches">Fashion Technology</option>
+                            <option className="branches">Textile</option>
+                            <option className="branches">B. Planning</option>
+                            <option className="branches">MCA</option>
+                            <option className="branches">Mathematics and Humanities</option>
+                            <option className="branches">Intergrated MSc. Chemistry</option>
+                            <option className="branches">Intergrated MSc. Physics</option>
                         </select>
                     </div>
                     <div className="student r1">
@@ -156,10 +163,10 @@ const Registration = () => {
                 </div>
                 <div className="layer8"><p>Already registered?<span>Login</span></p></div>
             </div>
-            <div className="pics">
+            {/* <div className="pics">
                 <img className="img2" src={img2} />
                 <img className="img3" src={img3} />
-            </div>
+            </div> */}
         </div>
     )
 }

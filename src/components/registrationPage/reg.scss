@@ -29,8 +29,10 @@ h1{
 
 p,select{
     font-size: small;
-    color: rgba(152, 162, 179, 1)
+    color: rgba(152, 162, 179, 1);
 }
+::-ms-input-placeholder {
+    color: rgba(152, 162, 179, 1);}
 .name,.phoneCode,.phoneNumber,.enterEmail,.enterPassword,.branch,.regdNo,.member,.wing,.domain{
     border-radius: 8px;
 }
@@ -38,6 +40,9 @@ input{
     border: 0.5px solid rgb(99, 99, 106);
 }
 input:focus{
+    outline: none !important;
+}
+select:focus{
     outline: none !important;
 }
 .regInput{
@@ -159,7 +164,8 @@ input:focus{
                     height: 104%;
                     background-color: white;
                     border: none;
-
+                    color: rgb(183, 189, 199);
+                    cursor:pointer;
                     // right: 60%
                 }
                 // .b1{
@@ -246,6 +252,7 @@ input:focus{
             color: white;
             border: none;
             border-radius: 24px;
+            cursor: pointer;
         }
         .btn2{
             padding-left: 6%;
@@ -258,12 +265,17 @@ input:focus{
             border: none;
             border-radius: 24px;
             background-color: white;
+            cursor: pointer;
+        }
+        .google{
+            color: rgb(7, 107, 247);
         }
     }
     .layer8{
         padding-top: 5%;
         span{
             color: blue;
+            cursor: pointer;
         }
     }
 }

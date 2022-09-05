@@ -5,11 +5,11 @@ import Navbar from '../../component/Navbar'
 
 const Dashboard = () => {
   return (
-    <>
+    <div>
         <Navbar />
         <Accordian />
         <Footer />
-    </>
+    </div>
   )
 }
 

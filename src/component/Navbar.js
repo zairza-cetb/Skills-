@@ -12,9 +12,6 @@ const Navbar = () => {
           <input type="checkbox" id="checkbox_toggle" />
           <label for="checkbox_toggle" class="hamburger">&#9776;</label>
           <div class="menu">
-            <li>Domains</li>
-            <li>why skill++</li>
-            <li>Contact us</li>
            <Button />
           </div>
         </ul>

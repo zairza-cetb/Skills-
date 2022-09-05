@@ -21,7 +21,7 @@
   font-size:13px;
   font-weight:700;
 }
-.menu li {
+ .menu li{
   padding: 5px 14px;
   list-style: none;
 }
@@ -36,28 +36,51 @@ input[type="checkbox"] {
   user-select: none;
   cursor: pointer;
 }
+.menu-login-btn{
+    background-color:#E0EAFF;
+    color:blue;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
-@media (max-width: 768px) {
+@media (max-width:655px) {
   .menu {
     display: none;
     position: absolute;
-    right: 0;
-    left: 0;
+    right:0;
+    left:0;
     text-align: center;
-    padding: 16px 0;
+    background-color:blue;
+    color:white;
+    height:87.5vh;
   }
   .menu li:hover {
     display: inline-block;
-    background-color: #4c9e9e;
-    transition: 0.3s ease;
+    color:aquamarine;
   }
-  .menu li + li {
-    margin-top: 12px;
+  .menu li{
+    font-size: 25px;
+    margin-top:80px;
+  }
+  .menu-login-btn{
+    margin-top: 80px;
+    padding:20px 30px;
+    font-size: 25px;
   }
   input[type="checkbox"]:checked ~ .menu {
     display: block;
+    left:70vw;
   }
   .hamburger {
     display: block;
   }
 }
+@media(max-width:543px){
+    .menu{
+        height:67.5vh;
+    }
+}
+
+

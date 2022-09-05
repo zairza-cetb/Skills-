@@ -1,5 +1,5 @@
 import React from 'react'
-import Last from "../component/Last.js"
+import Last from "../component/Faq.js"
 
 function Landing() {
   return (

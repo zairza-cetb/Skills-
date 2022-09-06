@@ -16,7 +16,7 @@ function Slide2() {
             return(
                 <li key={index} className={item.cName}>
                   <div className='content-2-wrapper'>
-                    <div><img src={item.path} alt='404'/></div>
+                    <div className='content-2-icon'><img className='slide-2-icon' src={item.path} alt='404'/></div>
                     <div>
                       <div className='content-2-title'>{item.title}</div>
                       <div className='content-2-detail'style={{color:'#667085'}}>{item.content}</div>

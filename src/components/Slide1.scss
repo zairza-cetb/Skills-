@@ -1,52 +1,44 @@
 body{
-    font-family:Gilroy-ExtraBold ;;
+    font-family:Gilroy-ExtraBold;
 }
 li{
     list-style: none;
 }
 
 h1{
-    
+    color: #1C1C1C;
     font-size: 4rem;
     line-height: 4.5rem;
-    font-weight: 800;
     margin: 0;
 }
 p{
+    color: #818181;
     font-family: Gilroy-Light;
     font-size: 1.125rem;
-    font-weight: 500;
     line-height: 1.5rem;
     letter-spacing: 2%;
-    margin: 1rem 0 3rem 0;
+    margin: 1rem 0rem 3rem ;
     width: 60%;
     color: #667085;
 }
 
 .slide1-bg{
-    height: 140vh;
+    height: calc(70vw );
     background-image: url('../Assets/images/Group\ 7512.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .slide1-content{
-    /* display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    margin: 0 8%;
-    height: 65vh;
-    width: 42%; */
     display: grid;
     margin: 0 8%;
     width: 42%;
     padding-top: 5%;
-    
-
 }
 
+
 .btn{
-    font-weight: 500;
+    font-family: Gilroy-Light;
     font-size: 1.5rem;
     padding: 2% 4%;
     margin-right: 4%;
@@ -75,10 +67,6 @@ p{
     .btn{
         font-size: 1rem;
     }
-    
-    .slide1-bg{
-        height: 130vh;
-    }
 }
 
 @media (max-width:1274px){
@@ -92,10 +80,7 @@ p{
     .btn{
         font-size: 1rem;
     }
-    .slide1-bg{
-        height: 120vh;
-    }
-    
+
 }
 
 @media (max-width:1164px){
@@ -103,23 +88,15 @@ p{
         font-size: 2.8rem;
         line-height: 3rem;
     }
-    .slide1-content p{
-        font-size: .85rem;
-    }
+    
     .btn{
         font-size: .9rem;
     }
-    .slide1-bg{
-        height: 110vh;
-    }
-    
+
 }
 
 @media (max-width:1052px){
-    .slide1-content h1{
-        font-size: 2.5rem;
-        line-height: 2.8rem;
-    }
+
     .slide1-content p{
         font-size: .8rem;
         margin-top: .5rem;
@@ -128,98 +105,105 @@ p{
     .btn{
         font-size: .9rem;
     }
-    .slide1-bg{
-        height: 100vh;
-    }
-    
+
 }
 
-
-
 @media (max-width:940px){
+    .slide1-content p{
+        width: 100%;     
+    }
+}
+
+@media (max-width:658px){
     
     .slide1-bg{
-        height: 90vh;
+        margin-top: 5vh;
+    }
+    .slide1-content{
+        padding: 0;
     }
     .slide1-content h1{
         font-size: 2.25rem;
         line-height: 2.5rem;
     }
     .slide1-content p{
-        font-size: .66rem;
+        line-height: 1.25rem;
+    }
+    .btn.btn2{
         margin-top: .5rem;
-        margin-bottom: 1.25rem;
     }
     .btn{
-        font-size: .8rem;
+        padding: .5rem;
         border: .1rem solid #3370F6;
     }
-
     
 }
-@media (max-width:860px){
+@media (max-width:530px){
+
     .slide1-bg{
-        height: 80vh;
+        margin-top: 10vh;
     }
     .slide1-content h1{
         font-size: 2rem;
-        line-height: 2.25rem;
+        line-height: 2.125rem;
     }
+    
     .slide1-content p{
-        font-size: .6rem;
-        margin-top: .5rem;
-        margin-bottom: 1.25rem;
+        line-height: 1rem;
+        margin-bottom: .5rem;
     }
-    .btn{
-        font-size: .8rem;
-        
-    }
-    
-}
-@media (max-width:780px){
-    
-    .slide1-bg{
-        height: 70vh;
-    }
-    
 }
 
-@media (max-width:680px){
-    
+@media (max-width:465px){
     .slide1-bg{
-        height: 60vh;
+        margin-top: 20vh;
     }
-    
-}
-@media (max-width:580px){
-    
-    .slide1-bg{
-        height:55vh;
+    .slide1-content{
+        position: relative;
+        top: -15vh;
     }
     .slide1-content h1{
-        font-size: 1.5rem;
-        line-height: 1.8rem;
+        width:160%;
     }
-    .slide1-content p{
-        font-size: .5rem;
-        margin-top: .1rem;
-        margin-bottom: .5rem;
-        line-height: .8rem;
+    .slide1-button{
+        
+        width: 40vw;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: calc(70vw);
+    }
+}
+
+@media (max-width:420px){
+    .slide1-bg{
+        margin-top: 20vh;
+    }
+    .slide1-content h1{
+        width: 180%;
     }
     .btn{
-        font-size: .6rem;
-        
+        font-size: .75rem;
     }
-    
 }
-@media (max-width:579px){
-    
+
+@media (max-width:365px){
+
     .slide1-bg{
-        height: calc(70vw );
-        
+        margin-top: 22.5vh;
     }
-    
+    .slide1-content h1{
+        width: 200%;
+        font-size: 2rem;
+    }
 }
+
+@media (max-width:325px){
+    .slide1-content h1{
+        font-size: 1.8rem;
+    }
+}
+
 
 
 

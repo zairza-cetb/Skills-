@@ -1,0 +1,67 @@
+.whole-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+.whole-nav img {
+  height: 35px;
+  margin: 0px 80px;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.menu {
+  display: flex;
+  gap: 1em;
+  font-size:13px;
+  font-weight:700;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  user-select: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 16px 0;
+  }
+  .menu li:hover {
+    display: inline-block;
+    background-color: #4c9e9e;
+    transition: 0.3s ease;
+  }
+  .menu li + li {
+    margin-top: 12px;
+  }
+  input[type="checkbox"]:checked ~ .menu {
+    display: block;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 492px){
+  .whole-nav img{
+    margin-left: 0;
+  }
+  .navbar{
+    padding-left: 0;
+  }
+}

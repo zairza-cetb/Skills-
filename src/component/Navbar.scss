@@ -20,10 +20,6 @@
   font-size:13px;
   font-weight:700;
 }
-.menu li {
-  padding: 5px 14px;
-  list-style: none;
-}
 
 input[type="checkbox"] {
   display: none;
@@ -58,5 +54,14 @@ input[type="checkbox"] {
   }
   .hamburger {
     display: block;
+  }
+}
+
+@media screen and (max-width: 492px){
+  .whole-nav img{
+    margin-left: 0;
+  }
+  .navbar{
+    padding-left: 0;
   }
 }

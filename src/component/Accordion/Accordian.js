@@ -4,19 +4,31 @@ import {
   AccordionSummary,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import "./Accordian.scss";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Lock from "@mui/icons-material/Lock";
 import RandomText from "./RandomText";
 import WeekText from "./WeekText";
 
 const Accordian = () => {
+  const [current, setCurrent] = useState(-1);
+
+  const changeState = (panel) => (e, newValue) => {
+    setCurrent(newValue ? panel : -1);
+  };
   return (
     <div className="Accordian-container">
       <div className="main-div">
         <h1>Dashboard</h1>
         {/* Rules And Regulations */}
-        <Accordion className="accordian">
+        <Accordion
+          className="accordian"
+          disableGutters
+          elevation={0}
+          expanded={current === 0}
+          onChange={changeState(0)}
+        >
           <AccordionSummary
             id="panel1-header"
             aria-controls="panel1-content"
@@ -31,10 +43,16 @@ const Accordian = () => {
           </AccordionDetails>
         </Accordion>
         {/* Week-1 */}
-        <Accordion className="Week_accordian">
+        <Accordion
+          className="Week_accordian"
+          disableGutters
+          elevation={0}
+          expanded={current === 1}
+          onChange={changeState(1)}
+        >
           <AccordionSummary
-            id="panel1-header"
-            aria-controls="panel1-content"
+            id="panel2-header"
+            aria-controls="panel2-content"
             expandIcon={<ExpandMoreIcon />}
           >
             <Typography>
@@ -48,10 +66,16 @@ const Accordian = () => {
           </AccordionDetails>
         </Accordion>
         {/* Week-2 */}
-        <Accordion className="Week_accordian">
+        <Accordion
+          className="Week_accordian"
+          disableGutters
+          elevation={0}
+          expanded={current === 2}
+          onChange={changeState(2)}
+        >
           <AccordionSummary
-            id="panel1-header"
-            aria-controls="panel1-content"
+            id="panel3-header"
+            aria-controls="panel3-content"
             expandIcon={<ExpandMoreIcon />}
           >
             <Typography>
@@ -65,11 +89,27 @@ const Accordian = () => {
           </AccordionDetails>
         </Accordion>
         {/* Week-3 */}
-        <Accordion className="Week_accordian">
+        <Accordion
+          className="Week_accordian"
+          disableGutters
+          elevation={0}
+          expanded={current === 3}
+          onChange={changeState(3)}
+        >
           <AccordionSummary
-            id="panel1-header"
-            aria-controls="panel1-content"
-            expandIcon={<ExpandMoreIcon />}
+            id="panel4-header"
+            aria-controls="panel4-content"
+            expandIcon={
+              <Lock
+                style={{
+                  color: "white",
+                  backgroundColor: "rgb(169, 169, 169)",
+                  borderRadius: "50%",
+                  padding: "3px",
+                }}
+              />
+            }
+            // disabled
           >
             <Typography>
               <h1>
@@ -77,16 +117,32 @@ const Accordian = () => {
               </h1>
             </Typography>
           </AccordionSummary>
-          <AccordionDetails>
+          {/* <AccordionDetails>
             <WeekText />
-          </AccordionDetails>
+          </AccordionDetails> */}
         </Accordion>
         {/* Week-4 */}
-        <Accordion className="Week_accordian">
+        <Accordion
+          className="Week_accordian"
+          disableGutters
+          elevation={0}
+          expanded={current === 4}
+          onChange={changeState(4)}
+        >
           <AccordionSummary
-            id="panel1-header"
-            aria-controls="panel1-content"
-            expandIcon={<ExpandMoreIcon />}
+            id="panel5-header"
+            aria-controls="panel5-content"
+            expandIcon={
+              <Lock
+                style={{
+                  color: "white",
+                  backgroundColor: "rgb(169, 169, 169)",
+                  borderRadius: "50%",
+                  padding: "3px",
+                }}
+              />
+            }
+            // disabled
           >
             <Typography>
               <h1>
@@ -94,9 +150,9 @@ const Accordian = () => {
               </h1>
             </Typography>
           </AccordionSummary>
-          <AccordionDetails>
+          {/* <AccordionDetails>
             <WeekText />
-          </AccordionDetails>
+          </AccordionDetails> */}
         </Accordion>
       </div>
     </div>

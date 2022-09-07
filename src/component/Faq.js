@@ -17,7 +17,8 @@ import {
       <div className="container">
         <div className="txt">
           <h1 className="heading">FAQs</h1>
-          <Accordion className="aacordion">
+          <Accordion className="aacordion"
+          disableGutters elevation={0}>
             <AccordionSummary
               id="panel1-header"
               aria-controls="panel1-content"
@@ -31,7 +32,8 @@ import {
               <RandomText />
             </AccordionDetails>
           </Accordion>
-          <Accordion className="aacordion">
+          <Accordion className="aacordion"
+          disableGutters elevation={0}>
             <AccordionSummary
               id="panel1-header"
               aria-controls="panel1-content"
@@ -45,7 +47,8 @@ import {
               <RandomText />
             </AccordionDetails>
           </Accordion>
-          <Accordion className="aacordion">
+          <Accordion className="aacordion"
+          disableGutters elevation={0}>
             <AccordionSummary
               id="panel1-header"
               aria-controls="panel1-content"
@@ -59,7 +62,8 @@ import {
               <RandomText />
             </AccordionDetails>
           </Accordion>
-          <Accordion className="aacordion">
+          <Accordion className="aacordion"
+          disableGutters elevation={0}>
             <AccordionSummary
               id="panel1-header"
               aria-controls="panel1-content"
@@ -73,7 +77,8 @@ import {
               <RandomText />
             </AccordionDetails>
           </Accordion>
-          <Accordion className="aacordion">
+          <Accordion className="aacordion"
+          disableGutters elevation={0}>
             <AccordionSummary
               id="panel1-header"
               aria-controls="panel1-content"

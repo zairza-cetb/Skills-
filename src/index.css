@@ -15,8 +15,7 @@ code {
   margin: 0;
   padding: 0;
 }
-
-/* @font-face {
+@font-face {
 	font-family: "Gilroy-Light";
 	src: url("./Assests//Fonts/Gilroy-Light.otf");
 }
@@ -24,4 +23,4 @@ code {
 @font-face {
 	font-family: "Gilroy-ExtraBold";
 	src: url("./Assests/Fonts/Gilroy-ExtraBold.otf");
-} */
+}

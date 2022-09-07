@@ -1,210 +1,160 @@
-body{
-    font-family:Gilroy-ExtraBold;
+body {
+  font-family: Gilroy-ExtraBold;
 }
-li{
-    list-style: none;
-}
-
-h1{
-    color: #1C1C1C;
-    font-size: 4rem;
-    line-height: 4.5rem;
-    margin: 0;
-}
-p{
-    color: #818181;
-    font-family: Gilroy-Light;
-    font-size: 1.125rem;
-    line-height: 1.5rem;
-    letter-spacing: 2%;
-    margin: 1rem 0rem 3rem ;
-    width: 60%;
-    color: #667085;
+li {
+  list-style: none;
 }
 
-.slide1-bg{
-    height: calc(70vw );
-    background-image: url('../Assets/images/Group\ 7512.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+h1 {
+  color: #1c1c1c;
+  font-size: 4rem;
+  line-height: 4.5rem;
+  margin: 0;
+}
+p {
+  color: #818181;
+  font-family: Gilroy-Light;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  letter-spacing: 2%;
+  margin: 2rem 0rem 1.5rem;
+  width: 80%;
+  color: #667085;
 }
 
-.slide1-content{
-    display: grid;
-    margin: 0 8%;
-    width: 42%;
-    padding-top: 5%;
-}
-
-
-.btn{
-    font-family: Gilroy-Light;
-    font-size: 1.5rem;
-    padding: 2% 4%;
-    margin-right: 4%;
-    border-radius: .5rem;
-    background-color: #3370F6;
-    color: #ffffff;
-    border: .15rem solid #3370F6;
-}
-
-.btn.btn2{
-    margin: 0rem;
-    background-color: #ffffff;
-    color: #3370F6;
-
-}
-
-@media (max-width:1400px){
-    .slide1-content h1{
+.slide1-bg {
+  position: relative;
+  overflow: hidden;
+  padding-top: 3rem;
+  .blueContainerBottom {
+    position: absolute;
+    width: 100vw;
+    height: 37vh;
+    bottom: -9vh;
+    background-color: #e0eaff;
+    z-index: -1;
+  }
+  .blueContainerTop {
+    position: absolute;
+    background-color: #e0eaff;
+    height: 28vh !important;
+    width: 120vw;
+    bottom: 3.5vh !important;
+    //background-color: red;
+    z-index: -1;
+    margin-left: -2rem;
+    transform: rotate(-6deg);
+    -webkit-transform: rotate(-6deg);
+    -moz-transform: rotate(-6deg);
+    -ms-transform: rotate(-6deg);
+    -o-transform: rotate(-6deg);
+  }
+  @media (max-width: 1024px) {
+    height: 100vh;
+    .heroContent {
+      margin-top: 6rem !important;
+      padding-right: 1rem !important;
+      h1 {
         font-size: 3.5rem;
         line-height: 4rem;
+      }
+      p {
+        margin: 1.5rem 0 2rem 0;
+      }
     }
-    .slide1-content p{
-        font-size: 1rem;
-        margin-bottom: 2rem;
+    .heroImage {
+      padding-top: 5rem;
     }
-    .btn{
-        font-size: 1rem;
+  }
+  @media (max-width: 769px) {
+    height: max-content;
+    .heroContent {
+      padding: 0 5rem !important;
+      margin: 0;
+      text-align: center;
+      p {
+        width: 90%;
+        margin: 2rem auto;
+      }
     }
+  }
+  .blueContainerBottom {
+    height: 20vh;
+  }
+  .blueContainerTop {
+    height: 20vh;
+    bottom: 5.5vh;
+    transform: rotate(-4.5deg);
+    -webkit-transform: rotate(-4.5deg);
+    -moz-transform: rotate(-4.5deg);
+    -ms-transform: rotate(-4.5deg);
+    -o-transform: rotate(-4.5deg);
+  }
 }
 
-@media (max-width:1274px){
-    .slide1-content h1{
-        font-size: 3.2rem;
-        line-height: 3.5rem;
-    }
-    .slide1-content p{
-        font-size: .9rem;
-    }
-    .btn{
-        font-size: 1rem;
-    }
+.slide1-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  @media (max-width: 769px) {
+    flex-direction: column;
+    align-items: center;
+  }
 
-}
+  .heroContent {
+    padding-right: 10rem;
+    padding-left: 6rem;
+    margin-top: 10rem;
+  }
 
-@media (max-width:1164px){
-    .slide1-content h1{
-        font-size: 2.8rem;
+  .heroImage {
+    z-index: 5;
+    width: 40vw;
+  }
+
+  .btn {
+    font-family: Gilroy-Light;
+    font-size: 1.1rem;
+    padding: 1.5% 3%;
+    margin-right: 4%;
+    border-radius: 0.5rem;
+    background-color: #3370f6;
+    color: #ffffff;
+    border: 0.15rem solid #3370f6;
+    &:hover {
+      background-color: #ffffff;
+      border: 0.15rem solid #3370f6;
+      color: #3370f6;
+      cursor: pointer;
+    }
+  }
+
+  .btn.btn2 {
+    margin: 0rem;
+    background-color: #ffffff;
+    color: #3370f6;
+    &:hover {
+      background-color: #3370f6;
+      color: #ffffff;
+      border: 0.15rem solid #3370f6;
+    }
+  }
+
+  @media (max-width: 426px) {
+    .heroContent {
+      padding: 0 1rem !important;
+      h1 {
+        font-size: 2.4rem;
         line-height: 3rem;
+      }
+      p {
+        width: 100%;
+      }
     }
-    
-    .btn{
-        font-size: .9rem;
+    .heroContent + img {
+      width: 70vw;
     }
-
+  }
 }
-
-@media (max-width:1052px){
-
-    .slide1-content p{
-        font-size: .8rem;
-        margin-top: .5rem;
-        margin-bottom: 1.5rem;
-    }
-    .btn{
-        font-size: .9rem;
-    }
-
-}
-
-@media (max-width:940px){
-    .slide1-content p{
-        width: 100%;     
-    }
-}
-
-@media (max-width:658px){
-    
-    .slide1-bg{
-        margin-top: 5vh;
-    }
-    .slide1-content{
-        padding: 0;
-    }
-    .slide1-content h1{
-        font-size: 2.25rem;
-        line-height: 2.5rem;
-    }
-    .slide1-content p{
-        line-height: 1.25rem;
-    }
-    .btn.btn2{
-        margin-top: .5rem;
-    }
-    .btn{
-        padding: .5rem;
-        border: .1rem solid #3370F6;
-    }
-    
-}
-@media (max-width:530px){
-
-    .slide1-bg{
-        margin-top: 10vh;
-    }
-    .slide1-content h1{
-        font-size: 2rem;
-        line-height: 2.125rem;
-    }
-    
-    .slide1-content p{
-        line-height: 1rem;
-        margin-bottom: .5rem;
-    }
-}
-
-@media (max-width:465px){
-    .slide1-bg{
-        margin-top: 20vh;
-    }
-    .slide1-content{
-        position: relative;
-        top: -15vh;
-    }
-    .slide1-content h1{
-        width:160%;
-    }
-    .slide1-button{
-        
-        width: 40vw;
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        top: calc(70vw);
-    }
-}
-
-@media (max-width:420px){
-    .slide1-bg{
-        margin-top: 20vh;
-    }
-    .slide1-content h1{
-        width: 180%;
-    }
-    .btn{
-        font-size: .75rem;
-    }
-}
-
-@media (max-width:365px){
-
-    .slide1-bg{
-        margin-top: 22.5vh;
-    }
-    .slide1-content h1{
-        width: 200%;
-        font-size: 2rem;
-    }
-}
-
-@media (max-width:325px){
-    .slide1-content h1{
-        font-size: 1.8rem;
-    }
-}
-
-
-
-
-

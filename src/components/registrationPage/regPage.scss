@@ -262,6 +262,10 @@ h1{
             border-radius: 24px;
             cursor: pointer;
         }
+        .registerBtn:hover {
+            background-color:white;
+            color: rgb(16, 113, 255);
+        }
         .btn2{
             padding-left: 1.2rem;
             padding-right: 1rem;
@@ -278,6 +282,14 @@ h1{
         .google{
             color: rgb(7, 107, 247);
         }
+        .google:hover {
+            background-color:rgb(16, 113, 255);
+            color: white;
+        }
+        .git:hover{
+            color: white;
+            background-color: black;
+        }
         }
         .layer9{
             padding-top: 1rem;
@@ -285,6 +297,7 @@ h1{
             span{
                 color: blue;
                 padding-left: .5rem;
+                cursor: pointer;
             }
         }
     }
@@ -646,7 +659,7 @@ h1{
     }
 }
 }
-//_._.Large and Medium Screen Mobile Phones_._._//
+//_._.Small Screen Mobile Phones_._._//
 @media screen and (min-width:280px) and (max-width:349px) {
     .page{
         background-size: 100% 35%;

@@ -95,14 +95,14 @@ const handleSubmit=(e)=>{
                             <li>Submission:</li>
                             <p>Upload your Project to a Google Drive and Paste the link here.</p>
                             <div className="flex-content">
-                                <div className="inputs"><input type="link" placeholder="Google Drive link here" value={link} onChange={(e)=>setLink(e.target.value)} /></div>
+                                <div className="inputs-link"><input type="link" placeholder="Google Drive link here" value={link} onChange={(e)=>setLink(e.target.value)} /></div>
                                 <div><button onClick={handleSubmit}>Submit</button></div>
                             </div> 
                         </div>
                         < div className="mentor-remarks">
                             <li>Mentor's Remarks:</li>
                             <p>After your mentor has reviewed your Project, his/her remarks will show up here. </p>
-                            <div className="inputs"><p>No Remarks Yet*</p> <hr/></div>
+                            <div className="inputs"><p>No Remarks Yet*</p></div>
                         </div>
                         <div className="marks">
                             <li>Marks Obtained:</li>

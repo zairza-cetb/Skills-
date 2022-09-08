@@ -58,7 +58,11 @@
   }
 }
 @media (max-width: 26.563rem) {
+  .container .title {
+    padding-left: 8.5rem;
+  }
   .accordion {
+    width: 450px;
     padding: 1.875rem;
     margin-right: -2rem;
   }
@@ -68,19 +72,18 @@
   .accordion .content .submission .flex-content {
     height: 7rem;
   }
-  .accordion .content .submission .flex-content input {
-    width: 20%;
-  }
   .accordion .content .submission .flex-content button {
     position: absolute;
-    top: 23.5rem;
+    top: 21.5rem;
     left: 3rem;
   }
 }
 @media (max-width: 23.438rem) {
+  .container .title {
+    padding-left: 7.5rem;
+  }
   .accordion {
     padding: 1.875rem;
-    margin-right: -5rem;
   }
   .accordion .content .subsub-cont {
     margin-left: 0.5rem;
@@ -93,20 +96,24 @@
   }
   .accordion .content .submission .flex-content button {
     position: absolute;
-    top: 23.5rem;
+    top: 21.5rem;
     left: 3rem;
   }
 }
 @media (max-width: 20rem) {
+  .container .title {
+    padding-left: 5.5rem;
+  }
   .accordion {
-    padding: 1.875rem;
-    margin-right: -8.5rem;
+    width: 380px;
+    display: block;
+    margin: auto;
   }
   .accordion .icon {
     display: none;
   }
   .accordion .content {
-    padding-right: 4rem;
+    padding-right: 1rem;
     font-size: 0.5rem;
   }
   .accordion .content .subsub-cont {
@@ -114,9 +121,6 @@
   }
   .accordion .content .submission .flex-content {
     height: 7rem;
-  }
-  .accordion .content .submission .flex-content input {
-    width: 0.5rem;
   }
   .accordion .content .submission .flex-content button {
     position: absolute;
@@ -146,7 +150,6 @@
   margin: -0.063 auto;
   font-size: 1.5rem;
   padding: 1.875rem;
-  margin-right: 2rem;
 }
 .container .accordion .content {
   color: #565656;
@@ -194,6 +197,8 @@
   height: 2.5rem;
   width: 20rem;
   font-size: 0.875rem;
+  box-sizing: border-box;
+  border-bottom: 0.063rem solid #98A2B3;
   width: 20rem;
 }
 .container .accordion .content .week-1-container .inputs p {
@@ -209,6 +214,8 @@
   flex-direction: row;
 }
 .container .accordion .content .week-1-container .submission .flex-content input {
+  padding-left: 0.7rem;
+  margin-top: 0.625rem;
   height: 1.375rem;
   width: 18rem;
   border-radius: 0.5rem;
@@ -231,6 +238,7 @@
 }
 .container .accordion .content .week-1-container .mentor-remarks p {
   color: #A9ABAD;
+  overflow-x: none;
 }
 .container .accordion .content .week-1-container .marks {
   font-size: 2rem;

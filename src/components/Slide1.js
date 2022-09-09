@@ -5,7 +5,7 @@ import heroImage from "../Assets/images/img1.png"
 
 function Slide1() {
   return (
-    <div className='slide1-bg'>
+    <div id="home" className='slide1-bg'>
       <div className='slide1-content'>
         <div className='heroContent'>
           <h1>The biggest <span style={{ color: '#3370F6' }}>Upskilling</span> program for future geeks.</h1>

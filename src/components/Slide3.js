@@ -4,7 +4,7 @@ import './Slide3.scss'
 
 function Slide3() {
   return (
-    <div className='slide3-wrapper'>
+    <div id="domain" className='slide3-wrapper'>
       <div className='slide3-content'>
         <div className='slide3-title'>Domains<br/> we offer</div>
         <div className='slide3-para'>A wide variety of domains offered by us to give you ample opportunities to explore in</div>

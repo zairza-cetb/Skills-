@@ -62,7 +62,7 @@
     padding-left: 8.5rem;
   }
   .accordion {
-    width: 450px;
+    width: 28.125rem;
     padding: 1.875rem;
     margin-right: -2rem;
   }
@@ -105,7 +105,7 @@
     padding-left: 5.5rem;
   }
   .accordion {
-    width: 380px;
+    width: 23.75rem;
     display: block;
     margin: auto;
   }
@@ -275,10 +275,10 @@
   margin-top: 1rem;
 }
 .container .accordion #parts-begin {
-  border-radius: 2rem 2rem 0px 0px;
+  border-radius: 2rem 2rem 0rem 0rem;
 }
 .container .accordion #parts-end {
-  border-radius: 0px 0px 2rem 2rem;
+  border-radius: 0rem 0rem 2rem 2rem;
 }
 .container .accordion button {
   background-color: transparent;

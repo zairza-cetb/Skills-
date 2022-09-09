@@ -97,7 +97,7 @@
         }
     }
     .accordion{
-        width:450px;
+        width:28.125rem;
         padding: 1.875rem;
         margin-right:-2rem;
        
@@ -178,7 +178,7 @@
     }
 
     .accordion{
-        width: 380px;
+        width: 23.75rem;
         display: block;
         margin:auto;
         // margin-right: -6rem;
@@ -328,9 +328,7 @@
                             padding: 0.8rem 1rem;
                             color: #98A2B3;
                             font-size: 0.875rem;
-                            // box-sizing: border-box;
-                            
-                            
+                              
                         }
 
                         button{
@@ -410,10 +408,10 @@
 
         }
         #parts-begin{
-            border-radius: 2rem 2rem 0px 0px;
+            border-radius: 2rem 2rem 0rem 0rem;
         }
         #parts-end{
-            border-radius: 0px 0px 2rem 2rem;
+            border-radius: 0rem 0rem 2rem 2rem;
 
 
         }

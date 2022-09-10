@@ -1,13 +1,16 @@
-import React from 'react';
-// import Registration_Page from './components/registrationPage/reg';
-import Registration_Page from './components/registrationPage/rejMain';
-
+import React from "react";
+import Registration from "./components/registrationPage/regPage";
+import { BrowserRouter as Router,Routes, Route} from "react-router-dom"
 
 function App() {
   return (
     <div>
-      {/* <div>Hi</div> */}
-      <Registration_Page/>
+      <Router>
+        <Routes>
+          <Route path="/register" element={<Registration />} />
+        </Routes>
+      </Router>
+      
     </div>
   );
 }

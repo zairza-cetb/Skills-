@@ -5,8 +5,8 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import GoogleIcon from '@mui/icons-material/Google';
 import { FaAngleDown } from "react-icons/fa";
-import registerImage from "../registrationPage/images/registerImage.png"
-import window from "../registrationPage/images/browserWindow.png"
+import registerImage from "../../Assets/images/registerImage.png"
+import window from "../../Assets/images/browserWindow.png"
 import { useNavigate } from "react-router-dom";
 
 const Registration=()=>{

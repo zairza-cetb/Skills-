@@ -6,8 +6,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+p{
+  margin:0;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@font-face {
+	font-family: "Gilroy-Light";
+	src: url("./Assets/fonts/Gilroy-Light.otf");
+}
+
+@font-face {
+	font-family: "Gilroy-ExtraBold";
+	src: url("./Assets/fonts/Gilroy-ExtraBold.otf");
 }

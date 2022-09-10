@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./regPage.scss"
+import "../css/regPage.css"
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import GoogleIcon from '@mui/icons-material/Google';
 import { FaAngleDown } from "react-icons/fa";
-import registerImage from "../../Assets/images/registerImage.png"
-import window from "../../Assets/images/browserWindow.png"
+import registerImage from "../Assets/images/registerImage.png"
+import window from "../Assets/images/browserWindow.png"
 import { useNavigate } from "react-router-dom";
 
 const Registration=()=>{

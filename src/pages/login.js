@@ -23,8 +23,8 @@ const Login=()=>{
         enterEmail:"",
         confirmEmail:"",
         enterPassword:"",
-        confirmPassword:"",
         enterRedgNo:"",
+        confirmPassword:"",
         enterWing:"",
     })
     const [err, setError] = useState(false)

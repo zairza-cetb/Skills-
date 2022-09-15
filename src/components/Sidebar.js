@@ -2,7 +2,9 @@ import React from "react";
 import "../css/Sidebar.css";
 import Skills from "../Assets/icons/Skills.svg";
 import { IoCloseSharp } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 const Sidebar = ({ handleSidebar }) => {
+  const nav = useNavigate();
   return (
     <div className="sidebar">
       <div className="sidebar-top">
@@ -30,7 +32,11 @@ const Sidebar = ({ handleSidebar }) => {
           </a>
         </li>
         <li>
-          <button>Login</button>
+          <button  onClick={() => {
+            handleSidebar();
+            nav("/login")
+          }
+          }>Login</button>
         </li>
       </ul>
     </div>

@@ -11,6 +11,9 @@
   align-items: center;
   padding: 1rem 6rem;
 }
+.navbar .skillsLogo {
+  cursor: pointer;
+}
 .navbar .navlist {
   flex: 1;
 }

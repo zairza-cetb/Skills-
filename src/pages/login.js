@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
+
 import "../css/regPage.css";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -8,15 +8,6 @@ import GoogleIcon from "@mui/icons-material/Google";
 import { FaAngleDown } from "react-icons/fa";
 import registerImage from "../Assets/images/registerImage.png";
 import window from "../Assets/images/browserWindow.png";
-=======
-import "../css/regPage.css"
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import GoogleIcon from '@mui/icons-material/Google';
-import registerImage from "../Assets/images/registerImage.png"
-import window from "../Assets/images/browserWindow.png"
->>>>>>> 785346ae26752c1e7908048518d45106516136aa
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {signInWithGooglePopup } from "../utils/firebase/firebase.utils";
@@ -57,98 +48,11 @@ const Login = () => {
       setError(true);
     }
   };
-
-<<<<<<< HEAD
-  return (
-    <div className="page">
-      <div className="regPage">
-        <h1>Let's learn</h1>
-        <p>Sign in to get all the goodies</p>
-=======
-    const nav=useNavigate();
-    const [showPassword, setShowPassword] = useState(false)
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-    const [branch, setBranch] = useState([]);
-    const [answer, setAnswer] = useState([]);
-    const [phoneNo, setPhoneNo]=useState("");
-    const [regexp, setRegexp]=useState(/^[0-9\b]+$/);
-    const [user, setUser] = useState({
-        name: "",
-        enterEmail:"",
-        confirmEmail:"",
-        enterPassword:"",
-        enterRedgNo:"",
-        confirmPassword:"",
-        enterWing:"",
-    })
-    const [err, setError] = useState(false)
-    const buttonHandler = e => {
-        e.preventDefault()
-        setShowPassword(!showPassword)
-    }
-    const confirmButtonHandler = e => {
-        e.preventDefault()
-        setShowConfirmPassword(!showConfirmPassword)
-    }
-    const checkPhnNo=e=>{
-        // const onlyDigits = e.target.value.test(!/\D/g);
-        // setPhoneNo(onlyDigits)
-        // if(onlyDigits>9999999999){
-        //     alert("enter Valid phone number")
-        // }
-        // else{
-        //     setPhoneNo(onlyDigits)
-        // }
-        if(!/\D/g.test(e.target.value) && e.target.value<=9999999999){
-            setPhoneNo(e.target.value)
-        }
-        else{
-            alert("Phone number is restricted to 10 digits or Invalid Input")
-        }
-    }
-    const changeHandler = e => {
-        const { name, value } = e.target
-        setUser({
-            ...user,
-            [name]: value
-        })
-    }
-    const register = (e) => {
-        e.preventDefault();
-        try {
-            const { name, enterEmail, confirmEmail, enterPassword, confirmPassword, enterRedgNo, enterWing} = user
-            if (name && enterEmail && confirmEmail && enterPassword && confirmPassword && enterRedgNo  && phoneNo && branch && (enterEmail===confirmEmail) && (enterPassword===confirmPassword))
-            {
-                console.log(enterWing);
-                if(answer==="yes"){
-                    if(enterWing==='SOFTWARE' || enterWing==='HARDWARE' || enterWing==='DESIGN'){
-                        alert("registration successful")
-                    }
-                    else{
-                        alert("Enter valid wing: (SOFTWARE--or--HARDWARE--or--DESIGN)")
-                    }
-                }
-                else if(answer==="no"){
-                    if(enterWing)
-                    alert("You cannot fill the field 'wing' since you are not a member")
-                    else
-                    alert("registration sucessful")
-                }
-            }
-            else {
-                alert("invalid")
-            }
-        }
-        catch (err) {
-            setError(true)
-        }
-    }
-  
-    const branchHandler = e => {
-        setBranch(e.target.branches.value)
-    }
->>>>>>> 785346ae26752c1e7908048518d45106516136aa
-
+return (
+  <div className="page">
+    <div className="regPage">
+      <h1>Let's learn</h1>
+      <p>Sign in to get all the goodies</p>
         <div className="layer3">
           <div className="email1">
             <p>Email ID</p>

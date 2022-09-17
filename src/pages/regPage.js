@@ -4,7 +4,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import GoogleIcon from "@mui/icons-material/Google";
-import { FaAngleDown } from "react-icons/fa";
+import { FaAngleDown, FaWineGlass } from "react-icons/fa";
 import registerImage from "../Assets/images/registerImage.png";
 import window from "../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
@@ -100,40 +100,33 @@ const Registration = () => {
 
             auth.currentUser.getIdToken(true).then((idToken) => {
               // console.log(idToken);
-
-              createUserWithAxiosPost(idToken);
+                 
+              createUserWithAxiosPost({user:user.name,idToken});
 
             });
-            console.log(user.enterEmail);
-            // sendEmailToBackend({sendEmail:user.enterEmail});
+
+           
           })
           .catch((error) => {
             const errorMessage = error.message;
             alert(errorMessage);
           });
+          
+          console.log(user.enterEmail);
 
+          auth.currentUser.getIdToken(true).then((idToken) =>{
+            sendEmailToBackend({sendEmail:user.enterEmail,idToken});
+          });
 
-        console.log(enterWing);
-
-
-        if (answer === "yes") {
-          if (
-            enterWing === "SOFTWARE" ||
-            enterWing === "HARDWARE" ||
-            enterWing === "DESIGN"
-          ) {
-            // console.log(user);
-             alert("registration successful");
-          } else {
-            alert("Enter valid wing: (SOFTWARE--or--HARDWARE--or--DESIGN)");
+          console.log(enterWing);
+          if(!enterWing){
+            alert("Please give the wing details");
+            return;
           }
-        } else if (answer === "no") {
-          if (enterWing)
-            alert(
-              "You cannot fill the field 'wing' since you are not a member"
-            );
-          else alert("registration sucessfull");
-        }
+          alert("registration successfull");
+
+          
+        
       } else {
         alert("invalid");
       }
@@ -205,6 +198,20 @@ const Registration = () => {
       value: "no",
     },
   ];
+  const wings=[
+    {
+      name:"Software",
+      value:"Software", 
+    },
+    {
+      name:"Hardware",
+      value:"Hardware"
+    },
+    {
+      name:"Design",
+      value:"Design",
+    },
+  ]
   const domains = [
     {
       name: "Web Development",
@@ -418,23 +425,14 @@ const Registration = () => {
           </div>
           <div className="membership w1">
             <p>If yes, in which wing?</p>
-            <input
-              type="text"
-              className="wing"
-              placeholder="Enter your wing: eg:SOFTWARE"
-              disabled={answer === "no" ? true : false}
-              name="enterWing"
-              value={user.enterWing}
-              onChange={changeHandler}
-            />
-            {/* <select className="wing">
+            <select className="wing" required disabled={answer === "no" ? true : false}>
               <option disabled selected="selected">
                   Enter your wing
               </option>
-              <option>Software</option>
-              <option>Hardware</option>
-              <option>Design</option>
-            </select> */}
+              {wings.map((wing)=>(
+                <option value={wing.value}>{wing.name}</option>
+              ))}
+            </select>
           </div>
         </div>
         <div className="layer7 selectdomain">

@@ -1,10 +1,10 @@
 import * as axios from "axios";
 
-export const createUserWithAxiosPost = async (idToken) => {
+export const createUserWithAxiosPost = async ({user,idToken}) => {
   try {
     const response =await axios.post(
       "http://localhost:4000/api/zairza/skill-plus-plus/signup",
-      {},
+      {user},
       {
         headers: {
           Authorization: `Bearer ${idToken}`,
@@ -18,10 +18,13 @@ export const createUserWithAxiosPost = async (idToken) => {
   }
 };
 
-export const sendEmailToBackend=async({sendEmail})=>{
+export const sendEmailToBackend=async({sendEmail,idToken})=>{
   try{
-    const response=await axios.post("http://localhost:4000/",{
-      email:sendEmail,
+    const response=await axios.post("http://localhost:4000/api/zairza/skill-plus-plus/user/onboardingUser",{email:sendEmail}
+    ,{
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+      },
     })
     return response.data ;
   }catch(err){

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../css/regPage.css"
+import "../css/loginPage.css"
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -101,7 +101,7 @@ const Login=()=>{
 
     return(
         <div className="page">
-            <div className="regPage">
+            <div className="logPage">
                 <h1>Let's learn</h1>
                 <p>Sign in to get all the goodies</p>
                 

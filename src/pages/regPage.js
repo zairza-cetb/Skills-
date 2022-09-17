@@ -113,12 +113,6 @@ const Registration = () => {
           });
           
           console.log(user.enterEmail);
-
-          auth.currentUser.getIdToken(true).then((idToken) =>{
-            sendEmailToBackend({sendEmail:user.enterEmail,idToken});
-          });
-
-          console.log(enterWing);
           if(!enterWing){
             alert("Please give the wing details");
             return;
@@ -127,12 +121,14 @@ const Registration = () => {
 
           
         
+          nav("/dashboard");
       } else {
         alert("invalid");
       }
     } catch (err) {
       setError(true);
     }
+
   };
   const branches = [
     {
@@ -270,6 +266,15 @@ const Registration = () => {
     setBranch(e.target.branches.value);
   };
 
+  const handleWing=(e)=>{
+    console.log(e.target.value)
+    if(e.target.value){
+      setUser({
+        ...user,enterWing:e.target.value
+      })
+    }
+    
+  }
   const ansHandle = (e) => {
     e.preventDefault();
     setAnswer(e.target.value);
@@ -425,7 +430,7 @@ const Registration = () => {
           </div>
           <div className="membership w1">
             <p>If yes, in which wing?</p>
-            <select className="wing" required disabled={answer === "no" ? true : false}>
+            <select className="wing" onChange={handleWing} disabled={answer === "no" ? true : false}>
               <option disabled selected="selected">
                   Enter your wing
               </option>

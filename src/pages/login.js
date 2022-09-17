@@ -39,6 +39,7 @@ const Login = () => {
       .then((response) => {
         // console.log(user);  
         alert("Login successfull");
+        nav("/dashboard");
       })
       .catch((error) => {
         const errorMessage = error.message;

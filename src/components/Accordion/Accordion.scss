@@ -1,0 +1,41 @@
+.Accordian-container{
+    // width: 100%;
+    // height: 100vh;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-image: linear-gradient(#fcf5f5, #eff4fd);
+}
+.main-div{
+    width: 85vw; 
+    padding: 50px;
+}
+.main-div h1{
+    text-align: center;
+    justify-content: center;
+    padding: 30px;
+}
+.main-div .accordian{
+    border-radius: 0.8rem;
+    height: fit-content;
+}
+.accordian h1{
+    font-size: 1.4rem;
+    text-align: center;
+    align-items: center;
+}
+.accordian p{
+    font-size: 0.9rem;
+}
+.Week_accordian{
+    height: fit-content;
+}
+.Week_accordian h1{
+    font-size: 1rem;
+    font-weight: 900;
+}
+.Week_accordian h1>span{
+    font-weight: 500;
+    color: gray;
+}

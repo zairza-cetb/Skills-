@@ -45,16 +45,17 @@ h1{
 .page{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     background-image: url("../Assets/images/Rectangle.png") ;
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: 100% 46%;
-    
-    .regPage{
+    padding-left: 8%;
+    .logPage{
         display: flex;
         flex-direction: column;
-        padding-bottom:5rem;
+        padding-bottom:20rem;
+        margin-right: 15%;
         // margin-top:-14rem;
         .layer1{
             display: flex;
@@ -306,7 +307,6 @@ h1{
         }
     }
     .image{
-        
         padding-top: 3rem;
         width: 35rem;
         .window{
@@ -334,22 +334,17 @@ h1{
     }
 }
 
-@media (max-width:1030px) {
-    .image{
-        display: none;
-    }
-    
-}
-
-
-
 //_._._Small Screen Laptop_._._//
 @media screen and (min-width:950px) and (max-width:1200px) {
     .page{
         background-size: 100% 35%;
+        .logPage{    
+            margin-top: 4rem;
+            margin-right: 10%;
+        }
         .regPage{
             // padding-bottom:3rem;
-            margin-top: 4rem;
+            //padding-top: 10rem;
             .layer1{
                 padding-top: 1.8rem;
                 .name{
@@ -471,11 +466,10 @@ h1{
             }
         }
         .image{
-            padding-top: 3rem;
+            padding-top: 0;
             width: 24rem;
             .regImage{
-                width: 29.5rem;
-                height: 41rem;
+                height: 100%;
             }
             .window{
                 position: relative;
@@ -489,11 +483,14 @@ h1{
 }
 
 //_._.Tablet_._._//
-@media screen and (max-width:949px) {
+@media screen and (max-width:970px) {
     .page{
+        h1{
+            font-size: 3rem;
+        }
         background-size: 100% 35%;
-        .regPage{
-            margin-top:4rem;
+        .logPage{
+            margin-top: 4rem;
         }
         .image{
             display: none;
@@ -511,7 +508,8 @@ h1{
     .page{
         background-size: 100% 35%;
         .regPage{
-            margin-top: 4rem;
+            padding-bottom:3rem;
+            padding-top: 0rem;
             .layer1{
                 padding-top: 1.8rem;
                 .name{
@@ -675,9 +673,9 @@ h1{
 @media screen and (min-width:280px) and (max-width:349px) {
     .page{
         background-size: 100% 35%;
-        .regPage{
+        .logPage{
             padding-bottom:3rem;
-            
+            padding-top: 0rem;
             .layer1{
                 padding-top: 1.8rem;
                 .name{

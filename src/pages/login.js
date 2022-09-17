@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-import "../css/regPage.css";
+import "../css/loginPage.css"
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -48,44 +47,28 @@ const Login = () => {
     } catch (err) {
       setError(true);
     }
-  };
-return (
-  <div className="page">
-    <div className="regPage">
-      <h1>Let's learn</h1>
-      <p>Sign in to get all the goodies</p>
-        <div className="layer3">
-          <div className="email1">
-            <p>Email ID</p>
-            <input
-              type="email"
-              className="enterEmail"
-              placeholder="Enter your Email"
-              name="enterEmail"
-              value={user.enterEmail}
-              onChange={changeHandler}
-            />
-          </div>
-        </div>
-        <div className="layer4">
-          <div className="password">
-            <p>Password</p>
-            <div className="wrapfield">
-              <div>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  className="enterPassword"
-                  placeholder="Enter password"
-                  name="enterPassword"
-                  value={user.enterPassword}
-                  onChange={changeHandler}
-                />
-              </div>
-              <div className="shBtn">
-                <button className="showbtn" onClick={buttonHandler}>
-                  {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                </button>
-              </div>
+}
+
+    return(
+        <div className="page">
+            <div className="logPage">
+                <h1>Let's learn</h1>
+                <p>Sign in to get all the goodies</p>
+                
+                <div className="layer3">
+                    <div className="email1">
+                        <p>Email ID</p>
+                        <input type="email" className="enterEmail" placeholder="Enter your Email" name="enterEmail" value={user.enterEmail} onChange={changeHandler}/>
+                    </div>
+                   
+                </div>
+                <div className="layer4">
+                    <div className="password">
+                        <p>Password</p>
+                        <div className="wrapfield">
+                            <div><input type={showPassword ? "text" : "password"} className="enterPassword" placeholder="Enter password" name="enterPassword" value={user.enterPassword} onChange={changeHandler}/></div>
+                            <div className="shBtn"><button className="showbtn" onClick={buttonHandler}>{showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}</button></div>
+
             </div>
           </div>
         </div>

@@ -148,14 +148,6 @@ h1 {
   color: #ffffff;
   border: 0.15rem solid #3370f6;
 }
-
-@media (max-width:638px) {
-  .slide1-bg{
-    padding-top: 0;
-  }
-  
-}
-
 @media (max-width: 426px) {
   .slide1-content .heroContent {
     padding: 0 1rem !important;

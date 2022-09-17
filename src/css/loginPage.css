@@ -46,93 +46,95 @@ h1 {
 .page {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   background-image: url("../Assets/images/Rectangle.png");
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100% 46%;
+  padding-left: 8%;
 }
-.page .regPage {
+.page .logPage {
   display: flex;
   flex-direction: column;
-  padding-bottom: 5rem;
+  padding-bottom: 20rem;
+  margin-right: 15%;
 }
-.page .regPage .layer1 {
+.page .logPage .layer1 {
   display: flex;
   flex-direction: column;
   padding-top: 1.8rem;
 }
-.page .regPage .layer1 .name {
+.page .logPage .layer1 .name {
   width: 32rem;
   height: 2.5rem;
   padding-left: 0.8rem;
 }
-.page .regPage .layer2 {
+.page .logPage .layer2 {
   display: flex;
   flex-direction: column;
   padding-top: 1rem;
 }
-.page .regPage .layer2 .phoneInput {
+.page .logPage .layer2 .phoneInput {
   display: flex;
   flex-direction: row;
 }
-.page .regPage .layer2 .phoneInput .pc {
+.page .logPage .layer2 .phoneInput .pc {
   padding-left: 0.5rem;
 }
-.page .regPage .layer2 .phoneInput .phoneCode {
+.page .logPage .layer2 .phoneInput .phoneCode {
   width: 1.8rem;
   height: 2.4rem;
   padding-left: 0.4rem;
 }
-.page .regPage .layer2 .phoneInput .phoneNumber {
+.page .logPage .layer2 .phoneInput .phoneNumber {
   width: 29.3rem;
   height: 2.5rem;
   padding-left: 0.8rem;
 }
-.page .regPage .layer3 {
+.page .logPage .layer3 {
   display: flex;
   flex-direction: row;
   padding-top: 1rem;
 }
-.page .regPage .layer3 .email1 {
+.page .logPage .layer3 .email1 {
   display: flex;
   flex-direction: column;
   flex: 50%;
 }
-.page .regPage .layer3 .e2 {
+.page .logPage .layer3 .e2 {
   padding-left: 1.5rem;
 }
-.page .regPage .layer3 .email2 {
+.page .logPage .layer3 .email2 {
   display: flex;
   flex-direction: column;
   flex: 50%;
 }
-.page .regPage .layer3 .enterEmail {
+.page .logPage .layer3 .enterEmail {
   width: 14.8rem;
   height: 2.5rem;
   padding-left: 0.8rem;
 }
-.page .regPage .layer4 {
+.page .logPage .layer4 {
   display: flex;
   flex-direction: row;
   padding-top: 1rem;
 }
-.page .regPage .layer4 .password {
+.page .logPage .layer4 .password {
   display: flex;
   flex-direction: column;
   flex: 50% 2;
 }
-.page .regPage .layer4 .password .wrapfield {
+.page .logPage .layer4 .password .wrapfield {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.page .regPage .layer4 .password .wrapfield .shBtn {
+.page .logPage .layer4 .password .wrapfield .shBtn {
   position: relative;
   left: -14%;
   top: 21%;
 }
-.page .regPage .layer4 .password .wrapfield .showbtn {
+.page .logPage .layer4 .password .wrapfield .showbtn {
   position: absolute;
   height: 50%;
   background-color: white;
@@ -140,124 +142,124 @@ h1 {
   color: rgb(183, 189, 199);
   cursor: pointer;
 }
-.page .regPage .layer4 .password .enterPassword {
+.page .logPage .layer4 .password .enterPassword {
   width: 14.8rem;
   height: 2.5rem;
   padding-left: 0.8rem;
 }
-.page .regPage .layer4 .p2 {
+.page .logPage .layer4 .p2 {
   padding-left: 1.5rem;
 }
-.page .regPage .layer5 {
+.page .logPage .layer5 {
   display: flex;
   flex-direction: row;
   padding-top: 1rem;
 }
-.page .regPage .layer5 .student {
+.page .logPage .layer5 .student {
   display: flex;
   flex-direction: column;
   flex: 50% 2;
 }
-.page .regPage .layer5 .student .branch {
+.page .logPage .layer5 .student .branch {
   width: 15.7rem;
   height: 2.5rem;
   padding-left: 0.8rem;
 }
-.page .regPage .layer5 .student .regdNo {
+.page .logPage .layer5 .student .regdNo {
   width: 14.8rem;
   height: 2.5rem;
   padding-left: 0.8rem;
 }
-.page .regPage .layer5 .r1 {
+.page .logPage .layer5 .r1 {
   padding-left: 1.5rem;
 }
-.page .regPage .layer5 select.option {
+.page .logPage .layer5 select.option {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
-.page .regPage .layer5 .selectBranch {
+.page .logPage .layer5 .selectBranch {
   position: relative;
 }
-.page .regPage .layer5 .selectBranch .branch {
+.page .logPage .layer5 .selectBranch .branch {
   background-image: url("../Assets/images/down.png");
   background-repeat: no-repeat;
   background-size: 1rem;
   background-position: 96%;
   cursor: pointer;
 }
-.page .regPage .layer6 {
+.page .logPage .layer6 {
   display: flex;
   flex-direction: row;
   padding-top: 1rem;
 }
-.page .regPage .layer6 .membership {
+.page .logPage .layer6 .membership {
   display: flex;
   flex-direction: column;
   flex: 50% 2;
 }
-.page .regPage .layer6 .membership .member {
+.page .logPage .layer6 .membership .member {
   width: 15.7rem;
   height: 2.5rem;
   padding-left: 0.8rem;
 }
-.page .regPage .layer6 .membership .wing {
+.page .logPage .layer6 .membership .wing {
   width: 14.8rem;
   height: 2.5rem;
   padding-left: 0.8rem;
 }
-.page .regPage .layer6 .w1 {
+.page .logPage .layer6 .w1 {
   padding-left: 1.5rem;
 }
-.page .regPage .layer6 select.option {
+.page .logPage .layer6 select.option {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
-.page .regPage .layer6 .selectMember {
+.page .logPage .layer6 .selectMember {
   position: relative;
 }
-.page .regPage .layer6 .selectMember .member {
+.page .logPage .layer6 .selectMember .member {
   background-image: url("../Assets/images/down.png");
   background-repeat: no-repeat;
   background-size: 1rem;
   background-position: 96%;
   cursor: pointer;
 }
-.page .regPage .layer7 {
+.page .logPage .layer7 {
   display: flex;
   flex-direction: column;
   padding-top: 1rem;
 }
-.page .regPage .layer7 select.option {
+.page .logPage .layer7 select.option {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
-.page .regPage .layer7 .domain {
+.page .logPage .layer7 .domain {
   height: 2.5rem;
   padding-left: 0.8rem;
 }
-.page .regPage .selectdomain {
+.page .logPage .selectdomain {
   position: relative;
 }
-.page .regPage .selectdomain .domain {
+.page .logPage .selectdomain .domain {
   background-image: url("../Assets/images/down.png");
   background-repeat: no-repeat;
   background-size: 1rem;
   background-position: 98%;
   cursor: pointer;
 }
-.page .regPage .layer8 {
+.page .logPage .layer8 {
   display: flex;
   align-items: center;
   padding-top: 1.2rem;
   flex: 25% 4;
 }
-.page .regPage .layer8 .btn1 {
+.page .logPage .layer8 .btn1 {
   padding-right: 1.2rem;
 }
-.page .regPage .layer8 .registerBtn {
+.page .logPage .layer8 .registerBtn {
   width: 7rem;
   padding: 0.2rem;
   height: 2.5rem;
@@ -267,15 +269,15 @@ h1 {
   border-radius: 24px;
   cursor: pointer;
 }
-.page .regPage .layer8 .registerBtn:hover {
+.page .logPage .layer8 .registerBtn:hover {
   background-color: white;
   color: rgb(16, 113, 255);
 }
-.page .regPage .layer8 .btn2 {
+.page .logPage .layer8 .btn2 {
   padding-left: 1.2rem;
   padding-right: 1rem;
 }
-.page .regPage .layer8 .google, .page .regPage .layer8 .git {
+.page .logPage .layer8 .google, .page .logPage .layer8 .git {
   width: 4.6rem;
   padding: 0.2rem;
   height: 2.65rem;
@@ -284,22 +286,22 @@ h1 {
   background-color: white;
   cursor: pointer;
 }
-.page .regPage .layer8 .google {
+.page .logPage .layer8 .google {
   color: rgb(7, 107, 247);
 }
-.page .regPage .layer8 .google:hover {
+.page .logPage .layer8 .google:hover {
   background-color: rgb(16, 113, 255);
   color: white;
 }
-.page .regPage .layer8 .git:hover {
+.page .logPage .layer8 .git:hover {
   color: white;
   background-color: black;
 }
-.page .regPage .layer9 {
+.page .logPage .layer9 {
   padding-top: 1rem;
   display: flex;
 }
-.page .regPage .layer9 span {
+.page .logPage .layer9 span {
   color: blue;
   padding-left: 0.5rem;
   cursor: pointer;
@@ -329,17 +331,13 @@ h1 {
     padding-bottom: 8.1rem;
   }
 }
-@media (max-width: 1030px) {
-  .image {
-    display: none;
-  }
-}
 @media screen and (min-width: 950px) and (max-width: 1200px) {
   .page {
     background-size: 100% 35%;
   }
-  .page .regPage {
+  .page .logPage {
     margin-top: 4rem;
+    margin-right: 10%;
   }
   .page .regPage .layer1 {
     padding-top: 1.8rem;
@@ -453,12 +451,11 @@ h1 {
     padding-left: 0.8rem;
   }
   .page .image {
-    padding-top: 3rem;
+    padding-top: 0;
     width: 24rem;
   }
   .page .image .regImage {
-    width: 29.5rem;
-    height: 41rem;
+    height: 100%;
   }
   .page .image .window {
     position: relative;
@@ -468,11 +465,14 @@ h1 {
     right: -15rem;
   }
 }
-@media screen and (max-width: 949px) {
+@media screen and (max-width: 970px) {
   .page {
     background-size: 100% 35%;
   }
-  .page .regPage {
+  .page h1 {
+    font-size: 3rem;
+  }
+  .page .logPage {
     margin-top: 4rem;
   }
   .page .image {
@@ -490,7 +490,8 @@ h1 {
     background-size: 100% 35%;
   }
   .page .regPage {
-    margin-top: 4rem;
+    padding-bottom: 3rem;
+    padding-top: 0rem;
   }
   .page .regPage .layer1 {
     padding-top: 1.8rem;
@@ -646,146 +647,147 @@ h1 {
   .page {
     background-size: 100% 35%;
   }
-  .page .regPage {
+  .page .logPage {
     padding-bottom: 3rem;
+    padding-top: 0rem;
   }
-  .page .regPage .layer1 {
+  .page .logPage .layer1 {
     padding-top: 1.8rem;
   }
-  .page .regPage .layer1 .name {
+  .page .logPage .layer1 .name {
     width: 16.1rem;
     height: 2.4rem;
     padding-left: 0.8rem;
   }
-  .page .regPage .layer2 {
+  .page .logPage .layer2 {
     padding-top: 1rem;
   }
-  .page .regPage .layer2 .phoneInput .pc {
+  .page .logPage .layer2 .phoneInput .pc {
     padding-left: 0.5rem;
   }
-  .page .regPage .layer2 .phoneInput .phoneCode {
+  .page .logPage .layer2 .phoneInput .phoneCode {
     width: 1.8rem;
     height: 2.4rem;
     padding-left: 0.4rem;
   }
-  .page .regPage .layer2 .phoneInput .phoneNumber {
+  .page .logPage .layer2 .phoneInput .phoneNumber {
     width: 13.3rem;
     height: 2.5rem;
     padding-left: 0.8rem;
   }
-  .page .regPage .layer3 {
+  .page .logPage .layer3 {
     padding-top: 1rem;
     flex-direction: column;
   }
-  .page .regPage .layer3 .email1 {
+  .page .logPage .layer3 .email1 {
     flex: 50%;
   }
-  .page .regPage .layer3 .e2 {
+  .page .logPage .layer3 .e2 {
     padding-left: 0rem;
     padding-top: 1rem;
   }
-  .page .regPage .layer3 .email2 {
+  .page .logPage .layer3 .email2 {
     flex: 50%;
   }
-  .page .regPage .layer3 .enterEmail {
+  .page .logPage .layer3 .enterEmail {
     width: 16.1rem;
     height: 2.5rem;
     padding-left: 0.8rem;
   }
-  .page .regPage .layer4 {
+  .page .logPage .layer4 {
     padding-top: 1rem;
     flex-direction: column;
   }
-  .page .regPage .layer4 .password {
+  .page .logPage .layer4 .password {
     flex: 50% 2;
   }
-  .page .regPage .layer4 .password .wrapfield .shBtn {
+  .page .logPage .layer4 .password .wrapfield .shBtn {
     position: relative;
     left: -12%;
     top: 0.6rem;
   }
-  .page .regPage .layer4 .password .enterPassword {
+  .page .logPage .layer4 .password .enterPassword {
     width: 16.1rem;
     height: 2.5rem;
     padding-left: 0.8rem;
   }
-  .page .regPage .layer4 .p2 {
+  .page .logPage .layer4 .p2 {
     padding-left: 0rem;
     padding-top: 1rem;
   }
-  .page .regPage .layer5 {
+  .page .logPage .layer5 {
     flex-direction: column;
     padding-top: 1rem;
   }
-  .page .regPage .layer5 .student {
+  .page .logPage .layer5 .student {
     display: flex;
     flex-direction: column;
     flex: 50% 2;
   }
-  .page .regPage .layer5 .student .branch {
+  .page .logPage .layer5 .student .branch {
     width: 17rem;
     height: 2.5rem;
     padding-left: 0.8rem;
   }
-  .page .regPage .layer5 .student .regdNo {
+  .page .logPage .layer5 .student .regdNo {
     width: 16.1rem;
     height: 2.5rem;
     padding-left: 0.8rem;
   }
-  .page .regPage .layer5 .r1 {
+  .page .logPage .layer5 .r1 {
     padding-left: 0rem;
     padding-top: 1rem;
   }
-  .page .regPage .layer6 {
+  .page .logPage .layer6 {
     display: flex;
     flex-direction: column;
     padding-top: 1rem;
   }
-  .page .regPage .layer6 .membership {
+  .page .logPage .layer6 .membership {
     display: flex;
     flex-direction: column;
     flex: 50% 2;
   }
-  .page .regPage .layer6 .membership .member {
+  .page .logPage .layer6 .membership .member {
     width: 17rem;
     height: 2.5rem;
     padding-left: 0.8rem;
   }
-  .page .regPage .layer6 .membership .wing {
+  .page .logPage .layer6 .membership .wing {
     width: 16.1rem;
     height: 2.5rem;
     padding-left: 0.8rem;
   }
-  .page .regPage .layer6 .w1 {
+  .page .logPage .layer6 .w1 {
     padding-left: 0rem;
     padding-top: 1rem;
   }
-  .page .regPage .layer7 .domain {
+  .page .logPage .layer7 .domain {
     width: 17rem;
     height: 2.5rem;
     padding-left: 0.8rem;
   }
-  .page .regPage .layer8 {
+  .page .logPage .layer8 {
     justify-content: center;
   }
-  .page .regPage .layer8 .btn1 {
+  .page .logPage .layer8 .btn1 {
     padding-right: 1rem;
   }
-  .page .regPage .layer8 .registerBtn {
+  .page .logPage .layer8 .registerBtn {
     width: 5rem;
     padding: 0.2rem;
     height: 2rem;
   }
-  .page .regPage .layer8 .btn2 {
+  .page .logPage .layer8 .btn2 {
     padding-left: 1.1rem;
     padding-right: 0.5rem;
   }
-  .page .regPage .layer8 .google, .page .regPage .layer8 .git {
+  .page .logPage .layer8 .google, .page .logPage .layer8 .git {
     width: 4.1rem;
     padding: 0.2rem;
     height: 2.15rem;
   }
-  .page .regPage .layer9 {
+  .page .logPage .layer9 {
     justify-content: center;
     align-content: center;
   }
@@ -804,4 +806,4 @@ h1 {
     padding-bottom: 0rem;
     height: auto;
   }
-}/*# sourceMappingURL=regPage.css.map */
+}/*# sourceMappingURL=loginPage.css.map */

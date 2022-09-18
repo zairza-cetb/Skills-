@@ -16,6 +16,7 @@ import {sendEmailToBackend} from "../utils/api/api.utils";
 
 const Registration = () => {
   const auth = getAuth();
+  // const dispatch=useDispatch();
 
   const nav = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -101,7 +102,19 @@ const Registration = () => {
             auth.currentUser.getIdToken(true).then((idToken) => {
               // console.log(idToken);
                  
-              createUserWithAxiosPost({user:user.name,idToken});
+              createUserWithAxiosPost({
+                user :{
+                  email:user.enterEmail,
+                  password:user.enterPassword,
+                  name:user.name,
+                  phoneNumber:phoneNo,
+                  registrationNumber:enterRedgNo,
+                  zairzaMember:answer === "yes" ? "member":"notMember",
+                  interestedDomain:interestedDomain,
+                  branch:branch,
+                },
+                idToken,
+              })
 
             });
 
@@ -111,17 +124,13 @@ const Registration = () => {
             const errorMessage = error.message;
             alert(errorMessage);
           });
-          
-          console.log(user.enterEmail);
           if(!enterWing){
             alert("Please give the wing details");
             return;
           }
           alert("registration successfull");
 
-          
-        
-          nav("/dashboard");
+        // nav("/dashboard");
       } else {
         alert("invalid");
       }
@@ -480,8 +489,8 @@ const Registration = () => {
         </div>
       </div>
       <div className="image">
-        <img className="regImage" src={registerImage} />
-        <img className="window" src={window} />
+        <img className="regImage" src={registerImage} alt=""/>
+        <img className="window" src={window} alt=""/>
       </div>
     </div>
   );

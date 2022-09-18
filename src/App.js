@@ -6,6 +6,7 @@ import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard/Dashboard";
+// import Footer from "./components/Footer/Footer";
 
 function App() {
   const [display, setDisplay] = useState(false);
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
+        {/* <Footer /> */}
       </Router>
     </div>
   );

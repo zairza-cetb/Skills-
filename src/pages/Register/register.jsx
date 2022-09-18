@@ -334,17 +334,6 @@ const Registration = () => {
               Register
             </button>
           </div>
-          <p>or</p>
-          <div className="btn2">
-            <button className="google">
-              <GoogleIcon />
-            </button>
-          </div>
-          <div className="btn3">
-            <button className="git">
-              <GitHubIcon />
-            </button>
-          </div>
         </div>
         <div className="layer9">
           <p>

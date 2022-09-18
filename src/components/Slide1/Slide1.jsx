@@ -1,6 +1,6 @@
 import React from 'react'
-import '../css/Slide1.css'
-import heroImage from "../Assets/images/img1.png"
+import './Slide1.scss'
+import heroImage from "../../Assets/images/img1.png"
 import {useNavigate} from "react-router-dom";
 
 function Slide1() {

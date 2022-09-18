@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import "../css/regPage.css";
+import "./register.scss";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import GoogleIcon from "@mui/icons-material/Google";
 import { FaAngleDown, FaWineGlass } from "react-icons/fa";
-import registerImage from "../Assets/images/registerImage.png";
-import window from "../Assets/images/browserWindow.png";
+import registerImage from "../../Assets/images/registerImage.png";
+import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app } from "../utils/firebase/firebase.utils";
-import { createUserWithAxiosPost } from "../utils/api/api.utils";
-import { sendEmailToBackend } from "../utils/api/api.utils";
+import { app } from "../../utils/firebase/firebase.utils";
+import { createUserWithAxiosPost } from "../../utils/api/api.utils";
+import { sendEmailToBackend } from "../../utils/api/api.utils";
+import { getCurrentUser } from "../../utils/firebase/firebase.utils"
 const Registration = () => {
   const auth = getAuth();
-
   const nav = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -42,14 +42,6 @@ const Registration = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
   const checkPhnNo = (e) => {
-    // const onlyDigits = e.target.value.test(!/\D/g);
-    // setPhoneNo(onlyDigits)
-    // if(onlyDigits>9999999999){
-    //     alert("enter Valid phone number")
-    // }
-    // else{
-    //     setPhoneNo(onlyDigits)
-    // }
     if (!/\D/g.test(e.target.value) && e.target.value <= 9999999999) {
       setPhoneNo(e.target.value);
     } else {
@@ -97,7 +89,8 @@ const Registration = () => {
             const res = response.user;
 
             auth.currentUser.getIdToken(true).then((idToken) => {
-              // console.log(idToken);
+
+              console.log(idToken);
               createUserWithAxiosPost({
                 user: {
                   email: user.enterEmail,
@@ -105,7 +98,7 @@ const Registration = () => {
                   name: user.name,
                   phoneNumber: phoneNo,
                   registrationNumber: enterRedgNo,
-                  zairzaMember: answer == "yes" ? "member" : "notMember",
+                  zairzaMember: answer == "yes",
                   interestedDomain: interestedDomain,
                   branch: branch,
                 },
@@ -170,15 +163,15 @@ const Registration = () => {
   const wings = [
     {
       name: "Software",
-      value: "Software",
+      value: "software",
     },
     {
       name: "Hardware",
-      value: "Hardware",
+      value: "hardware",
     },
     {
       name: "Design",
-      value: "Design",
+      value: "design",
     },
   ];
   const domains = [
@@ -186,17 +179,15 @@ const Registration = () => {
     "App Development",
     "UI/UX",
     "Graphics Designing",
-    "Competetive Coding",
+    "Competitive Coding",
     "AI/ML",
     "Game Development",
-    "game",
     "Embedded System & IOT",
     "ROS",
     "3D and Motion Graphics",
     "Cybersecurity",
     "Blockchain",
     "Devops",
-    "devops",
   ];
   const branchHandler = (e) => {
     setBranch(e.target.branches.value);

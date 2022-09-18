@@ -1,10 +1,10 @@
 @font-face {
     font-family:GilroyB;
-    src: url('../Assets/fonts/Gilroy-ExtraBold.woff');
+    src: url('../../Assets/fonts/Gilroy-ExtraBold.woff');
     }
     @font-face {
     font-family:GilroyL;
-    src: url('../Assets/fonts/Gilroy-Light.woff');
+    src: url('../../Assets/fonts/Gilroy-Light.woff');
     }
 *{
     padding: 0;
@@ -46,7 +46,7 @@ h1{
     display: flex;
     align-items: center;
     justify-content: start;
-    background-image: url("../Assets/images/Rectangle.png") ;
+    background-image: url("../../Assets/images/Rectangle.png") ;
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: 100% 46%;
@@ -144,9 +144,7 @@ h1{
                     padding-left: .8rem;
                 }
                 }
-                .p2{
-                    padding-left: 1.5rem;
-                }
+
             }
         .layer5{
             display: flex;
@@ -178,7 +176,7 @@ h1{
             .selectBranch{
                 position: relative;
                 .branch{
-                    background-image: url("../Assets/images/down.png");
+                    background-image: url("../../Assets/images/down.png");
                     background-repeat: no-repeat;
                     background-size: 1rem;
                     background-position: 96%;
@@ -216,7 +214,7 @@ h1{
             .selectMember{
                 position: relative;
                 .member{
-                    background-image: url("../Assets/images/down.png");
+                    background-image: url("../../Assets/images/down.png");
                     background-repeat: no-repeat;
                     background-size: 1rem;
                     background-position: 96%;
@@ -242,7 +240,7 @@ h1{
         .selectdomain{
             position: relative;
             .domain{
-                background-image: url("../Assets/images/down.png");
+                background-image: url("../../Assets/images/down.png");
                 background-repeat: no-repeat;
                 background-size: 1rem;
                 background-position: 98%;

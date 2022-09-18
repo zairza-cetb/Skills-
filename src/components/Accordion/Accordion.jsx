@@ -9,7 +9,7 @@ import {
   import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
   import Lock from "@mui/icons-material/Lock";
   import RandomText from "./RandomText";
-  import WeekText from "./WeekText";
+  import WeekText from "../WeekText/WeekText";
   
   const Accordian = () => {
     const [current, setCurrent] = useState(-1);

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import "../css/loginPage.css"
+import "./login.scss"
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import GoogleIcon from "@mui/icons-material/Google";
 import { FaAngleDown } from "react-icons/fa";
-import registerImage from "../Assets/images/registerImage.png";
-import window from "../Assets/images/browserWindow.png";
+import registerImage from "../../Assets/images/registerImage.png";
+import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import {signInWithGooglePopup } from "../utils/firebase/firebase.utils";
+import {signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
 
 const Login = () => {
   const auth = getAuth();  
@@ -100,7 +100,7 @@ const Login = () => {
         <div className="layer9">
           <p>
             Not registered yet?
-            <span onClick={() => nav("/register")}>Register</span>
+            <span onClick={() => nav("/signup")}>Register</span>
           </p>
         </div>
       </div>

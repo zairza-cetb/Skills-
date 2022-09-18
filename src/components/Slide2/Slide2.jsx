@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/Slide2.css'
+import './Slide2.scss'
 import { Slide2data1 } from './Slide2data'
 
 function Slide2() {

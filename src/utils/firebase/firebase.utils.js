@@ -28,8 +28,8 @@ googleProvider.setCustomParameters({
 });
 
 export const auth = getAuth();
-export const signInWithGooglePopup = () => {
-  signInWithPopup(auth, googleProvider);
+export const signInWithGooglePopup = async () => {
+  return await signInWithPopup(auth, googleProvider);
 };
 export const signInWithGoogleRedirect = () => {
   signInWithRedirect(auth, googleProvider);

@@ -4,7 +4,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 export const createUser = async ({ idToken }) => {
   try {
     const response = await axios.post(
-      `${API_URL}/api/zairza/skill-plus-plus/signup`,
+      `${API_URL}/api/skill-plus-plus/signup`,
       {},
       {
         headers: {
@@ -13,16 +13,16 @@ export const createUser = async ({ idToken }) => {
       }
     );
 
-    return response.data;
+    return response.data.data;
   } catch (err) {
-    return new Error(err.message);
+    throw new Error(err.message);
   }
 };
 
 export const loginUser = async ({ idToken }) => {
   try {
     const response = await axios.post(
-      `${API_URL}/api/zairza/skill-plus-plus/login`,
+      `${API_URL}/api/skill-plus-plus/login`,
       {},
       {
         headers: {
@@ -31,16 +31,17 @@ export const loginUser = async ({ idToken }) => {
       }
     );
 
-    return response.data;
+    return response.data.data;
   } catch (err) {
-    return new Error(err.message);
+    console.log(err.message);
+    throw new Error(err.message);
   }
 };
 
 export const updateUser = async ({ idToken }) => {
   try {
     const response = await axios.post(
-      `${API_URL}/api/zairza/skill-plus-plus/update`,
+      `${API_URL}/api/skill-plus-plus/update`,
       {},
       {
         headers: {
@@ -49,8 +50,8 @@ export const updateUser = async ({ idToken }) => {
       }
     );
 
-    return response.data;
+    return response.data.data;
   } catch (err) {
-    return new Error(err.message);
+    throw new Error(err.message);
   }
 };

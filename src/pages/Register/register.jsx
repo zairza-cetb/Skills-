@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 import "./register.scss";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
 import GitHubIcon from "@mui/icons-material/GitHub";
 import GoogleIcon from "@mui/icons-material/Google";
-import { FaAngleDown, FaWineGlass } from "react-icons/fa";
 import registerImage from "../../Assets/images/registerImage.png";
 import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app } from "../../utils/firebase/firebase.utils";
-import { createUserWithAxiosPost } from "../../utils/api/api.utils";
-import { sendEmailToBackend } from "../../utils/api/api.utils";
-import { getCurrentUser } from "../../utils/firebase/firebase.utils"
 const Registration = () => {
   const auth = getAuth();
   const nav = useNavigate();
@@ -77,24 +71,6 @@ const Registration = () => {
         )
           .then((response) => {
             const res = response.user;
-
-            auth.currentUser.getIdToken(true).then((idToken) => {
-
-              console.log(idToken);
-              createUserWithAxiosPost({
-                user: {
-                  email: user.enterEmail,
-                  password: user.enterPassword,
-                  name: user.name,
-                  phoneNumber: phoneNo,
-                  registrationNumber: enterRedgNo,
-                  zairzaMember: answer == "yes",
-                  interestedDomain: interestedDomain,
-                  branch: branch,
-                },
-                idToken,
-              });
-            });
           })
           .catch((error) => {
             const errorMessage = error.message;
@@ -103,12 +79,8 @@ const Registration = () => {
 
         console.log(user.enterEmail);
 
-        auth.currentUser.getIdToken(true).then((idToken) => {
-          sendEmailToBackend({ sendEmail: user.enterEmail, idToken });
-        });
-
         console.log(enterWing);
-        if (answer=='yes' && enterWing=="") {
+        if (answer === "yes" && enterWing === "") {
           alert("Please give the wing details");
           return;
         }
@@ -120,9 +92,8 @@ const Registration = () => {
     } catch (err) {
       setError(true);
     }
-
   };
-  console.log(user)
+  console.log(user);
   const branches = [
     "Computer Science & Engineering",
     "Information Technology",
@@ -139,7 +110,7 @@ const Registration = () => {
     "Mathematics & Humanities",
     "Physics",
     "Chemistry",
-  ]
+  ];
   const ans = [
     {
       name: "Yes",
@@ -179,24 +150,21 @@ const Registration = () => {
     "Blockchain",
     "Devops",
   ];
-  const branchHandler = (e) => {
-    setBranch(e.target.branches.value);
-  };
 
-  const handleWing=(e)=>{
-    console.log(e.target.value)
-    if(e.target.value){
+  const handleWing = (e) => {
+    console.log(e.target.value);
+    if (e.target.value) {
       setUser({
-        ...user,enterWing:e.target.value
-      })
+        ...user,
+        enterWing: e.target.value,
+      });
     }
-    
-  }
+  };
   const ansHandle = (e) => {
     e.preventDefault();
     setAnswer(e.target.value);
   };
-  
+
   const handleDomain = (e) => {
     e.preventDefault();
     setUser({ ...user, interestedDomain: e.target.value });
@@ -206,7 +174,7 @@ const Registration = () => {
     e.preventDefault();
     console.log(e.target.value);
     setBranch(e.target.value);
-  }
+  };
   return (
     <div className="page">
       <div className="regPage">
@@ -251,9 +219,8 @@ const Registration = () => {
               onChange={changeHandler}
             />
           </div>
-          
         </div>
-       
+
         <div className="layer5">
           <div className="student selectBranch">
             <p>Branch</p>
@@ -302,7 +269,11 @@ const Registration = () => {
           </div>
           <div className="membership w1">
             <p>If yes, in which wing?</p>
-            <select className="wing" onChange={handleWing} disabled={answer === "no" ? true : false}>
+            <select
+              className="wing"
+              onChange={handleWing}
+              disabled={answer === "no" ? true : false}
+            >
               <option disabled selected="selected">
                 Enter your wing
               </option>
@@ -353,8 +324,8 @@ const Registration = () => {
         </div>
       </div>
       <div className="image">
-        <img className="regImage" src={registerImage} />
-        <img className="window" src={window} />
+        <img className="regImage" src={registerImage} alt={"registerImage"} />
+        <img className="window" src={window} alt={"registerImage"} />
       </div>
     </div>
   );

@@ -1,35 +1,39 @@
 import React, { useState } from "react";
 import "./signup.scss";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import GoogleIcon from "@mui/icons-material/Google";
-import { FaAngleDown } from "react-icons/fa";
+import { Visibility, VisibilityOff, Google } from "@mui/icons-material";
+
 import registerImage from "../../Assets/images/registerImage.png";
 import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
+import { useDispatch } from "react-redux";
+import { signUpStart, googleSignInStart } from "../../store/user/user.action";
 
 const Signup = () => {
-  const auth = getAuth();
   const nav = useNavigate();
+  const dispatch = useDispatch();
+
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword,setShowConfirmPassword] = useState(false)
+
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const [user, setUser] = useState({
     enterEmail: "",
     enterPassword: "",
-    enterConfirmPassword:""
+    enterConfirmPassword: "",
   });
+
   const [err, setError] = useState("");
+
   const buttonHandler = (e) => {
     e.preventDefault();
     setShowPassword(!showPassword);
   };
+
   const confirmButtonHandler = (e) => {
     e.preventDefault();
     setShowConfirmPassword(!showConfirmPassword);
   };
+
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setUser({
@@ -37,22 +41,19 @@ const Signup = () => {
       [name]: value,
     });
   };
+
   const signUp = (e) => {
     e.preventDefault();
     try {
-      signInWithEmailAndPassword(auth, user.enterEmail, user.enterPassword)
-        .then((response) => {
-          // console.log(user);
-          alert("Login successfull");
-          nav("/dashboard");
-        })
-        .catch((error) => {
-          const errorMessage = error.message;
-          alert(errorMessage);
-        });
+      dispatch(signUpStart(user.enterEmail, user.enterPassword));
     } catch (err) {
       setError(true);
     }
+  };
+
+  const signInWithGoogle = async () => {
+    console.log("google");
+    dispatch(googleSignInStart());
   };
 
   return (
@@ -90,7 +91,7 @@ const Signup = () => {
               </div>
               <div className="shBtn">
                 <button className="showbtn" onClick={buttonHandler}>
-                  {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
                 </button>
               </div>
             </div>
@@ -110,17 +111,12 @@ const Signup = () => {
               </div>
               <div className="shBtn">
                 <button className="showbtn" onClick={confirmButtonHandler}>
-                  {showConfirmPassword ? (
-                    <VisibilityOffIcon />
-                  ) : (
-                    <VisibilityIcon />
-                  )}
+                  {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
                 </button>
               </div>
             </div>
           </div>
         </div>
-        
 
         <div className="layer9">
           <p>
@@ -136,13 +132,8 @@ const Signup = () => {
           </div>
           <p>or</p>
           <div className="btn2">
-            <button className="google" onClick={signInWithGooglePopup}>
-              <GoogleIcon />
-            </button>
-          </div>
-          <div className="btn3">
-            <button className="git">
-              <GitHubIcon />
+            <button className="google" onClick={signInWithGoogle}>
+              <Google />
             </button>
           </div>
         </div>

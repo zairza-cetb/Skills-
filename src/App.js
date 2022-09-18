@@ -8,7 +8,7 @@ import Login from "./pages/Login/login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Signup from "./pages/Signup/signup";
 import { useDispatch } from "react-redux";
-import { signOutStart } from "./store/user/user.action";
+import { checkUserSession } from "./store/user/user.action";
 
 function App() {
   const [display, setDisplay] = useState(false);
@@ -16,9 +16,9 @@ function App() {
   const handleSidebar = () => {
     setDisplay(!display);
   };
-  // useEffect(()=>{
-  //   dispatch(signOutStart());
-  // })
+  useEffect(()=>{
+    dispatch(checkUserSession());
+  })
 
   return (
     <>

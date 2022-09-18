@@ -24,12 +24,13 @@ import { createUser, updateUser, loginUser } from "../../utils/api/api.utils";
 export function* getUserInfoFromAPI(userAuth) {
   try {
     const idToken = yield userAuth.getIdToken(true);
-    const userSnapshot = yield call(loginUser, idToken);
+    const userSnapshot = yield call(loginUser, {idToken});
     yield put(signInSuccess({ ...userSnapshot }));
   } catch (error) {
-    if (error.message === "Request failed with status code 404") {
+    console.log(error.message)
+    if (error.message.includes("Request failed with status code 401")) {
       const idToken = yield userAuth.getIdToken(true);
-      const userSnapshot = yield call(createUser, idToken);
+      const userSnapshot = yield call(createUser, {idToken});
       yield put(signUpSuccess({ ...userSnapshot }));
     } else {
       yield put(signInFailed(error));

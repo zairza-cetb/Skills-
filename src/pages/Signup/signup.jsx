@@ -37,7 +37,7 @@ const Signup = () => {
       [name]: value,
     });
   };
-  const register = (e) => {
+  const signUp = (e) => {
     e.preventDefault();
     try {
       signInWithEmailAndPassword(auth, user.enterEmail, user.enterPassword)
@@ -130,7 +130,7 @@ const Signup = () => {
 
         <div className="layer8">
           <div className="btn1">
-            <button className="registerBtn" onClick={register}>
+            <button className="registerBtn" onClick={signUp}>
               Login
             </button>
           </div>

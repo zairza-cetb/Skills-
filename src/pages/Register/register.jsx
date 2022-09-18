@@ -16,8 +16,6 @@ import { getCurrentUser } from "../../utils/firebase/firebase.utils"
 const Registration = () => {
   const auth = getAuth();
   const nav = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [branch, setBranch] = useState([]);
   const [answer, setAnswer] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
@@ -33,14 +31,6 @@ const Registration = () => {
     interestedDomain: "",
   });
   const [err, setError] = useState(false);
-  const buttonHandler = (e) => {
-    e.preventDefault();
-    setShowPassword(!showPassword);
-  };
-  const confirmButtonHandler = (e) => {
-    e.preventDefault();
-    setShowConfirmPassword(!showConfirmPassword);
-  };
   const checkPhnNo = (e) => {
     if (!/\D/g.test(e.target.value) && e.target.value <= 9999999999) {
       setPhoneNo(e.target.value);
@@ -261,64 +251,9 @@ const Registration = () => {
               onChange={changeHandler}
             />
           </div>
-          <div className="email2 e2">
-            <p>Confirm Email ID</p>
-            <input
-              type="email"
-              className="enterEmail"
-              placeholder="Confirm your Email"
-              name="confirmEmail"
-              value={user.confirmEmail}
-              onChange={changeHandler}
-            />
-          </div>
+          
         </div>
-        <div className="layer4">
-          <div className="password">
-            <p>Password</p>
-            <div className="wrapfield">
-              <div>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  className="enterPassword"
-                  placeholder="Enter password"
-                  name="enterPassword"
-                  value={user.enterPassword}
-                  onChange={changeHandler}
-                />
-              </div>
-              <div className="shBtn">
-                <button className="showbtn" onClick={buttonHandler}>
-                  {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="password p2">
-            <p>Confirm Password</p>
-            <div className="wrapfield">
-              <div>
-                <input
-                  type={showConfirmPassword ? "text" : "password"}
-                  className="enterPassword"
-                  placeholder="Confirm password"
-                  name="confirmPassword"
-                  value={user.confirmPassword}
-                  onChange={changeHandler}
-                />
-              </div>
-              <div className="shBtn">
-                <button className="showbtn" onClick={confirmButtonHandler}>
-                  {showConfirmPassword ? (
-                    <VisibilityOffIcon />
-                  ) : (
-                    <VisibilityIcon />
-                  )}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+       
         <div className="layer5">
           <div className="student selectBranch">
             <p>Branch</p>

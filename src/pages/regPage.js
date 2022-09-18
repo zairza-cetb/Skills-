@@ -10,10 +10,8 @@ import window from "../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "../utils/firebase/firebase.utils";
-import {createUserWithAxiosPost} from "../utils/api/api.utils";
-import {sendEmailToBackend} from "../utils/api/api.utils";
-
-
+import { createUserWithAxiosPost } from "../utils/api/api.utils";
+import { sendEmailToBackend } from "../utils/api/api.utils";
 const Registration = () => {
   const auth = getAuth();
   // const dispatch=useDispatch();
@@ -22,7 +20,7 @@ const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [branch, setBranch] = useState([]);
-  const [answer, setAnswer] = useState([]);
+  const [answer, setAnswer] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [regexp, setRegexp] = useState(/^[0-9\b]+$/);
   const [user, setUser] = useState({
@@ -33,7 +31,7 @@ const Registration = () => {
     confirmPassword: "",
     enterRedgNo: "",
     enterWing: "",
-    interestedDomain:"",
+    interestedDomain: "",
   });
   const [err, setError] = useState(false);
   const buttonHandler = (e) => {
@@ -101,36 +99,39 @@ const Registration = () => {
 
             auth.currentUser.getIdToken(true).then((idToken) => {
               // console.log(idToken);
-                 
               createUserWithAxiosPost({
-                user :{
-                  email:user.enterEmail,
-                  password:user.enterPassword,
-                  name:user.name,
-                  phoneNumber:phoneNo,
-                  registrationNumber:enterRedgNo,
-                  zairzaMember:answer === "yes" ? "member":"notMember",
-                  interestedDomain:interestedDomain,
-                  branch:branch,
+                user: {
+                  email: user.enterEmail,
+                  password: user.enterPassword,
+                  name: user.name,
+                  phoneNumber: phoneNo,
+                  registrationNumber: enterRedgNo,
+                  zairzaMember: answer == "yes" ? "member" : "notMember",
+                  interestedDomain: interestedDomain,
+                  branch: branch,
                 },
                 idToken,
-              })
-
+              });
             });
-
-           
           })
           .catch((error) => {
             const errorMessage = error.message;
             alert(errorMessage);
           });
-          if(!enterWing){
-            alert("Please give the wing details");
-            return;
-          }
-          alert("registration successfull");
 
-        // nav("/dashboard");
+        console.log(user.enterEmail);
+
+        auth.currentUser.getIdToken(true).then((idToken) => {
+          sendEmailToBackend({ sendEmail: user.enterEmail, idToken });
+        });
+
+        console.log(enterWing);
+        if (answer=='yes' && enterWing=="") {
+          alert("Please give the wing details");
+          return;
+        }
+        alert("registration successfull");
+        nav("/dashboard");
       } else {
         alert("invalid");
       }
@@ -139,60 +140,24 @@ const Registration = () => {
     }
 
   };
+  console.log(user)
   const branches = [
-    {
-      name: "Computer Science",
-      value: "cse",
-    },
-    {
-      name: "Information Technology",
-      value: "it",
-    },
-    {
-      name: "Electrical",
-      value: "ele",
-    },
-    {
-      name: "Instrumentation and Electronics",
-      value: "ine",
-    },
-    {
-      name: "Mechanical",
-      value: "mech",
-    },
-    {
-      name: "Civil",
-      value: "civil",
-    },
-    {
-      name: "Biotechnology",
-      value: "bt",
-    },
-    {
-      name: "Fashion Technology",
-      value: "ft",
-    },
-    {
-      name: "Textile",
-      value: "te",
-    },
-    {
-      name: "MCA",
-      value: "mca",
-    },
-    {
-      name: "Integrated MSc. Mathematics",
-      value: "math",
-    },
-    {
-      name: "Intergrated MSc. Chemistry",
-      value: "chem",
-    },
-    {
-      name: "Intergrated MSc. Physics",
-      value: "phys",
-    },
-  ];
+    "Computer Science & Engineering",
+    "Information Technology",
+    "Electrical Engineering",
+    "Mechanical Engineering",
+    "Electronics & Instrumentation Engineering",
+    "Biotechnology",
+    "Civil Engineering",
+    "Textile Engineering",
+    "Fashion & Apparel Technology",
+    "Architecture",
+    "Computer Science & Application",
+    "Planning",
+    "Mathematics & Humanities",
+    "Physics",
+    "Chemistry",
+  ]
   const ans = [
     {
       name: "Yes",
@@ -203,73 +168,36 @@ const Registration = () => {
       value: "no",
     },
   ];
-  const wings=[
+  const wings = [
     {
-      name:"Software",
-      value:"Software", 
+      name: "Software",
+      value: "Software",
     },
     {
-      name:"Hardware",
-      value:"Hardware"
+      name: "Hardware",
+      value: "Hardware",
     },
     {
-      name:"Design",
-      value:"Design",
+      name: "Design",
+      value: "Design",
     },
-  ]
+  ];
   const domains = [
-    {
-      name: "Web Development",
-      value: "web",
-    },
-    {
-      name: "App Development",
-      value: "app",
-    },
-    {
-      name: "UI/UX",
-      value: "ui",
-    },
-    {
-      name: "Graphics Designing",
-      value: "gd",
-    },
-    {
-      name: "Competetive Coding",
-      value: "cp",
-    },
-    {
-      name: "AI/ML",
-      value: "ai",
-    },
-    {
-      name: "Game Development",
-      value: "game",
-    },
-    {
-      name: "Embedded System & IOT",
-      value: "iot",
-    },
-    {
-      name: "ROS",
-      value: "ros",
-    },
-    {
-      name: "3D and Motion Graphics",
-      value: "3d",
-    },
-    {
-      name: "Cybersecurity",
-      value: "cs",
-    },
-    {
-      name: "Blockchain",
-      value: "blockchain",
-    },
-    {
-      name: "Devops",
-      value: "devops",
-    },
+    "Web Development",
+    "App Development",
+    "UI/UX",
+    "Graphics Designing",
+    "Competetive Coding",
+    "AI/ML",
+    "Game Development",
+    "game",
+    "Embedded System & IOT",
+    "ROS",
+    "3D and Motion Graphics",
+    "Cybersecurity",
+    "Blockchain",
+    "Devops",
+    "devops",
   ];
   const branchHandler = (e) => {
     setBranch(e.target.branches.value);
@@ -287,9 +215,18 @@ const Registration = () => {
   const ansHandle = (e) => {
     e.preventDefault();
     setAnswer(e.target.value);
-    console.log(answer);
+  };
+  
+  const handleDomain = (e) => {
+    e.preventDefault();
+    setUser({ ...user, interestedDomain: e.target.value });
   };
 
+  const handleBranch = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+    setBranch(e.target.value);
+  }
   return (
     <div className="page">
       <div className="regPage">
@@ -399,12 +336,13 @@ const Registration = () => {
               className="branch option"
               name="selectBranch"
               value={user.selectBranch}
+              onChange={handleBranch}
             >
               <option disabled selected="selected">
                 Select your Branch{" "}
               </option>
               {branches.map((branch) => (
-                <option value={branch.value}>{branch.name}</option>
+                <option value={branch}>{branch}</option>
               ))}
             </select>
           </div>
@@ -441,9 +379,9 @@ const Registration = () => {
             <p>If yes, in which wing?</p>
             <select className="wing" onChange={handleWing} disabled={answer === "no" ? true : false}>
               <option disabled selected="selected">
-                  Enter your wing
+                Enter your wing
               </option>
-              {wings.map((wing)=>(
+              {wings.map((wing) => (
                 <option value={wing.value}>{wing.name}</option>
               ))}
             </select>
@@ -455,12 +393,13 @@ const Registration = () => {
             className="domain option"
             name="selectDomain"
             value={user.selectDomain}
+            onChange={handleDomain}
           >
             <option disabled selected="selected">
               Select your domain
             </option>
             {domains.map((domain) => (
-              <option value={domain.value}>{domain.name}</option>
+              <option value={domain}>{domain}</option>
             ))}
           </select>
         </div>
@@ -472,7 +411,7 @@ const Registration = () => {
           </div>
           <p>or</p>
           <div className="btn2">
-            <button className="google" >
+            <button className="google">
               <GoogleIcon />
             </button>
           </div>

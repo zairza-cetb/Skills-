@@ -2,7 +2,7 @@
   padding: 0 8rem;
   display: grid;
   grid-template-columns: 1.2fr 2fr;
-  height: 85vh;
+  height: auto;
   padding-top: 5vh;
   background-image: url("../Assets/images/Group 7511.png");
   background-size: cover;
@@ -92,16 +92,7 @@
   padding-left: 1.5rem;
   border-radius: 12.29px;
   border: #eaecf0 solid;
-}
-@media (max-width: 769px) {
-  .card {
-    margin: 0 2rem !important;
-  }
-}
-@media (max-width: 426px) {
-  .card {
-    margin: 0 2rem !important;
-  }
+  justify-content: center;
 }
 
 .slide3-data h3 {
@@ -141,7 +132,6 @@
   .slide3-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100vh;
   }
   .data-item1 {
     text-align: start;
@@ -176,9 +166,6 @@
   }
   .wrap {
     grid-template-rows: 3fr 2fr;
-  }
-  .card {
-    margin-right: 10%;
   }
 }
 @media (max-width: 450px) {

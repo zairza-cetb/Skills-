@@ -8,8 +8,6 @@ import Navbar from "./components/Navbar/Navbar";
 import Login from "./pages/Login/login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Signup from "./pages/Signup/signup";
-import { useDispatch } from "react-redux";
-import { checkUserSession } from "./store/user/user.action";
 
 import { checkUserSession, signOutStart } from "./store/user/user.action";
 import { signOutUser } from "./utils/firebase/firebase.utils";
@@ -24,7 +22,7 @@ function App() {
     dispatch(checkUserSession());
   })
 
-  // signOutUser();
+  signOutUser();
   // useEffect(() => {
   //   dispatch(signOutStart());
   // });

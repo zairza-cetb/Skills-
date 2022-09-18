@@ -104,8 +104,8 @@ const Signup = () => {
                   type={showConfirmPassword ? "text" : "password"}
                   className="enterPassword"
                   placeholder="Confirm password"
-                  name="confirmPassword"
-                  value={user.confirmPassword}
+                  name="enterConfirmPassword"
+                  value={user.enterConfirmPassword}
                   onChange={changeHandler}
                 />
               </div>
@@ -127,7 +127,7 @@ const Signup = () => {
         <div className="layer8">
           <div className="btn1">
             <button className="registerBtn" onClick={signUp}>
-              Login
+              Sign Up
             </button>
           </div>
           <p>or</p>

@@ -30,6 +30,7 @@ export function* getUserInfoFromAPI(userAuth) {
     if (error.message.includes("Request failed with status code 401")) {
       const idToken = yield userAuth.getIdToken(true);
       const userSnapshot = yield call(createUser, { idToken });
+      console.log(userSnapshot)
       yield put(signUpSuccess({ ...userSnapshot }));
     } else {
       yield put(signInFailed(error));

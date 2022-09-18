@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import "./login.scss"
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -9,11 +10,12 @@ import registerImage from "../../Assets/images/registerImage.png";
 import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import {signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
+import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
 
 const Login = () => {
   const auth = getAuth();  
   const nav = useNavigate();
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [user, setUser] = useState({
     enterEmail: "",
@@ -31,22 +33,21 @@ const Login = () => {
       [name]: value,
     });
   };
-  const register = (e) => {
+  const signIn = (e) => {
     e.preventDefault();
     try {
-     signInWithEmailAndPassword(auth,user.enterEmail,user.enterPassword)
-      .then((response) => {
-        alert("Login successfull");
-        nav("/dashboard");
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        alert(errorMessage);
-      });
+      dispatch(emailSignInStart(user.enterEmail, user.enterPassword));
     } catch (err) {
       setError(true);
     }
 }
+
+const signInWithGoogle = async () => {
+  console.log("google");
+  dispatch(googleSignInStart());
+};
+
+
 
     return(
         <div className="page">
@@ -80,13 +81,13 @@ const Login = () => {
 
         <div className="layer8">
           <div className="btn1">
-            <button className="registerBtn" onClick={register}>
+            <button className="registerBtn" onClick={signIn}>
               Login
             </button>
           </div>
           <p>or</p>
           <div className="btn2">
-            <button className="google" onClick={signInWithGooglePopup}>
+            <button className="google" onClick={signInWithGoogle}>
               <GoogleIcon />
             </button>
           </div>

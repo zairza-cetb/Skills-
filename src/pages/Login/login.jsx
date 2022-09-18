@@ -36,7 +36,6 @@ const Login = () => {
     try {
      signInWithEmailAndPassword(auth,user.enterEmail,user.enterPassword)
       .then((response) => {
-        // console.log(user);  
         alert("Login successfull");
         nav("/dashboard");
       })
@@ -91,11 +90,7 @@ const Login = () => {
               <GoogleIcon />
             </button>
           </div>
-          <div className="btn3">
-            <button className="git">
-              <GitHubIcon />
-            </button>
-          </div>
+          
         </div>
         <div className="layer9">
           <p>

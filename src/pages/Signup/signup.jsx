@@ -140,11 +140,7 @@ const Signup = () => {
               <GoogleIcon />
             </button>
           </div>
-          <div className="btn3">
-            <button className="git">
-              <GitHubIcon />
-            </button>
-          </div>
+         
         </div>
       </div>
       <div className="image">

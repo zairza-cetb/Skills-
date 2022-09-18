@@ -11,10 +11,11 @@
     width: 85vw; 
     padding: 50px;
 }
-.main-div h1{
+.dashboard-heading{
     text-align: center;
     justify-content: center;
-    padding: 30px;
+    padding:30px;
+    font-size:50px;
 }
 .main-div .accordian{
     border-radius: 0.8rem;
@@ -38,4 +39,10 @@
 .Week_accordian h1>span{
     font-weight: 500;
     color: gray;
+}
+
+@media screen and (max-width: 492px){
+    .dashboard-heading{
+        font-size:30px;
+    }
 }

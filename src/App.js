@@ -6,6 +6,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./pages/Login/login";
 import Dashboard from "./pages/dashboard/Dashboard";
+import Footer from "./components/Footer/Footer";
 import Signup from "./pages/Signup/signup";
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

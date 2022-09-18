@@ -79,7 +79,6 @@ const Registration = () => {
             const res = response.user;
 
             auth.currentUser.getIdToken(true).then((idToken) => {
-
               console.log(idToken);
               createUserWithAxiosPost({
                 user: {
@@ -353,8 +352,8 @@ const Registration = () => {
         </div>
       </div>
       <div className="image">
-        <img className="regImage" src={registerImage} />
-        <img className="window" src={window} />
+        <img className="regImage" src={registerImage} alt=""/>
+        <img className="window" src={window} alt=""/>
       </div>
     </div>
   );

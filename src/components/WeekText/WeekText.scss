@@ -23,6 +23,7 @@
     border: none;
     background-color: blue;
     color: white;
+    cursor:pointer;
 }
 .WeekText-heading_Mentors input{
     border: none;
@@ -32,7 +33,9 @@
 .WeekText-heading_Marks>input{
     border: none;
 }
-
+.WeekText-marks,.WeekText-remarks{
+    margin-top:0.5rem;
+}
 @media screen and (max-width: 492px){
     .WeekText input{
         width: fit-content;

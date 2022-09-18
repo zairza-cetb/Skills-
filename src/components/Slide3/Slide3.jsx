@@ -16,7 +16,7 @@ function Slide3() {
             return(
                 <li key={index} className={item.cName}>
                   <div className='content-wrapper'>
-                  <div><img src={item.icon}/></div>
+                  <div><img src={item.icon} alt="item icon"/></div>
                   <div>{item.title}</div>
                   </div>
                 </li>
@@ -29,7 +29,7 @@ function Slide3() {
             return(
                 <li key={index} className={item.cName}>
                   <div className='content-wrapper'>
-                  <div><img src={item.icon}/></div>
+                  <div><img src={item.icon} alt="item icon"/></div>
                   <div>{item.title}</div>
                   </div>
                 </li>
@@ -42,7 +42,7 @@ function Slide3() {
             return(
                 <li key={index} className={item.cName}>
                   <div className='content-wrapper'>
-                  <div><img src={item.icon}/></div>
+                  <div><img src={item.icon} alt="item icon"/></div>
                   <div>{item.title}</div>
                   </div>
                 </li>

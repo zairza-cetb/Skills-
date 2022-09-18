@@ -22,7 +22,7 @@ function App() {
     dispatch(checkUserSession());
   })
 
-  signOutUser();
+  // signOutUser();
   // useEffect(() => {
   //   dispatch(signOutStart());
   // });

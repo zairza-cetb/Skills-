@@ -1,7 +1,7 @@
 import { ActionTypes } from "../constants/actionTypes";
 
 const initialState = {
-  _id:"",
+  userId:"",
   domainId:"",
   registrationId:"",
   domainName:"",
@@ -20,11 +20,11 @@ const authReducer = (state = initialState, action) => {
     case ActionTypes.DOMAIN_REGISTRATION_SUCCESS:
       return {
         ...state,
-        _id:action.payload.userId,
+        userId:action.payload.userId,
         domainId:action.payload._id,
-        domainName:"",
-        mentors:[],
-        tasks:[],
+        domainName:action.payload.domainName,
+        mentors:action.payload.mentors,
+        tasks:action.payload.tasks,
       };
 
     case ActionTypes.LOGIN_USER_SUCCESS: {

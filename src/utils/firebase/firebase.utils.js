@@ -1,31 +1,24 @@
 import { initializeApp } from 'firebase/app';
-// import {
-//   getAuth,
-//   signInWithRedirect,
-//   signInWithPopup,
-//   GoogleAuthProvider,
-//   createUserWithEmailAndPassword,
-//   signInWithEmailAndPassword,
-//   signOut,
-//   onAuthStateChanged,
 import {
   getAuth,
   signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
-
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
 } from 'firebase/auth';
 
 
-const firebaseConfig =
-  {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: "skills-6cd94.firebaseapp.com",
-    projectId: "skills-6cd94",
-    storageBucket: "skills-6cd94.appspot.com",
-    messagingSenderId: "749070757324",
-    appId: "1:749070757324:web:2b042c4bb42db9e3edc169"
-  };
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: "skills-6cd94.firebaseapp.com",
+  projectId: "skills-6cd94",
+  storageBucket: "skills-6cd94.appspot.com",
+  messagingSenderId: "749070757324",
+  appId: "1:749070757324:web:2b042c4bb42db9e3edc169"
+};
 
 const app = initializeApp(firebaseConfig);
 
@@ -56,20 +49,20 @@ export const signInWithGoogleRedirect = () =>{
 //   return await signInWithEmailAndPassword(auth, email, password);
 // };
 
-// export const signOutUser = async () => await signOut(auth);
+export const signOutUser = async () => await signOut(auth);
 
-// export const onAuthStateChangedListener = (callback) =>
-//   onAuthStateChanged(auth, callback);
+export const onAuthStateChangedListener = (callback) =>
+  onAuthStateChanged(auth, callback);
 
-// export const getCurrentUser = () => {
-//   return new Promise((resolve, reject) => {
-//     const unsubscribe = onAuthStateChanged(
-//       auth,
-//       (userAuth) => {
-//         unsubscribe();
-//         resolve(userAuth);
-//       },
-//       reject
-//     );
-//   });
-// };
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
+};

@@ -1,6 +1,6 @@
 import React from "react";
-import Skills from "../Assets/icons/Skills.svg";
-import "../css/Navbar.css";
+import Skills from "../../Assets/icons/Skills.svg";
+import "./Navbar.scss";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useLocation, useNavigate } from "react-router-dom";
 const Navbar = ({ handleSidebar }) => {

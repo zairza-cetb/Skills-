@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import Registration from "./pages/regPage";
-import LandingPage from "./pages/LandingPage";
+import Registration from "./pages/Register/register";
+import LandingPage from "./pages/Landing/landing";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-import Navbar from "./components/Navbar";
-import Login from "./pages/login";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Navbar from "./components/Navbar/Navbar";
+import Login from "./pages/Login/login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Footer from "./components/Footer/Footer";
+import Signup from "./pages/Signup/signup";
 
 function App() {
   const [display, setDisplay] = useState(false);
   const handleSidebar = () => {
     setDisplay(!display);
   };
+  
   return (
     <div>
       <Router>
@@ -29,6 +31,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/login" element={<Login />} />
+        </Routes>
+        <Routes>
+          <Route path="/signup" element={<Signup />} />
         </Routes>
         <Routes>
           <Route path="/dashboard" element={<Dashboard />}></Route>

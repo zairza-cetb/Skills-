@@ -1,6 +1,6 @@
 import React from "react";
-import "../css/Sidebar.css";
-import Skills from "../Assets/icons/Skills.svg";
+import "./Sidebar.scss";
+import Skills from "../../Assets/icons/Skills.svg";
 import { IoCloseSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 const Sidebar = ({ handleSidebar }) => {

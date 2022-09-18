@@ -1,10 +1,10 @@
 @font-face {
   font-family: GilroyB;
-  src: url("../Assets/fonts/Gilroy-ExtraBold.woff");
+  src: url("../../Assets/fonts/Gilroy-ExtraBold.woff");
 }
 @font-face {
   font-family: GilroyL;
-  src: url("../Assets/fonts/Gilroy-Light.woff");
+  src: url("../../Assets/fonts/Gilroy-Light.woff");
 }
 * {
   padding: 0;
@@ -47,7 +47,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("../Assets/images/Rectangle.png");
+  background-image: url("../../Assets/images/Rectangle.png");
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100% 46%;
@@ -180,7 +180,7 @@ h1 {
   position: relative;
 }
 .page .regPage .layer5 .selectBranch .branch {
-  background-image: url("../Assets/images/down.png");
+  background-image: url("../../Assets/images/down.png");
   background-repeat: no-repeat;
   background-size: 1rem;
   background-position: 96%;
@@ -218,7 +218,7 @@ h1 {
   position: relative;
 }
 .page .regPage .layer6 .selectMember .member {
-  background-image: url("../Assets/images/down.png");
+  background-image: url("../../Assets/images/down.png");
   background-repeat: no-repeat;
   background-size: 1rem;
   background-position: 96%;
@@ -242,7 +242,7 @@ h1 {
   position: relative;
 }
 .page .regPage .selectdomain .domain {
-  background-image: url("../Assets/images/down.png");
+  background-image: url("../../Assets/images/down.png");
   background-repeat: no-repeat;
   background-size: 1rem;
   background-position: 98%;

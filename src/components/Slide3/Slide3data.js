@@ -1,18 +1,16 @@
-import A1 from '../Assets/icons/monitor.png'
-import A2 from '../Assets/icons/mobile.png'
-import A3 from '../Assets/icons/simcard.png'
-import A4 from '../Assets/icons/external-drive.png'
-import A5 from '../Assets/icons/bitcoin-(btc).png'
-import A6 from '../Assets/icons/folder-connection.png'
-import A7 from '../Assets/icons/cloud-add.png'
-
-import B1 from '../Assets/icons/airdrop.png'
-import B2 from '../Assets/icons/game.png'
-import B3 from '../Assets/icons/cpu-setting.png'
-
-import C1 from '../Assets/icons/monitor-mobbile.png'
-import C2 from '../Assets/icons/pen-tool-2.png'
-import C3 from '../Assets/icons/video.png'
+import A1 from '../../Assets/icons/monitor.png'
+import A2 from '../../Assets/icons/mobile.png'
+import A3 from '../../Assets/icons/simcard.png'
+import A4 from '../../Assets/icons/external-drive.png'
+import A5 from '../../Assets/icons/bitcoin-(btc).png'
+import A6 from '../../Assets/icons/folder-connection.png'
+import A7 from '../../Assets/icons/cloud-add.png'
+import B1 from '../../Assets/icons/airdrop.png'
+import B2 from '../../Assets/icons/game.png'
+import B3 from '../../Assets/icons/cpu-setting.png'
+import C1 from '../../Assets/icons/monitor-mobbile.png'
+import C2 from '../../Assets/icons/pen-tool-2.png'
+import C3 from '../../Assets/icons/video.png'
 
 export const Slide3data1 = [
     {

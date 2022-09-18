@@ -1,6 +1,6 @@
-import one from '../Assets/icons/award.png'
-import two from '../Assets/icons/gift.png'
-import three from '../Assets/icons/favorite-chart.png'
+import one from '../../Assets/icons/award.png'
+import two from '../../Assets/icons/gift.png'
+import three from '../../Assets/icons/favorite-chart.png'
 
 export const Slide2data1 = [
     {

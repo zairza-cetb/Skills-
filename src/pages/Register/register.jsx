@@ -1,24 +1,21 @@
 import React, { useState } from "react";
-import "../css/regPage.css";
+import "./register.scss";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import GoogleIcon from "@mui/icons-material/Google";
 import { FaAngleDown, FaWineGlass } from "react-icons/fa";
-import registerImage from "../Assets/images/registerImage.png";
-import window from "../Assets/images/browserWindow.png";
+import registerImage from "../../Assets/images/registerImage.png";
+import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app } from "../utils/firebase/firebase.utils";
-import { createUserWithAxiosPost } from "../utils/api/api.utils";
-import { sendEmailToBackend } from "../utils/api/api.utils";
+import { app } from "../../utils/firebase/firebase.utils";
+import { createUserWithAxiosPost } from "../../utils/api/api.utils";
+import { sendEmailToBackend } from "../../utils/api/api.utils";
+import { getCurrentUser } from "../../utils/firebase/firebase.utils"
 const Registration = () => {
   const auth = getAuth();
-  // const dispatch=useDispatch();
-
   const nav = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [branch, setBranch] = useState([]);
   const [answer, setAnswer] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
@@ -34,23 +31,7 @@ const Registration = () => {
     interestedDomain: "",
   });
   const [err, setError] = useState(false);
-  const buttonHandler = (e) => {
-    e.preventDefault();
-    setShowPassword(!showPassword);
-  };
-  const confirmButtonHandler = (e) => {
-    e.preventDefault();
-    setShowConfirmPassword(!showConfirmPassword);
-  };
   const checkPhnNo = (e) => {
-    // const onlyDigits = e.target.value.test(!/\D/g);
-    // setPhoneNo(onlyDigits)
-    // if(onlyDigits>9999999999){
-    //     alert("enter Valid phone number")
-    // }
-    // else{
-    //     setPhoneNo(onlyDigits)
-    // }
     if (!/\D/g.test(e.target.value) && e.target.value <= 9999999999) {
       setPhoneNo(e.target.value);
     } else {
@@ -106,7 +87,7 @@ const Registration = () => {
                   name: user.name,
                   phoneNumber: phoneNo,
                   registrationNumber: enterRedgNo,
-                  zairzaMember: answer == "yes" ? "member" : "notMember",
+                  zairzaMember: answer == "yes",
                   interestedDomain: interestedDomain,
                   branch: branch,
                 },
@@ -171,15 +152,15 @@ const Registration = () => {
   const wings = [
     {
       name: "Software",
-      value: "Software",
+      value: "software",
     },
     {
       name: "Hardware",
-      value: "Hardware",
+      value: "hardware",
     },
     {
       name: "Design",
-      value: "Design",
+      value: "design",
     },
   ];
   const domains = [
@@ -187,17 +168,15 @@ const Registration = () => {
     "App Development",
     "UI/UX",
     "Graphics Designing",
-    "Competetive Coding",
+    "Competitive Coding",
     "AI/ML",
     "Game Development",
-    "game",
     "Embedded System & IOT",
     "ROS",
     "3D and Motion Graphics",
     "Cybersecurity",
     "Blockchain",
     "Devops",
-    "devops",
   ];
   const branchHandler = (e) => {
     setBranch(e.target.branches.value);
@@ -271,64 +250,9 @@ const Registration = () => {
               onChange={changeHandler}
             />
           </div>
-          <div className="email2 e2">
-            <p>Confirm Email ID</p>
-            <input
-              type="email"
-              className="enterEmail"
-              placeholder="Confirm your Email"
-              name="confirmEmail"
-              value={user.confirmEmail}
-              onChange={changeHandler}
-            />
-          </div>
+          
         </div>
-        <div className="layer4">
-          <div className="password">
-            <p>Password</p>
-            <div className="wrapfield">
-              <div>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  className="enterPassword"
-                  placeholder="Enter password"
-                  name="enterPassword"
-                  value={user.enterPassword}
-                  onChange={changeHandler}
-                />
-              </div>
-              <div className="shBtn">
-                <button className="showbtn" onClick={buttonHandler}>
-                  {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="password p2">
-            <p>Confirm Password</p>
-            <div className="wrapfield">
-              <div>
-                <input
-                  type={showConfirmPassword ? "text" : "password"}
-                  className="enterPassword"
-                  placeholder="Confirm password"
-                  name="confirmPassword"
-                  value={user.confirmPassword}
-                  onChange={changeHandler}
-                />
-              </div>
-              <div className="shBtn">
-                <button className="showbtn" onClick={confirmButtonHandler}>
-                  {showConfirmPassword ? (
-                    <VisibilityOffIcon />
-                  ) : (
-                    <VisibilityIcon />
-                  )}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+       
         <div className="layer5">
           <div className="student selectBranch">
             <p>Branch</p>

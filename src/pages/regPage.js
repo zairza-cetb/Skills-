@@ -98,7 +98,7 @@ const Registration = () => {
             const res = response.user;
 
             auth.currentUser.getIdToken(true).then((idToken) => {
-              // console.log(idToken);
+              console.log(idToken);
               createUserWithAxiosPost({
                 user: {
                   email: user.enterEmail,

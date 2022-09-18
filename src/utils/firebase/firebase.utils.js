@@ -17,15 +17,15 @@ import {
 } from 'firebase/auth';
 
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCkHRp4NeMGkpnBWlezWMW6XH819H_hPco",
-  authDomain: "skills-f8403.firebaseapp.com",
-  projectId: "skills-f8403",
-  storageBucket: "skills-f8403.appspot.com",
-  messagingSenderId: "560668510955",
-  appId: "1:560668510955:web:5e7e6aba86e42967cb4cae",
-  measurementId: "G-ED3BG6WPE9"
-}
+const firebaseConfig =
+  {
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: "skills-6cd94.firebaseapp.com",
+    projectId: "skills-6cd94",
+    storageBucket: "skills-6cd94.appspot.com",
+    messagingSenderId: "749070757324",
+    appId: "1:749070757324:web:2b042c4bb42db9e3edc169"
+  };
 
 const app = initializeApp(firebaseConfig);
 

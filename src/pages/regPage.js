@@ -10,9 +10,8 @@ import window from "../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "../utils/firebase/firebase.utils";
-import {createUserWithAxiosPost} from "../utils/api/api.utils";
-import {sendEmailToBackend} from "../utils/api/api.utils";
-
+import { AuthUserPost, UserDetailsPost } from "../utils/api/api.utils";
+import { sendEmailToBackend } from "../utils/api/api.utils";
 
 const Registration = () => {
   const auth = getAuth();
@@ -32,7 +31,7 @@ const Registration = () => {
     confirmPassword: "",
     enterRedgNo: "",
     enterWing: "",
-    interestedDomain:"",
+    interestedDomain: "",
   });
   const [err, setError] = useState(false);
   const buttonHandler = (e) => {
@@ -65,6 +64,39 @@ const Registration = () => {
       [name]: value,
     });
   };
+  const sendEmail = () => {
+    auth.currentUser.getIdToken(true).then(async (idToken) => {
+      await sendEmailToBackend({
+        idToken,
+      });
+    });
+  };
+  const update = () => {
+    const res = user;
+
+    auth.currentUser.getIdToken(true).then(async (idToken) => {
+      await UserDetailsPost(idToken, res);
+    });
+  };
+
+  const authenticate = () => {
+    createUserWithEmailAndPassword(auth, user.enterEmail, user.enterPassword)
+      .then((response) => {
+        //authenticate user
+        auth.currentUser.getIdToken(true).then((idToken) => {
+          AuthUserPost(idToken);
+        });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
+  };
+
+  const gettingStarted = (e) => {
+    register(e);
+  };
+
   const register = (e) => {
     e.preventDefault();
     try {
@@ -90,31 +122,7 @@ const Registration = () => {
         enterEmail === confirmEmail &&
         enterPassword === confirmPassword
       ) {
-        createUserWithEmailAndPassword(
-          auth,
-          user.enterEmail,
-          user.enterPassword
-        )
-          .then((response) => {
-            const res = response.user;
-
-            auth.currentUser.getIdToken(true).then((idToken) => {
-              // console.log(idToken);
-
-              createUserWithAxiosPost(idToken);
-
-            });
-            console.log(user.enterEmail);
-            // sendEmailToBackend({sendEmail:user.enterEmail});
-          })
-          .catch((error) => {
-            const errorMessage = error.message;
-            alert(errorMessage);
-          });
-
-
         console.log(enterWing);
-
 
         if (answer === "yes") {
           if (
@@ -123,7 +131,31 @@ const Registration = () => {
             enterWing === "DESIGN"
           ) {
             // console.log(user);
-             alert("registration successful");
+            createUserWithEmailAndPassword(
+              auth,
+              user.enterEmail,
+              user.enterPassword
+            )
+              .then((response) => {
+                //authenticate user
+                auth.currentUser.getIdToken(true).then((idToken) => {
+                  AuthUserPost(idToken);
+                });
+                alert("registration successful");
+                setTimeout(function () {
+                  // Something you want delayed.
+                  update();
+                }, 1000);
+                console.log("updated details");
+                setTimeout(function () {
+                  // Something you want delayed.
+                  sendEmail();
+                }, 1000);
+              })
+              .catch((error) => {
+                const errorMessage = error.message;
+                alert(errorMessage);
+              });
           } else {
             alert("Enter valid wing: (SOFTWARE--or--HARDWARE--or--DESIGN)");
           }
@@ -454,13 +486,13 @@ const Registration = () => {
         </div>
         <div className="layer8">
           <div className="btn1">
-            <button className="registerBtn" onClick={register}>
+            <button className="registerBtn" onClick={gettingStarted}>
               Register
             </button>
           </div>
           <p>or</p>
           <div className="btn2">
-            <button className="google" >
+            <button className="google">
               <GoogleIcon />
             </button>
           </div>

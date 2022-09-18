@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from "firebase/app";
 // import {
 //   getAuth,
 //   signInWithRedirect,
@@ -13,36 +13,33 @@ import {
   signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
-
-} from 'firebase/auth';
-
+} from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCkHRp4NeMGkpnBWlezWMW6XH819H_hPco",
-  authDomain: "skills-f8403.firebaseapp.com",
-  projectId: "skills-f8403",
-  storageBucket: "skills-f8403.appspot.com",
-  messagingSenderId: "560668510955",
-  appId: "1:560668510955:web:5e7e6aba86e42967cb4cae",
-  measurementId: "G-ED3BG6WPE9"
-}
+  apiKey: "AIzaSyDfJcNI1Z5XO6jSkaovLYVaCQt0mtZNjeU",
+  authDomain: "skills-ace46.firebaseapp.com",
+  projectId: "skills-ace46",
+  storageBucket: "skills-ace46.appspot.com",
+  messagingSenderId: "277355797930",
+  appId: "1:277355797930:web:7e70bc5899b632f7d0dfd3",
+  measurementId: "G-F3QV0Q4WPV",
+};
 
 const app = initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 
 googleProvider.setCustomParameters({
-  prompt: 'select_account',
+  prompt: "select_account",
 });
 
 export const auth = getAuth();
-export const signInWithGooglePopup = () =>{
+export const signInWithGooglePopup = () => {
   signInWithPopup(auth, googleProvider);
-}
-export const signInWithGoogleRedirect = () =>{
+};
+export const signInWithGoogleRedirect = () => {
   signInWithRedirect(auth, googleProvider);
-}
-
+};
 
 // export const createAuthUserWithEmailAndPassword = async (email, password) => {
 //   if (!email || !password) return;

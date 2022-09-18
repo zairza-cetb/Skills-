@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Registration from "./pages/Register/register";
 import LandingPage from "./pages/Landing/landing";
 import { Routes, Route } from "react-router-dom";
@@ -10,15 +11,27 @@ import Signup from "./pages/Signup/signup";
 import { useDispatch } from "react-redux";
 import { checkUserSession } from "./store/user/user.action";
 
+import { checkUserSession, signOutStart } from "./store/user/user.action";
+import { signOutUser } from "./utils/firebase/firebase.utils";
+
 function App() {
-  const [display, setDisplay] = useState(false);
   const dispatch = useDispatch();
+  const [display, setDisplay] = useState(false);
   const handleSidebar = () => {
     setDisplay(!display);
   };
   useEffect(()=>{
     dispatch(checkUserSession());
   })
+
+  // signOutUser();
+  // useEffect(() => {
+  //   dispatch(signOutStart());
+  // });
+
+  useEffect(() => {
+    dispatch(checkUserSession());
+  });
 
   return (
     <>
@@ -29,17 +42,9 @@ function App() {
       )}
       <Routes>
         <Route path="/register" element={<Registration />} />
-      </Routes>
-      <Routes>
         <Route path="/" element={<LandingPage />} />
-      </Routes>
-      <Routes>
         <Route path="/login" element={<Login />} />
-      </Routes>
-      <Routes>
         <Route path="/signup" element={<Signup />} />
-      </Routes>
-      <Routes>
         <Route path="/dashboard" element={<Dashboard />}></Route>
       </Routes>
     </>

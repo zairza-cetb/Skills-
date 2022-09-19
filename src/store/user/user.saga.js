@@ -1,4 +1,4 @@
-import { takeLatest, put, all, call } from "redux-saga/effects";
+import { takeLatest, put, all, call, apply } from "redux-saga/effects";
 
 import { USER_ACTION_TYPES } from "./user.types";
 
@@ -23,12 +23,14 @@ import { createUser, updateUser, loginUser } from "../../utils/api/api.utils";
 
 export function* getUserInfoFromAPI(userAuth) {
   try {
-    const idToken = yield userAuth.getIdToken(true);
+    console.log(userAuth,"userAuth");
+    
+    const idToken = yield apply(userAuth,userAuth.getIdToken);
     const userSnapshot = yield call(loginUser, { idToken });
     yield put(signInSuccess({ ...userSnapshot }));
   } catch (error) {
     if (error.message.includes("Request failed with status code 401")) {
-      const idToken = yield userAuth.getIdToken(true);
+      const idToken = yield apply(userAuth,userAuth.getIdToken);
       const userSnapshot = yield call(createUser, { idToken });
       console.log(userSnapshot)
       yield put(signUpSuccess({ ...userSnapshot }));

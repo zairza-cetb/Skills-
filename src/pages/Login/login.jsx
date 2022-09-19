@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./login.scss"
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -11,9 +11,10 @@ import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 const Login = () => {
-  const auth = getAuth();  
+  const currentUser = useSelector(selectCurrentUser) 
   const nav = useNavigate();
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
@@ -22,6 +23,20 @@ const Login = () => {
     enterPassword: "",
   });
   const [err, setError] = useState(false);
+
+  useEffect(()=>{
+    if(currentUser){
+      nav('/coming-soon')
+    }
+  })
+
+
+
+
+
+
+
+
   const buttonHandler = (e) => {
     e.preventDefault();
     setShowPassword(!showPassword);

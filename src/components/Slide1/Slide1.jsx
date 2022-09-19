@@ -12,8 +12,8 @@ function Slide1() {
           <h1>The biggest <span style={{ color: '#3370F6' }}>Upskilling</span> program for future geeks.</h1>
           <p>Get started with some real time projects and get your hands dirty and learn more</p>
           <div className='slide1-button'>
-            <button className='btn' onClick={()=>nav('/register')}>Register Now</button>
-            <button className='btn btn2'>Check Domains →</button>
+            <button className='btn' onClick={()=>nav('/signup')}>Register Now</button>
+            <a className='btn btn2' href="#domain">Check Domains →</a>
           </div>
         </div>
         <img src={heroImage} alt="" className='heroImage' />

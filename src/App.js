@@ -44,10 +44,10 @@ function App() {
         <Navbar handleSidebar={handleSidebar} />
       )}
       <Routes>
-        <Route path="/register" element={<Registration />} />
         <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<PrivateRoute><Registration /></PrivateRoute>} />
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
         <Route path="/coming-soon" element={<PrivateRoute><ComingSoon/></PrivateRoute>}/>
   

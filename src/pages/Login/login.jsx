@@ -9,6 +9,7 @@ import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
 import { selectCurrentUser } from "../../store/user/user.selector";
+import { ToastContainer } from "react-toastify";
 
 const Login = () => {
   const currentUser = useSelector(selectCurrentUser) 
@@ -109,6 +110,7 @@ const signInWithGoogle = async () => {
         <img className="regImage" src={registerImage} />
         <img className="window" src={window} />
       </div>
+      <ToastContainer />
     </div>
   );
 };

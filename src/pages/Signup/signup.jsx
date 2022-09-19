@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpStart, googleSignInStart } from "../../store/user/user.action";
 import { selectCurrentUser } from "../../store/user/user.selector";
+import { toast, ToastContainer } from "react-toastify";
 
 const Signup = () => {
   const currentUser = useSelector(selectCurrentUser) 
@@ -52,6 +53,17 @@ const Signup = () => {
 
   const signUp = (e) => {
     e.preventDefault();
+    if(user.enterPassword !== user.enterConfirmPassword){
+      toast.error("Password doesn't match",{
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
+    }
     try {
       dispatch(signUpStart(user.enterEmail, user.enterPassword));
     } catch (err) {
@@ -150,6 +162,7 @@ const Signup = () => {
         <img className="regImage" src={registerImage} />
         <img className="window" src={window} />
       </div>
+      <ToastContainer />
     </div>
   );
 };

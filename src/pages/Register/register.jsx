@@ -7,6 +7,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { updateUser } from "../../utils/api/api.utils";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
+import { ToastContainer } from "react-toastify";
 const Registration = () => {
   const currentUser = useSelector(selectCurrentUser) 
   const auth = getAuth();
@@ -338,6 +339,8 @@ const Registration = () => {
         <img className="regImage" src={registerImage} alt={"registerImage"} />
         <img className="window" src={window} alt={"registerImage"} />
       </div>
+      <ToastContainer />
+
     </div>
   );
 };

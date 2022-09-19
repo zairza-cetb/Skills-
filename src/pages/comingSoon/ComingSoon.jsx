@@ -1,4 +1,5 @@
 import React from 'react'
+import { ToastContainer } from 'react-toastify';
 import rocket from "../../Assets/images/rocket.png"
 import "./ComingSoon.scss";
 
@@ -13,6 +14,7 @@ const ComingSoon = () => {
         <div className="comming-soon-right">
             <img src={rocket} alt="" />
         </div>
+        <ToastContainer />
     </div>
   )
 }

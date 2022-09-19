@@ -1,5 +1,5 @@
 import { takeLatest, put, all, call, apply } from "redux-saga/effects";
-
+import { toast } from 'react-toastify';
 import { USER_ACTION_TYPES } from "./user.types";
 
 import {
@@ -32,7 +32,17 @@ export function* getUserInfoFromAPI(userAuth) {
       const userSnapshot = yield call(createUser, { idToken });
       yield put(signUpSuccess({ ...userSnapshot }));
     } else {
+     
       yield put(signInFailed(error));
+      toast.error(error.message,{
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
     }
   }
 }
@@ -43,7 +53,17 @@ export function* signInWithGoogle() {
 
     yield call(getUserInfoFromAPI, user);
   } catch (error) {
+
     yield put(signInFailed(error));
+    toast.error(error.message,{
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
   }
 }
 
@@ -57,6 +77,15 @@ export function* signInWithEmail({ payload: { email, password } }) {
     yield call(getUserInfoFromAPI, user);
   } catch (error) {
     yield put(signInFailed(error));
+    toast.error(error.message,{
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
   }
 }
 
@@ -82,6 +111,15 @@ export function* signUp({ payload: { email, password } }) {
     yield call(getUserInfoFromAPI, user);
   } catch (error) {
     yield put(signUpFailed(error));
+    toast.error(error.message,{
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
   }
 }
 
@@ -91,6 +129,15 @@ export function* signOut() {
     yield put(signOutSuccess());
   } catch (error) {
     yield put(signOutFailed(error));
+    toast.error(error.message,{
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
   }
 }
 

@@ -10,12 +10,10 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Footer from "./components/Footer/Footer";
 import Signup from "./pages/Signup/signup";
 
-import { checkUserSession, signOutStart } from "./store/user/user.action";
-import { signOutUser } from "./utils/firebase/firebase.utils";
+import { checkUserSession } from "./store/user/user.action";
 import { PrivateRoute } from "./components/PrivateRoute/privateRoute";
-import { selectCurrentUser } from "./store/user/user.selector";
 import ComingSoon from "./pages/comingSoon/ComingSoon";
-
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   
   const dispatch = useDispatch();

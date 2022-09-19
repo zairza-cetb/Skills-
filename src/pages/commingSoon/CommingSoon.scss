@@ -1,0 +1,57 @@
+.comming-soon{
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    padding:100px 70px;
+    // background-image: linear-gradient(to bottom right,rgb(88, 88, 197),rgb(216, 87, 177));
+    background-image: url("../../Assets/images/space.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:70vh;
+}
+.comming-soon-left p{
+    color:white;
+}
+.comming-soon-left h1{
+    color:white;
+}
+.comming-soon-left h1 span{
+    color:rgb(211, 101, 23);
+}
+.comming-soon-left button{
+    background-color: transparent;
+    border: 1px solid white;
+    padding:10px 10px;
+    color:white;
+    margin-top:3rem;
+    margin-left: 1rem;
+}
+.comming-soon-right img{
+    height:30vh;
+}
+
+@media  screen and (max-width:925px){
+    .comming-soon{
+        display: flex;
+        gap:1.5rem;
+        flex-direction: column;
+    }
+    .comming-soon-left{
+        padding-left:5rem;
+    }
+}
+@media  screen and (max-width:540px){
+    .comming-soon-right img{
+        height:25vh;
+        margin-top:2rem;
+    }
+}
+@media  screen and (max-width:420px){
+    .comming-soon-right img{
+        height:20vh;
+    }
+    .comming-soon-left{
+        font-size: small;
+        padding-left:2rem;
+    }
+}

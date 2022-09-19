@@ -3,8 +3,15 @@ import "./Sidebar.scss";
 import Skills from "../../Assets/icons/Skills.svg";
 import { IoCloseSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-const Sidebar = ({ handleSidebar }) => {
+import { useDispatch } from "react-redux";
+import { signOutStart } from "../../store/user/user.action";
+const Sidebar = ({ handleSidebar, currentUser }) => {
   const nav = useNavigate();
+  const dispatch = useDispatch();
+
+  const userSignOut = async () => {
+    dispatch(signOutStart());
+  };
   return (
     <div className="sidebar">
       <div className="sidebar-top">
@@ -32,11 +39,18 @@ const Sidebar = ({ handleSidebar }) => {
           </a>
         </li>
         <li>
-          <button  onClick={() => {
-            handleSidebar();
-            nav("/login")
-          }
-          }>Login</button>
+          {currentUser ? (
+            <button onClick={userSignOut}>Log Out</button>
+          ) : (
+            <button
+              onClick={() => {
+                handleSidebar();
+                nav("/login");
+              }}
+            >
+              Login
+            </button>
+          )}
         </li>
       </ul>
     </div>

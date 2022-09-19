@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./register.scss";
 import registerImage from "../../Assets/images/registerImage.png";
 import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { updateUser } from "../../utils/api/api.utils";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
 const Registration = () => {
+  const currentUser = useSelector(selectCurrentUser) 
   const auth = getAuth();
   const nav = useNavigate();
   const [branch, setBranch] = useState([]);
@@ -22,6 +26,13 @@ const Registration = () => {
     interestedDomain: "",
   });
   const [err, setError] = useState(false);
+
+  useEffect(()=>{
+    if(currentUser){
+      nav('/coming-soon')
+    }
+  })
+
   const checkPhnNo = (e) => {
     if (!/\D/g.test(e.target.value) && e.target.value <= 9999999999) {
       setPhoneNo(e.target.value);
@@ -61,6 +72,10 @@ const Registration = () => {
         enterEmail === confirmEmail &&
         enterPassword === confirmPassword
       ) {
+        if (answer === "yes" && enterWing === "") {
+          alert("Please give the wing details");
+          return;
+        }
         createUserWithEmailAndPassword(
           auth,
           user.enterEmail,
@@ -68,19 +83,29 @@ const Registration = () => {
         )
           .then((response) => {
             const res = response.user;
+
+            auth.currentUser.getIdToken(true).then((idToken) => {
+              console.log(idToken);
+              updateUser({
+                user: {
+                  email: user.enterEmail,
+                  password: user.enterPassword,
+                  name: user.name,
+                  phoneNumber: phoneNo,
+                  registrationNumber: enterRedgNo,
+                  zairzaMember: answer == "yes",
+                  interestedDomain: interestedDomain,
+                  branch: branch,
+                },
+                idToken,
+              });
+            });
           })
           .catch((error) => {
             const errorMessage = error.message;
             alert(errorMessage);
           });
-
-        console.log(user.enterEmail);
-
-        console.log(enterWing);
-        if (answer === "yes" && enterWing === "") {
-          alert("Please give the wing details");
-          return;
-        }
+       
         alert("registration successfull");
         nav("/dashboard");
       } else {

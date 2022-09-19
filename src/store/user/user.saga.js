@@ -23,8 +23,6 @@ import { createUser, updateUser, loginUser } from "../../utils/api/api.utils";
 
 export function* getUserInfoFromAPI(userAuth) {
   try {
-    console.log(userAuth,"userAuth");
-    
     const idToken = yield apply(userAuth,userAuth.getIdToken);
     const userSnapshot = yield call(loginUser, { idToken });
     yield put(signInSuccess({ ...userSnapshot }));

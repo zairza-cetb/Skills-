@@ -3,9 +3,18 @@ import Skills from "../../Assets/icons/Skills.svg";
 import "./Navbar.scss";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useLocation, useNavigate } from "react-router-dom";
-const Navbar = ({ handleSidebar }) => {
+import { signOutStart } from "../../store/user/user.action";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
+const Navbar = ({ handleSidebar}) => {
+  const currentUser = useSelector(selectCurrentUser);
   const nav = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  const userSignOut = async () => {
+    dispatch(signOutStart());
+  }
 
   return (
     <div className="navbar">
@@ -27,14 +36,20 @@ const Navbar = ({ handleSidebar }) => {
               <a href="#why">Why skill++</a>
             </li>
             <li>
-              <a href="">Contact us</a>
+              <a href="#faq">Contact us</a>
             </li>
             <li>
-              <button onClick={() => nav("/login")}>Login</button>
+              {
+                currentUser ? 
+                <button onClick={userSignOut}>Log Out</button>
+                :
+                <button onClick={() => nav("/login")}>Login</button>
+              }
             </li>
           </ul>
         ) : (
-          <></>
+          currentUser && 
+          <button onClick={userSignOut}>Log Out</button>
         )}
       </div>
       {location.pathname == "/" ? (
@@ -42,7 +57,8 @@ const Navbar = ({ handleSidebar }) => {
           <GiHamburgerMenu size={25} onClick={handleSidebar} />
         </div>
       ) : (
-        <></>
+        <>
+        </>
       )}
     </div>
   );

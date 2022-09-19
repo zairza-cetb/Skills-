@@ -3,7 +3,7 @@ import faqImage from "../../Assets/images/FAQ.png";
 
 const FAQ = () => {
     return (
-        <div className="faqContainer">
+        <div id="faq" className="faqContainer">
             <div className="txt">
                 <h1 className="heading">FAQs</h1>
                 <section>

@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./signup.scss";
 import { Visibility, VisibilityOff, Google } from "@mui/icons-material";
 
 import registerImage from "../../Assets/images/registerImage.png";
 import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signUpStart, googleSignInStart } from "../../store/user/user.action";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 const Signup = () => {
+  const currentUser = useSelector(selectCurrentUser) 
   const nav = useNavigate();
   const dispatch = useDispatch();
 
@@ -23,6 +25,12 @@ const Signup = () => {
   });
 
   const [err, setError] = useState("");
+
+  useEffect(()=>{
+    if(currentUser){
+      nav('/coming-soon')
+    }
+  })
 
   const buttonHandler = (e) => {
     e.preventDefault();

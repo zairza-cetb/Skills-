@@ -20,7 +20,7 @@ import {
     return (
       <div className="Accordian-container">
         <div className="main-div">
-          <h1>Dashboard</h1>
+          <h1 className="dashboard-heading">Dashboard</h1>
           {/* Rules And Regulations */}
           <Accordion
             className="accordian"
@@ -57,7 +57,7 @@ import {
             >
               <Typography>
                 <h1>
-                  Week 0 -<span>(07/09/2022 - 14/09/2022)</span>
+                  Week 0 -<span>(19/09/2022 - 26/09/2022)</span>
                 </h1>
               </Typography>
             </AccordionSummary>
@@ -92,7 +92,7 @@ import {
             >
               <Typography>
                 <h1>
-                  Week 1 -<span>(07/09/2022 - 14/09/2022)</span>
+                  Week 1 -<span>(27/09/2022 - 04/10/2022)</span>
                 </h1>
               </Typography>
             </AccordionSummary>
@@ -125,7 +125,7 @@ import {
             >
               <Typography>
                 <h1>
-                  Week 2 -<span>(07/09/2022 - 14/09/2022)</span>
+                  Week 2 -<span>(05/10/2022 - 12/10/2022)</span>
                 </h1>
               </Typography>
             </AccordionSummary>
@@ -158,7 +158,7 @@ import {
             >
               <Typography>
                 <h1>
-                  Week 3 -<span>(07/09/2022 - 14/09/2022)</span>
+                  Week 3 -<span>(13/10/2022 - 20/10/2022)</span>
                 </h1>
               </Typography>
             </AccordionSummary>

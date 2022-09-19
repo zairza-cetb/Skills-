@@ -3,13 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import "./login.scss"
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import GoogleIcon from "@mui/icons-material/Google";
-import { FaAngleDown } from "react-icons/fa";
 import registerImage from "../../Assets/images/registerImage.png";
 import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
 import { selectCurrentUser } from "../../store/user/user.selector";
 
@@ -29,13 +26,6 @@ const Login = () => {
       nav('/coming-soon')
     }
   })
-
-
-
-
-
-
-
 
   const buttonHandler = (e) => {
     e.preventDefault();
@@ -87,12 +77,12 @@ const signInWithGoogle = async () => {
             </div>
           </div>
         </div>
-        <div className="layer9">
+        {/* <div className="layer9">
           <p>
             Don’t remember Password ?{" "}
             <span onClick={() => nav("/login")}>Reset Password</span>
           </p>
-        </div>
+        </div> */}
 
         <div className="layer8">
           <div className="btn1">
@@ -111,7 +101,7 @@ const signInWithGoogle = async () => {
         <div className="layer9">
           <p>
             Not registered yet?
-            <span onClick={() => nav("/signup")}>Register</span>
+            <span onClick={() => nav("/signup")}>Sign Up</span>
           </p>
         </div>
       </div>

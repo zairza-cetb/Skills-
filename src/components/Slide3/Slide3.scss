@@ -1,14 +1,13 @@
 .slide3-wrapper {
-  padding: 0 8rem;
+  padding: 6rem 8rem;
   display: grid;
   grid-template-columns: 1.2fr 2fr;
   height: auto;
-  padding-top: 5vh;
   background-image: url("../../Assets/images/Group\ 7511.png");
   background-size: cover;
   background-repeat: no-repeat;
   @media (max-width: 1024px) {
-    padding: 0 6rem;
+    padding: 6rem 6rem;
   }
   @media (max-width: 769px) {
     padding: 0 2rem;

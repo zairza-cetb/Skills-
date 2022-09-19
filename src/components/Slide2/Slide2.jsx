@@ -4,12 +4,12 @@ import { Slide2data1 } from './Slide2data'
 
 function Slide2() {
   return (
-    <div  className='wrap'>
+    <div id="why"  className='wrap'>
       <div className='content-1'>
         <h1>What is <span style={{ color: '#3370F6' }}>Skills</span><span style={{ color: '#EB7F37' }}>++</span>?</h1>
         <p>Skills++ is the biggest UPSKILLING program for future geeks and programmers by Zairza. An idea can pop up in the middle of a shower or while going on a walk, or even randomly after hours of thinking. But when it finally comes, the feeling is extraordinary. That feeling can be addictive and Zairza is here to give you that.</p>
       </div>
-      <div id="why" className='content-2'>
+      <div className='content-2'>
         <h1>Why should you participate?</h1>
         <div className='content-2-items'>
           {Slide2data1.map((item, index) => {

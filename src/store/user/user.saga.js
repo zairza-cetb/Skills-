@@ -13,7 +13,8 @@ import {
 
 import {
   getCurrentUser,
-  signInWithGooglePopup,  
+  getCurrentUserToken,
+  signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
   createAuthUserWithEmailAndPassword,
   signOutUser,
@@ -23,12 +24,19 @@ import { createUser, updateUser, loginUser } from "../../utils/api/api.utils";
 
 export function* getUserInfoFromAPI(userAuth) {
   try {
-    const idToken = yield apply(userAuth,userAuth.getIdToken);
-    const userSnapshot = yield call(loginUser, { idToken });
+    console.log("userAuth", userAuth);
+    const idToken = yield call(getCurrentUserToken);
+    // console.log("idToken", idToken);
+    const userSnapshot = yield call(loginUser, {
+      idToken: idToken,
+    });
     yield put(signInSuccess({ ...userSnapshot }));
   } catch (error) {
-    if (error.message.includes("Request failed with status code 401")) {
-      const idToken = yield apply(userAuth,userAuth.getIdToken);
+    if (
+      error.message.includes("Request failed with status code 401") ||
+      error.message.includes("Request failed with status code 404")
+    ) {
+      const idToken = yield call(getCurrentUserToken);
       const userSnapshot = yield call(createUser, { idToken });
       yield put(signUpSuccess({ ...userSnapshot }));
     } else {
@@ -39,7 +47,7 @@ export function* getUserInfoFromAPI(userAuth) {
 
 export function* signInWithGoogle() {
   try {
-    const {user}= yield call(signInWithGooglePopup);
+    const { user } = yield call(signInWithGooglePopup);
 
     yield call(getUserInfoFromAPI, user);
   } catch (error) {

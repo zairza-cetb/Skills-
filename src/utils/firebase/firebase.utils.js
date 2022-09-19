@@ -31,7 +31,7 @@ export const auth = getAuth();
 export const signInWithGooglePopup = async () => {
   return await signInWithPopup(auth, googleProvider);
 };
-export const signInWithGoogleRedirect =  async () => {
+export const signInWithGoogleRedirect = async () => {
   return await signInWithRedirect(auth, googleProvider);
 };
 
@@ -59,6 +59,19 @@ export const getCurrentUser = () => {
       (userAuth) => {
         unsubscribe();
         resolve(userAuth);
+      },
+      reject
+    );
+  });
+};
+
+export const getCurrentUserToken = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe();
+        userAuth.getIdToken().then(resolve).catch(reject);
       },
       reject
     );

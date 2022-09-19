@@ -16,7 +16,6 @@ const Registration = () => {
   const [branch, setBranch] = useState([]);
   const [answer, setAnswer] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
-  const [regexp, setRegexp] = useState(/^[0-9\b]+$/);
   const [user, setUser] = useState({
     name: "",
     enterEmail: "",

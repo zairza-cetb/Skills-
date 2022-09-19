@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Slide1 from '../../components/Slide1/Slide1'
 import Slide2 from '../../components/Slide2/Slide2'
 import Slide3 from '../../components/Slide3/Slide3'

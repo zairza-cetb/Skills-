@@ -8,6 +8,7 @@ import Login from "./pages/Login/login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Footer from "./components/Footer/Footer";
 import Signup from "./pages/Signup/signup";
+import CommingSoon from "./pages/commingSoon/CommingSoon";
 
 function App() {
   const [display, setDisplay] = useState(false);
@@ -24,19 +25,12 @@ function App() {
           <Navbar handleSidebar={handleSidebar} />
         )}
         <Routes>
-          <Route path="/register" element={<Registration />} />
-        </Routes>
-        <Routes>
           <Route path="/" element={<LandingPage />} />
-        </Routes>
-        <Routes>
+          <Route path="/register" element={<Registration />} />
           <Route path="/login" element={<Login />} />
-        </Routes>
-        <Routes>
           <Route path="/signup" element={<Signup />} />
-        </Routes>
-        <Routes>
           <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/comming-soon" element={<CommingSoon/>}></Route>
         </Routes>
         <Footer />
       </Router>

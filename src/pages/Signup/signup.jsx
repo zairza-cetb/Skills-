@@ -131,7 +131,7 @@ const Signup = () => {
         <div className="layer8">
           <div className="btn1">
             <button className="registerBtn" onClick={signUp}>
-              Login
+              Sign up
             </button>
           </div>
           <p>or</p>

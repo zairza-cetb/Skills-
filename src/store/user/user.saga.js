@@ -13,7 +13,8 @@ import {
 
 import {
   getCurrentUser,
-  signInWithGooglePopup,  
+  getCurrentUserToken,
+  signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
   createAuthUserWithEmailAndPassword,
   signOutUser,
@@ -23,14 +24,30 @@ import { createUser, updateUser, loginUser } from "../../utils/api/api.utils";
 
 export function* getUserInfoFromAPI(userAuth) {
   try {
-    const idToken = yield apply(userAuth,userAuth.getIdToken);
-    const userSnapshot = yield call(loginUser, { idToken });
+    console.log("userAuth", userAuth);
+    const idToken = yield call(getCurrentUserToken);
+    // console.log("idToken", idToken);
+    const userSnapshot = yield call(loginUser, {
+      idToken: idToken,
+    });
     yield put(signInSuccess({ ...userSnapshot }));
   } catch (error) {
-    if (error.message.includes("Request failed with status code 401")) {
-      const idToken = yield apply(userAuth,userAuth.getIdToken);
+    if (
+      error.message.includes("Request failed with status code 401") ||
+      error.message.includes("Request failed with status code 404")
+    ) {
+      const idToken = yield call(getCurrentUserToken);
       const userSnapshot = yield call(createUser, { idToken });
       yield put(signUpSuccess({ ...userSnapshot }));
+      toast.success('Successfully Signed Up',{
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } else {
      
       yield put(signInFailed(error));
@@ -49,9 +66,18 @@ export function* getUserInfoFromAPI(userAuth) {
 
 export function* signInWithGoogle() {
   try {
-    const {user}= yield call(signInWithGooglePopup);
+    const { user } = yield call(signInWithGooglePopup);
 
     yield call(getUserInfoFromAPI, user);
+    toast.success('Successfully signed in',{
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   } catch (error) {
 
     yield put(signInFailed(error));
@@ -75,6 +101,15 @@ export function* signInWithEmail({ payload: { email, password } }) {
       password
     );
     yield call(getUserInfoFromAPI, user);
+    toast.success('Successfully Signed In',{
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   } catch (error) {
     yield put(signInFailed(error));
     toast.error(error.message,{

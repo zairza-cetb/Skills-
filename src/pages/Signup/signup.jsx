@@ -1,17 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import "./signup.scss";
 import { Visibility, VisibilityOff, Google } from "@mui/icons-material";
-
 import registerImage from "../../Assets/images/registerImage.png";
 import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpStart, googleSignInStart } from "../../store/user/user.action";
-import { selectCurrentUser } from "../../store/user/user.selector";
+import { selectCurrentUser, selectUserReducer } from "../../store/user/user.selector";
 import { toast, ToastContainer } from "react-toastify";
+import { PulseLoader } from "react-spinners";
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "#FF6E20",
+};
 
 const Signup = () => {
   const currentUser = useSelector(selectCurrentUser) 
+  const userReducer = useSelector(selectUserReducer)
   const nav = useNavigate();
   const dispatch = useDispatch();
 
@@ -63,6 +70,7 @@ const Signup = () => {
         draggable: true,
         progress: undefined,
       })
+      return;
     }
     try {
       dispatch(signUpStart(user.enterEmail, user.enterPassword));
@@ -147,7 +155,10 @@ const Signup = () => {
         <div className="layer8">
           <div className="btn1">
             <button className="registerBtn" onClick={signUp}>
-              Sign Up
+              {
+                userReducer.isLoading ? <PulseLoader color={"#FF6E20"} loading={true} cssOverride={override} size={5} /> : "Sign Up"
+              }
+              
             </button>
           </div>
           <p>or</p>

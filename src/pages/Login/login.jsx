@@ -8,11 +8,20 @@ import registerImage from "../../Assets/images/registerImage.png";
 import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
-import { selectCurrentUser } from "../../store/user/user.selector";
+import { selectCurrentUser, selectUserReducer } from "../../store/user/user.selector";
 import { ToastContainer } from "react-toastify";
+import { PulseLoader } from "react-spinners";
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "#FF6E20",
+};
+
 
 const Login = () => {
   const currentUser = useSelector(selectCurrentUser) 
+  const userReducer = useSelector(selectUserReducer)
   const nav = useNavigate();
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
@@ -88,7 +97,9 @@ const signInWithGoogle = async () => {
         <div className="layer8">
           <div className="btn1">
             <button className="registerBtn" onClick={signIn}>
-              Login
+            {
+                userReducer.isLoading ? <PulseLoader color={"#FF6E20"} loading={true} cssOverride={override} size={5} /> : "Login"
+              }
             </button>
           </div>
           <p>or</p>

@@ -8,6 +8,7 @@ import { updateUser } from "../../utils/api/api.utils";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { ToastContainer } from "react-toastify";
+
 const Registration = () => {
   const currentUser = useSelector(selectCurrentUser) 
   const auth = getAuth();

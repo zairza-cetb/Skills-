@@ -4,7 +4,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 export const createUser = async ({ idToken }) => {
   try {
     const response = await axios.post(
-      `https://skills-backend.onrender.com/api/skill-plus-plus/signup`,
+      `${API_URL}/api/skill-plus-plus/signup`,
       {},
       {
         headers: {
@@ -22,7 +22,7 @@ export const createUser = async ({ idToken }) => {
 export const loginUser = async ({ idToken }) => {
   try {
     const response = await axios.post(
-      `https://skills-backend.onrender.com/api/skill-plus-plus/login`,
+      `${API_URL}/api/skill-plus-plus/login`,
       {},
       {
         headers: {
@@ -41,7 +41,7 @@ export const loginUser = async ({ idToken }) => {
 export const updateUser = async ({ idToken , user }) => {
   try {
     const response = await axios.post(
-      `https://skills-backend.onrender.com/api/skill-plus-plus/update`,
+      `${API_URL}/api/skill-plus-plus/update`,
       user,
       {
         headers: {

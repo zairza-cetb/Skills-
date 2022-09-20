@@ -65,7 +65,7 @@ const Navbar = ({ handleSidebar }) => {
           <GiHamburgerMenu size={25} onClick={handleSidebar} />
         </div>
       ) : (
-        <></>
+        currentUser && <button onClick={userSignOut}>Log Out</button>
       )}
     </div>
   );

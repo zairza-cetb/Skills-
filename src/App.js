@@ -25,15 +25,6 @@ function App() {
     dispatch(checkUserSession());
   },[])
 
-  // signOutUser();
-  // useEffect(() => {
-  //   dispatch(signOutStart());
-  // });
-
-  useEffect(() => {
-    dispatch(checkUserSession());
-  });
-
   return (
     <>
       {display ? (

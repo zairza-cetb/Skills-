@@ -42,7 +42,10 @@ const Sidebar = ({ handleSidebar}) => {
         </li>
         <li>
           {currentUser ? (
-            <button onClick={userSignOut}>Log Out</button>
+            <button onClick={()=>{
+              handleSidebar();
+              userSignOut();
+            }}>Logout</button>
           ) : (
             <button
               onClick={() => {

@@ -50,14 +50,14 @@ const Navbar = ({ handleSidebar }) => {
             </li>
             <li>
               {currentUser ? (
-                <button onClick={userSignOut}>Log Out</button>
+                <button onClick={userSignOut}>Logout</button>
               ) : (
                 <button onClick={() => nav("/login")}>Login</button>
               )}
             </li>
           </ul>
         ) : (
-          currentUser && <button onClick={userSignOut}>Log Out</button>
+          currentUser && <button onClick={userSignOut}>Logout</button>
         )}
       </div>
       {location.pathname == "/" ? (
@@ -65,7 +65,7 @@ const Navbar = ({ handleSidebar }) => {
           <GiHamburgerMenu size={25} onClick={handleSidebar} />
         </div>
       ) : (
-        currentUser && <button className="menubar-icon" onClick={userSignOut}>Log Out</button>
+        currentUser && <button className="menubar-icon" onClick={userSignOut}>Logout</button>
       )}
     </div>
   );

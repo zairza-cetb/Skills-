@@ -3,9 +3,11 @@ import "./Sidebar.scss";
 import Skills from "../../Assets/icons/Skills.svg";
 import { IoCloseSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signOutStart } from "../../store/user/user.action";
-const Sidebar = ({ handleSidebar, currentUser }) => {
+import { selectCurrentUser } from "../../store/user/user.selector";
+const Sidebar = ({ handleSidebar}) => {
+  const currentUser = useSelector(selectCurrentUser);
   const nav = useNavigate();
   const dispatch = useDispatch();
 

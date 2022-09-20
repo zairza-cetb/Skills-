@@ -36,7 +36,7 @@ const Sidebar = ({ handleSidebar}) => {
           </a>
         </li>
         <li>
-          <a href="" onClick={handleSidebar}>
+          <a href="#faq" onClick={handleSidebar}>
             Contact us
           </a>
         </li>

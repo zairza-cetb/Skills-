@@ -4,4 +4,4 @@
 
 ### 																																This is a month long event
 
-                                                                 [Website url](https://skills.zairza.in/)
+[Website url](https://skills.zairza.in/)

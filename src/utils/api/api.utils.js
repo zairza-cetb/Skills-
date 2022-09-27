@@ -38,10 +38,10 @@ export const loginUser = async ({ idToken }) => {
   }
 };
 
-export const updateUser = async ({ idToken , user }) => {
+export const updateUser = async ({ user , idToken}) => {
   try {
     const response = await axios.post(
-      `${API_URL}/api/skill-plus-plus/update`,
+      `${API_URL}/api/skill-plus-plus/updateuser`,
       user,
       {
         headers: {

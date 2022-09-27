@@ -17,6 +17,13 @@ const firebaseConfig = {
   storageBucket: "skills-6cd94.appspot.com",
   messagingSenderId: "749070757324",
   appId: "1:749070757324:web:2b042c4bb42db9e3edc169",
+
+
+  // authDomain: "skills-f8403.firebaseapp.com",
+  // projectId: "skills-f8403",
+  // storageBucket: "skills-f8403.appspot.com",
+  // messagingSenderId: "560668510955",
+  // appId: "1:560668510955:web:5e7e6aba86e42967cb4cae",
 };
 
 const app = initializeApp(firebaseConfig);

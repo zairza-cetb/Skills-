@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import ReviewModal from "../modal/ReviewModal";
 import "./Table.scss";
 
+
 const Table = () => {
+  const [isClicked,setIsClicked] = useState(false)
+
   const domains = [
     "Web Development",
     "App Development",
@@ -94,6 +98,7 @@ const Table = () => {
                           <button
                             type="button"
                             className="inline-block text-white bg-green-400 hover:bg-green-600 rounded-full"
+                            onClick={()=>setIsClicked(true)}
                           >
                             <svg
                               className="inline-block h-6 w-6 fill-current"
@@ -105,6 +110,7 @@ const Table = () => {
                           <button
                             type="button"
                             className="inline-block text-white bg-red-400 hover:bg-red-600 rounded-full"
+                            onClick={()=>alert("Rejected")}
                           >
                             <svg
                               className="inline-block h-6 w-6 fill-current"
@@ -183,6 +189,7 @@ const Table = () => {
           </div>
         </div>
       </div>
+      <ReviewModal isOpened={isClicked} handleOpen={()=>setIsClicked(false)}/>
     </div>
   );
 };

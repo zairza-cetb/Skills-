@@ -10,7 +10,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Footer from "./components/Footer/Footer";
 import Signup from "./pages/Signup/signup";
 
-import AdminDashboard from "./pages/AdminDashboard/AdminDashboard"
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 
 import { checkUserSession } from "./store/user/user.action";
 import { PrivateRoute } from "./components/PrivateRoute/privateRoute";
@@ -42,7 +42,8 @@ function App() {
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
         <Route path="/coming-soon" element={<PrivateRoute><ComingSoon/></PrivateRoute>}/>
 
-        <Route path="/table" element={<AdminDashboard />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+
   
       </Routes>
       <Footer />

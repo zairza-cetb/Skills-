@@ -61,7 +61,8 @@ h1{
             flex-direction: column;
             padding-top: 1.8rem;
             .name{
-                width: 32rem;
+                // width: 32rem;
+                width:100% !important;
                 height: 2.5rem;
                 padding-left: 0.8rem;
             }
@@ -71,18 +72,21 @@ h1{
             flex-direction: column;
             padding-top: 1rem;
             .phoneInput{
+                width:100% !important;
                 display: flex;
                 flex-direction: row;
                 .pc{
                     padding-left: .5rem;
                 }
                 .phoneCode{
-                    width: 1.8rem;
+                    width:2.5rem !important;
                     height: 2.4rem;
-                    padding-left: .4rem;
+                    padding-left: .2rem;
                 }
                 .phoneNumber{
-                    width:29.3rem;
+                    // width:30rem;
+                    width:100% !important;
+                    flex:1;
                     height:2.5rem;
                     padding-left: .8rem;
                 }
@@ -106,7 +110,8 @@ h1{
                 flex: 50%;
             }
             .enterEmail{
-                width: 14.8rem;
+                // width: 14.8rem;
+                width:100% !important;
                 height: 2.5rem;
                 padding-left: .8rem;
             }
@@ -161,7 +166,8 @@ h1{
                     padding-left: .8rem;
                 }
                 .regdNo{
-                    width: 14.8rem;
+                    // width: 14.8rem;
+                    width:100% !important;
                     height: 2.5rem;
                     padding-left: .8rem;
                 }
@@ -197,11 +203,14 @@ h1{
                     width: 15.7rem;
                     height: 2.5rem;
                     padding-left: .8rem;
+                    border:0.5px solid rgb(99, 99, 106);
                 }
                 .wing{
-                    width: 14.8rem;
+                    // width: 14.8rem;
+                    width:100% !important;
                     height: 2.5rem;
                     padding-left: .8rem;
+                    border:0.5px solid rgb(99, 99, 106);
                 }
             }
             .w1{

@@ -13,7 +13,7 @@ function Slide1() {
           <p>Get started with some real time projects and get your hands dirty and learn more</p>
           <div className='slide1-button'>
             <button className='btn' onClick={()=>nav('/signup')}>Register Now</button>
-            <a className='btn btn2' href="#domain">Check Domains →</a>
+            <button className='btn btn2'><a href="#domain">Check Domains →</a></button>
           </div>
         </div>
         <img src={heroImage} alt="" className='heroImage' />

@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "./register.scss";
+import "./mentor.scss";
 import registerImage from "../../Assets/images/registerImage.png";
 import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { PulseLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { registerUserStart } from "../../store/user/user.action";
 
-const Registration = () => {
-  const currentUser = useSelector(selectCurrentUser)
+const MentorRegistration = () => {
+  const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
   const nav = useNavigate();
   const [branch, setBranch] = useState([]);
@@ -25,11 +24,11 @@ const Registration = () => {
   });
   const [err, setError] = useState(false);
 
-  useEffect(()=>{
-    // if(currentUser && currentUser.user.isRegisteredComplete){
-    //   nav("/me");
-    // }
-  })
+  // useEffect(() => {
+  //   if (currentUser && currentUser.user.isRegisteredComplete) {
+  //     nav("/me");
+  //   }
+  // });
 
   const checkPhnNo = (e) => {
     if (!/\D/g.test(e.target.value) && e.target.value <= 9999999999) {
@@ -48,24 +47,9 @@ const Registration = () => {
   const register = (e) => {
     e.preventDefault();
     try {
-      const {
-        name,
-        enterEmail,
-        enterRedgNo,
-        enterWing,
-        interestedDomain,
-      } = user;
-      if (
-        name &&
-        enterEmail &&
-        enterRedgNo &&
-        phoneNo &&
-        branch
-      ) {
-        if (answer === "yes" && enterWing === "") {
-          alert("Please give the wing details");
-          return;
-        }
+      const { name, enterEmail, enterRedgNo, interestedDomain } =
+        user;
+      if (name && enterEmail && enterRedgNo && phoneNo && branch && interestedDomain) {
         dispatch(
           registerUserStart({
             user: {
@@ -76,12 +60,10 @@ const Registration = () => {
               zairzaMember: answer == "yes",
               domain: interestedDomain,
               branch: branch,
-              wing:enterWing,
-              role:"member"
+              role: currentUser.user.role,
             },
           })
         );
-
       } else {
         alert("invalid");
       }
@@ -106,30 +88,7 @@ const Registration = () => {
     "Physics",
     "Chemistry",
   ];
-  const ans = [
-    {
-      name: "Yes",
-      value: "yes",
-    },
-    {
-      name: "No",
-      value: "no",
-    },
-  ];
-  const wings = [
-    {
-      name: "Software",
-      value: "software",
-    },
-    {
-      name: "Hardware",
-      value: "hardware",
-    },
-    {
-      name: "Design",
-      value: "design",
-    },
-  ];
+
   const domains = [
     "Web Development",
     "App Development",
@@ -172,9 +131,8 @@ const Registration = () => {
   };
   return (
     <div className="page">
-      <div className="regPage">
-        <h1>Let's learn</h1>
-        <p>Sign up to get all the goodies</p>
+      <div className="regPage mentorRegister">
+        <h1>Mentor Onboarding</h1>
         <div className="layer1">
           <p>Name</p>
           <input
@@ -191,7 +149,7 @@ const Registration = () => {
           <p>Phone Number</p>
           <div className="phoneInput">
             <div>
-              <input type="name" placeholder="+91" className="phoneCode" />
+              <input type="text" value={"+91"} className="phoneCode" />
             </div>
             <div className="pc">
               <input
@@ -247,39 +205,6 @@ const Registration = () => {
             />
           </div>
         </div>
-        <div className="layer6">
-          <div className="membership selectMember">
-            <p>Are you a Zairza Member?</p>
-            <select
-              className="member option"
-              onChange={ansHandle}
-              name="selectOption"
-              value={user.selectOption}
-            >
-              <option disabled selected="selected">
-                Select your option
-              </option>
-              {ans.map((a) => (
-                <option value={a.value}>{a.name}</option>
-              ))}
-            </select>
-          </div>
-          <div className="membership w1">
-            <p>If yes, in which wing?</p>
-            <select
-              className="wing"
-              onChange={handleWing}
-              disabled={answer === "no" ? true : false}
-            >
-              <option disabled selected="selected">
-                Enter your wing
-              </option>
-              {wings.map((wing) => (
-                <option value={wing.value}>{wing.name}</option>
-              ))}
-            </select>
-          </div>
-        </div>
         <div className="layer7 selectdomain">
           <p>Interested Domain for Skills++ 2022</p>
           <select
@@ -318,4 +243,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default MentorRegistration;

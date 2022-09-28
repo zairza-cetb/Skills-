@@ -43,6 +43,7 @@ h1 {
   select:focus {
     outline: none !important;
   }
+  
 }
 .page {
   display: flex;
@@ -52,6 +53,14 @@ h1 {
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100% 46%;
+  .mentorRegister h1{
+    font-size:3rem;
+  }
+  @media screen and (max-width: 768px) {
+    .mentorRegister h1{
+      font-size:2rem;
+    }
+  }
 
   .regPage {
     display: flex;

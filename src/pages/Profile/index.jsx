@@ -175,7 +175,7 @@ const Profile = () => {
                 id="phone"
                 className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:bg-white"
                 type="text"
-                value={domain.domainName}
+                value={domain}
                 disabled
               />
               <div className="absolute inset-y-0 right-0 flex items-center px-2">

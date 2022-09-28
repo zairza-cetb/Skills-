@@ -35,8 +35,10 @@ const Signup = () => {
   const [err, setError] = useState("");
 
   useEffect(()=>{
-    if(currentUser){
-      nav('/coming-soon')
+    if(currentUser?.user.isRegistered){
+      nav('/dashboard')
+    }else if(!currentUser?.user.isRegistered){
+      nav('/register')
     }
   })
 

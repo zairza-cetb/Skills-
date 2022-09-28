@@ -10,9 +10,9 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 import { selectCurrentSkillsUser } from "../../store/skillsUser/skillsUser.selector";
 import { registerSkillsUserOnStart } from "../../store/skillsUser/skillsUser.saga";
 import { registerSkillsUserStart } from "../../store/skillsUser/skillsUser.action";
+import { registerUserStart } from "../../store/user/user.action";
 
 const Registration = () => {
-  const skillsCurrentUser = useSelector(selectCurrentSkillsUser)
   const currentUser = useSelector(selectCurrentUser)
   const dispatch = useDispatch();
   const nav = useNavigate();
@@ -29,8 +29,8 @@ const Registration = () => {
   const [err, setError] = useState(false);
 
   useEffect(()=>{
-    if(skillsCurrentUser && skillsCurrentUser.isRegisteredComplete){
-      nav("/dashboard");
+    if(currentUser && currentUser.user.isRegisteredComplete){
+      nav("/me");
     }
   })
 
@@ -70,7 +70,7 @@ const Registration = () => {
           return;
         }
         dispatch(
-          registerSkillsUserStart({
+          registerUserStart({
             user: {
               email: user.enterEmail,
               name: user.name,
@@ -79,7 +79,8 @@ const Registration = () => {
               zairzaMember: answer == "yes",
               domain: interestedDomain,
               branch: branch,
-              wing:enterWing  
+              wing:enterWing,
+              role:"member"
             },
           })
         );

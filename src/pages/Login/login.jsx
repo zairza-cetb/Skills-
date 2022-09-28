@@ -33,7 +33,7 @@ const Login = () => {
 
   useEffect(()=>{
     if(currentUser){
-      nav('/coming-soon')
+      nav('/register')
     }
   })
 

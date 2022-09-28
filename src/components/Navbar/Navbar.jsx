@@ -62,9 +62,9 @@ const Navbar = ({ handleSidebar }) => {
             <ul>
               <li>
                 {currentUser.user.role == "member" ? (
-                  <button>Dashboard</button>
+                  <button onClick={()=>nav('dashboard')}>Dashboard</button>
                 ) : (
-                  <button>Mentor Dashboard</button>
+                  <button onClick={()=>nav('admin')}>Mentor Dashboard</button>
                 )}
               </li>
 

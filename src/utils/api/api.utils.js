@@ -41,7 +41,7 @@ export const loginUser = async ({ idToken }) => {
 export const updateUser = async ({ user , idToken}) => {
   try {
     const response = await axios.post(
-      `${API_URL}/api/skill-plus-plus/updateuser`,
+      `${API_URL}/api/skill-plus-plus/user/onboardingUser`,
       user,
       {
         headers: {
@@ -52,6 +52,23 @@ export const updateUser = async ({ user , idToken}) => {
 
     return response.data.data;
   } catch (err) {
+    throw new Error(err.message);
+  }
+};
+
+
+export const fetchRegisteredDomainSkillUser = async ({ idToken }) => {
+  try {
+    const response = await axios.get(
+        `${API_URL}/api/skill-plus-plus/domainReg/getRegisteredDomain`,
+        {
+          headers: { 
+            Authorization: `Bearer ${idToken}`,
+          }
+        }
+    )
+    return response.data.data
+  }catch(err){
     throw new Error(err.message);
   }
 };

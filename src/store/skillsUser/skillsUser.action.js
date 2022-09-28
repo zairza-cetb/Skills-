@@ -1,11 +1,11 @@
 import { SKILLS_USER_ACTION_TYPES } from "./skillsUser.types";
 import { createAction } from "../../utils/reducer/reducer.utils";
 
-export const registerSkillsUserStart = (user) =>
-  createAction(SKILLS_USER_ACTION_TYPES.REGISTER_SKILLS_USER_START, user);
+export const fetchDomainRegistrationStart = () =>
+  createAction(SKILLS_USER_ACTION_TYPES.FETCH_REGISTERED_DOMAIN_START, {});
 
-export const registerSkillsUserSuccess = (user) =>
-  createAction(SKILLS_USER_ACTION_TYPES.REGISTER_SKILLS_USER_SUCCESS, user);
+export const fetchDomainRegistrationSuccess = (domainReg) =>
+  createAction(SKILLS_USER_ACTION_TYPES.FETCH_REGISTERED_DOMAIN_SUCCESS, domainReg);
 
-export const registerSkillsUserFailure = (error) =>
-  createAction(SKILLS_USER_ACTION_TYPES.REGISTER_SKILLS_USER_FAILURE, error);
+export const fetchDomainRegistrationFailure = (error) =>
+  createAction(SKILLS_USER_ACTION_TYPES.FETCH_REGISTERED_DOMAIN_FAILURE, error);

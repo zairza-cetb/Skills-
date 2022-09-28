@@ -3,25 +3,25 @@ import "./register.scss";
 import registerImage from "../../Assets/images/registerImage.png";
 import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { updateUser } from "../../utils/api/api.utils";
-import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../store/user/user.selector";
 import { ToastContainer } from "react-toastify";
+import { PulseLoader } from "react-spinners";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
+import { selectCurrentSkillsUser } from "../../store/skillsUser/skillsUser.selector";
+import { registerSkillsUserOnStart } from "../../store/skillsUser/skillsUser.saga";
+import { registerSkillsUserStart } from "../../store/skillsUser/skillsUser.action";
+import { registerUserStart } from "../../store/user/user.action";
 
 const Registration = () => {
-  const currentUser = useSelector(selectCurrentUser) 
-  const auth = getAuth();
+  const currentUser = useSelector(selectCurrentUser)
+  const dispatch = useDispatch();
   const nav = useNavigate();
   const [branch, setBranch] = useState([]);
   const [answer, setAnswer] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [user, setUser] = useState({
-    name: "",
-    enterEmail: "",
-    confirmEmail: "",
-    enterPassword: "",
-    confirmPassword: "",
+    name: currentUser.user.name ? currentUser.user.name : "",
+    enterEmail: currentUser.user.email ? currentUser.user.email : "",
     enterRedgNo: "",
     enterWing: "",
     interestedDomain: "",
@@ -29,8 +29,8 @@ const Registration = () => {
   const [err, setError] = useState(false);
 
   useEffect(()=>{
-    if(currentUser){
-      nav('/coming-soon')
+    if(currentUser && currentUser.user.isRegisteredComplete){
+      nav("/me");
     }
   })
 
@@ -54,9 +54,6 @@ const Registration = () => {
       const {
         name,
         enterEmail,
-        confirmEmail,
-        enterPassword,
-        confirmPassword,
         enterRedgNo,
         enterWing,
         interestedDomain,
@@ -64,51 +61,30 @@ const Registration = () => {
       if (
         name &&
         enterEmail &&
-        confirmEmail &&
-        enterPassword &&
-        confirmPassword &&
         enterRedgNo &&
         phoneNo &&
-        branch &&
-        enterEmail === confirmEmail &&
-        enterPassword === confirmPassword
+        branch
       ) {
         if (answer === "yes" && enterWing === "") {
           alert("Please give the wing details");
           return;
         }
-        createUserWithEmailAndPassword(
-          auth,
-          user.enterEmail,
-          user.enterPassword
-        )
-          .then((response) => {
-            const res = response.user;
-
-            auth.currentUser.getIdToken(true).then((idToken) => {
-              console.log(idToken);
-              updateUser({
-                user: {
-                  email: user.enterEmail,
-                  password: user.enterPassword,
-                  name: user.name,
-                  phoneNumber: phoneNo,
-                  registrationNumber: enterRedgNo,
-                  zairzaMember: answer == "yes",
-                  interestedDomain: interestedDomain,
-                  branch: branch,
-                },
-                idToken,
-              });
-            });
+        dispatch(
+          registerUserStart({
+            user: {
+              email: user.enterEmail,
+              name: user.name,
+              phoneNumber: phoneNo,
+              registrationNumber: enterRedgNo,
+              zairzaMember: answer == "yes",
+              domain: interestedDomain,
+              branch: branch,
+              wing:enterWing,
+              role:"member"
+            },
           })
-          .catch((error) => {
-            const errorMessage = error.message;
-            alert(errorMessage);
-          });
-       
-        alert("registration successfull");
-        nav("/dashboard");
+        );
+
       } else {
         alert("invalid");
       }
@@ -116,7 +92,6 @@ const Registration = () => {
       setError(true);
     }
   };
-  console.log(user);
   const branches = [
     "Computer Science & Engineering",
     "Information Technology",
@@ -210,8 +185,9 @@ const Registration = () => {
             placeholder="Enter your Name"
             className="name"
             name="name"
-            value={user.name}
+            value={currentUser.user.name || user.name}
             onChange={changeHandler}
+            disabled={!!currentUser.user.name}
           />
         </div>
         <div className="layer2">
@@ -238,8 +214,9 @@ const Registration = () => {
               className="enterEmail"
               placeholder="Enter your Email"
               name="enterEmail"
-              value={user.enterEmail}
+              value={currentUser.user.email}
               onChange={changeHandler}
+              disabled={!!currentUser.user.email}
             />
           </div>
         </div>
@@ -340,7 +317,6 @@ const Registration = () => {
         <img className="window" src={window} alt={"registerImage"} />
       </div>
       <ToastContainer />
-
     </div>
   );
 };

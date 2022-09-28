@@ -9,6 +9,7 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 import { toast } from "react-toastify";
 const Navbar = ({ handleSidebar }) => {
   const currentUser = useSelector(selectCurrentUser);
+  const domain = currentUser ? currentUser.domain : "";
   const nav = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -57,7 +58,21 @@ const Navbar = ({ handleSidebar }) => {
             </li>
           </ul>
         ) : (
-          currentUser && <button onClick={userSignOut}>Logout</button>
+          currentUser && (
+            <ul>
+              <li>
+                {currentUser.user.role == "member" ? (
+                  <button onClick={()=>nav('dashboard')}>Dashboard</button>
+                ) : (
+                  <button onClick={()=>nav('admin')}>Mentor Dashboard</button>
+                )}
+              </li>
+
+              <li>
+                <button onClick={userSignOut}>Logout</button>
+              </li>
+            </ul>
+          )
         )}
       </div>
       {location.pathname == "/" ? (
@@ -65,7 +80,11 @@ const Navbar = ({ handleSidebar }) => {
           <GiHamburgerMenu size={25} onClick={handleSidebar} />
         </div>
       ) : (
-        currentUser && <button className="menubar-icon" onClick={userSignOut}>Logout</button>
+        currentUser && (
+          <button className="menubar-icon" onClick={userSignOut}>
+            Logout
+          </button>
+        )
       )}
     </div>
   );

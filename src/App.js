@@ -7,6 +7,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./pages/Login/login";
 import Dashboard from "./pages/dashboard/Dashboard";
+import MentorDashboard from "./pages/Mentor/MentorDashboard";
 import Footer from "./components/Footer/Footer";
 import Signup from "./pages/Signup/signup";
 
@@ -16,6 +17,7 @@ import { checkUserSession } from "./store/user/user.action";
 import { PrivateRoute } from "./components/PrivateRoute/privateRoute";
 import ComingSoon from "./pages/comingSoon/ComingSoon";
 import 'react-toastify/dist/ReactToastify.css';
+import Profile from "./pages/Profile";
 function App() {
 
   const dispatch = useDispatch();
@@ -38,10 +40,12 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<PrivateRoute><Registration /></PrivateRoute>} />
+        <Route path="/register" element={<Registration />} />
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
         <Route path="/coming-soon" element={<PrivateRoute><ComingSoon /></PrivateRoute>} />
-        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/me" element={<PrivateRoute><Profile /></PrivateRoute>} />
+        <Route path="/admin" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
+        <Route path="/mentor" element={<PrivateRoute><MentorDashboard /></PrivateRoute>} />
       </Routes>
       <Footer />
     </>

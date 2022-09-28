@@ -17,15 +17,15 @@ import { PrivateRoute } from "./components/PrivateRoute/privateRoute";
 import ComingSoon from "./pages/comingSoon/ComingSoon";
 import 'react-toastify/dist/ReactToastify.css';
 function App() {
-  
+
   const dispatch = useDispatch();
   const [display, setDisplay] = useState(false);
   const handleSidebar = () => {
     setDisplay(!display);
   };
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(checkUserSession());
-  },[])
+  }, [])
 
   return (
     <>
@@ -39,12 +39,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<PrivateRoute><Registration /></PrivateRoute>} />
-        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
-        <Route path="/coming-soon" element={<PrivateRoute><ComingSoon/></PrivateRoute>}/>
-
+        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+        <Route path="/coming-soon" element={<PrivateRoute><ComingSoon /></PrivateRoute>} />
         <Route path="/admin" element={<AdminDashboard />} />
-
-  
       </Routes>
       <Footer />
     </>

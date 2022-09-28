@@ -9,7 +9,7 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 import { toast } from "react-toastify";
 const Navbar = ({ handleSidebar }) => {
   const currentUser = useSelector(selectCurrentUser);
-  const { domain } = currentUser;
+  const domain = currentUser ? currentUser.domain : "";
   const nav = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();

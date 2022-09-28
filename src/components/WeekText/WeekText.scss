@@ -1,6 +1,3 @@
-.WeekText{
-    padding-left: 20px;
-}
 .WeekText-heading{
     font-size: 0.9rem;
 }
@@ -36,8 +33,14 @@
 .WeekText-marks,.WeekText-remarks{
     margin-top:0.5rem;
 }
-@media screen and (max-width: 492px){
+@media screen and (max-width:510px){
+    .WeekText{
+        width:fit-content;
+    }
     .WeekText input{
         width: fit-content;
     }
 }
+
+
+

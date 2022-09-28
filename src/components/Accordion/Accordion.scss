@@ -1,11 +1,9 @@
 .Accordian-container{
-    // width: 100%;
-    // height: 100vh;
+    width: 100%;
     background-color: whitesmoke;
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-image: linear-gradient(#fcf5f5, #eff4fd);
 }
 .main-div{
     width: 85vw; 
@@ -40,8 +38,10 @@
     font-weight: 500;
     color: gray;
 }
-
 @media screen and (max-width: 492px){
+    .main-div{
+        padding:2px;
+    }
     .dashboard-heading{
         font-size:30px;
     }

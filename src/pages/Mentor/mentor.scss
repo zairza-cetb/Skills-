@@ -1,0 +1,858 @@
+@font-face {
+  font-family: GilroyB;
+  src: url("../../Assets/fonts/Gilroy-ExtraBold.woff");
+}
+@font-face {
+  font-family: GilroyL;
+  src: url("../../Assets/fonts/Gilroy-Light.woff");
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "GilroyL";
+  width: auto;
+}
+p {
+  margin: 0;
+}
+h1 {
+  font-family: "GilroyB";
+}
+.page {
+  p,
+  select {
+    font-size: small;
+    color: rgba(152, 162, 179, 1);
+  }
+
+  ::-ms-input-placeholder {
+    color: rgba(152, 162, 179, 1);
+    overflow: hidden;
+  }
+  input,
+  select {
+    border-radius: 8px;
+  }
+  input {
+    border: 0.5px solid rgb(99, 99, 106);
+    overflow: hidden;
+  }
+  input:focus {
+    outline: none !important;
+  }
+  select:focus {
+    outline: none !important;
+  }
+  
+}
+.page {
+  display: flex;
+  align-items: center;
+  //   justify-content: center;
+  background-image: url("../../Assets/images/Rectangle.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 46%;
+  .mentorRegister h1{
+    font-size:3rem;
+  }
+  @media screen and (max-width: 768px) {
+    .mentorRegister h1{
+      font-size:2rem;
+    }
+  }
+
+  .regPage {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5rem;
+    // margin-top:-14rem;
+    .layer1 {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1.8rem;
+      .name {
+        width: 32rem;
+        height: 2.5rem;
+        padding-left: 0.8rem;
+      }
+    }
+    .layer2 {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+      .phoneInput {
+        display: flex;
+        flex-direction: row;
+        .pc {
+          padding-left: 0.5rem;
+        }
+        .phoneCode {
+          width: 1.8rem;
+          height: 2.4rem;
+          padding-left: 0.4rem;
+        }
+        .phoneNumber {
+          width: 29.3rem;
+          height: 2.5rem;
+          padding-left: 0.8rem;
+        }
+      }
+    }
+    .layer3 {
+      display: flex;
+      flex-direction: row;
+      padding-top: 1rem;
+      .email1 {
+        display: flex;
+        flex-direction: column;
+        flex: 50%;
+      }
+      .e2 {
+        padding-left: 1.5rem;
+      }
+      .email2 {
+        display: flex;
+        flex-direction: column;
+        flex: 50%;
+      }
+      .enterEmail {
+        // width: 14.8rem;
+        height: 2.5rem;
+        padding-left: 0.8rem;
+      }
+    }
+    .layer4 {
+      display: flex;
+      flex-direction: row;
+      padding-top: 1rem;
+      .password {
+        display: flex;
+        flex-direction: column;
+        flex: 50% 2;
+        .wrapfield {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          .shBtn {
+            position: relative;
+            left: -14%;
+            top: 21%;
+          }
+          .showbtn {
+            position: absolute;
+            height: 50%;
+            background-color: white;
+            border: none;
+            color: rgb(183, 189, 199);
+            cursor: pointer;
+          }
+        }
+        .enterPassword {
+          width: 14.8rem;
+          height: 2.5rem;
+          padding-left: 0.8rem;
+        }
+      }
+      .p2 {
+        padding-left: 1.5rem;
+      }
+    }
+    .layer5 {
+      display: flex;
+      flex-direction: row;
+      padding-top: 1rem;
+      .student {
+        display: flex;
+        flex-direction: column;
+        flex: 50% 2;
+        .branch {
+          width: 15.7rem;
+          height: 2.5rem;
+          padding-left: 0.8rem;
+        }
+        .regdNo {
+          width: 14.8rem;
+          height: 2.5rem;
+          padding-left: 0.8rem;
+        }
+      }
+      .r1 {
+        padding-left: 1.5rem;
+      }
+      select.option {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      .selectBranch {
+        position: relative;
+        .branch {
+          background-image: url("../../Assets/images/down.png");
+          background-repeat: no-repeat;
+          background-size: 1rem;
+          background-position: 96%;
+          cursor: pointer;
+        }
+      }
+    }
+    .branch.option,
+    .domain.option {
+      border: 1px solid black;
+    }
+    .layer6 {
+      display: flex;
+      flex-direction: row;
+      padding-top: 1rem;
+      .membership {
+        display: flex;
+        flex-direction: column;
+        flex: 50% 2;
+        .member {
+          width: 15.7rem;
+          height: 2.5rem;
+          padding-left: 0.8rem;
+        }
+        .wing {
+          width: 14.8rem;
+          height: 2.5rem;
+          padding-left: 0.8rem;
+        }
+      }
+      .w1 {
+        padding-left: 1.5rem;
+      }
+      select.option {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      .selectMember {
+        position: relative;
+        .member {
+          background-image: url("../../Assets/images/down.png");
+          background-repeat: no-repeat;
+          background-size: 1rem;
+          background-position: 96%;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .layer7 {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+      select.option {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      .domain {
+        height: 2.5rem;
+        padding-left: 0.8rem;
+      }
+    }
+    .selectdomain {
+      position: relative;
+      .domain {
+        background-image: url("../../Assets/images/down.png");
+        background-repeat: no-repeat;
+        background-size: 1rem;
+        background-position: 98%;
+        cursor: pointer;
+      }
+    }
+    .layer8 {
+      display: flex;
+      align-items: center;
+      padding-top: 1.2rem;
+      flex: 25% 4;
+      .btn1 {
+        padding-right: 1.2rem;
+      }
+      .registerBtn {
+        width: 7rem;
+        padding: 0.2rem;
+        height: 2.5rem;
+        background-color: rgb(16, 113, 255);
+        color: white;
+        border: none;
+        border-radius: 24px;
+        cursor: pointer;
+      }
+      .registerBtn:hover {
+        background-color: white;
+        color: rgb(16, 113, 255);
+      }
+      .btn2 {
+        padding-left: 1.2rem;
+        padding-right: 1rem;
+      }
+      .google,
+      .git {
+        width: 4.6rem;
+        padding: 0.2rem;
+        height: 2.65rem;
+        border: 1px solid rgb(189, 191, 199);
+        border-radius: 24px;
+        background-color: white;
+        cursor: pointer;
+      }
+      .google {
+        color: rgb(7, 107, 247);
+      }
+      .google:hover {
+        background-color: rgb(16, 113, 255);
+        color: white;
+      }
+      .git:hover {
+        color: white;
+        background-color: black;
+      }
+    }
+    .layer9 {
+      padding-top: 1rem;
+      display: flex;
+      span {
+        color: blue;
+        padding-left: 0.5rem;
+        cursor: pointer;
+      }
+    }
+  }
+  .image {
+    padding-top: 3rem;
+    width: 35rem;
+    .window {
+      position: relative;
+      width: 12rem;
+      height: 11rem;
+      bottom: 46rem;
+      right: -20rem;
+    }
+  }
+}
+@media screen and (min-height: 1000px) and (max-height: 1440px) {
+  .page {
+    .regPage {
+      padding-bottom: 2rem;
+      height: 50rem;
+      .layer8 {
+        padding-top: 0rem;
+      }
+      .layer9 {
+        padding-top: 0rem;
+        padding-bottom: 8.1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1030px) {
+  .image {
+    display: none;
+  }
+}
+
+//_._._Small Screen Laptop_._._//
+@media screen and (min-width: 950px) and (max-width: 1200px) {
+  .page {
+    background-size: 100% 35%;
+    .regPage {
+      // padding-bottom:3rem;
+      margin-top: 4rem;
+      .layer1 {
+        padding-top: 1.8rem;
+        .name {
+          width: 27.6rem;
+          height: 2.4rem;
+          padding-left: 0.8rem;
+        }
+      }
+      .layer2 {
+        padding-top: 1rem;
+        .phoneInput {
+          padding-right: 1rem;
+          .pc {
+            padding-left: 0.5rem;
+          }
+          .phoneCode {
+            height: 2.4rem;
+            padding-right: 4rem;
+          }
+          .phoneNumber {
+            width: 24.7rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+        }
+      }
+      .layer3 {
+        padding-top: 1rem;
+        .email1 {
+          flex: 50%;
+        }
+        .e2 {
+          padding-left: 1rem;
+        }
+        .email2 {
+          flex: 50%;
+        }
+        .enterEmail {
+          //   width: 12.8rem;
+          height: 2.5rem;
+          padding-left: 0.6rem;
+        }
+      }
+      .layer4 {
+        padding-top: 1rem;
+        .password {
+          flex: 50% 2;
+          .wrapfield {
+            .shBtn {
+              position: relative;
+              left: -14%;
+              top: 21%;
+            }
+          }
+          .enterPassword {
+            width: 12.8rem;
+            height: 2.5rem;
+            padding-left: 0.6rem;
+          }
+        }
+        .p2 {
+          padding-left: 1rem;
+        }
+      }
+      .layer5 {
+        display: flex;
+        flex-direction: row;
+        padding-top: 1rem;
+        .student {
+          display: flex;
+          flex-direction: column;
+          flex: 50% 2;
+          .branch {
+            width: 13.6rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+          .regdNo {
+            width: 12.8rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+        }
+        .r1 {
+          padding-left: 1rem;
+        }
+      }
+      .layer6 {
+        display: flex;
+        flex-direction: row;
+        padding-top: 1rem;
+        .membership {
+          display: flex;
+          flex-direction: column;
+          flex: 50% 2;
+          .member {
+            width: 13.6rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+          .wing {
+            width: 12.8rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+        }
+        .w1 {
+          padding-left: 1rem;
+        }
+      }
+
+      .layer7 {
+        .domain {
+          width: 29rem;
+          height: 2.5rem;
+          padding-left: 0.8rem;
+        }
+      }
+    }
+    .image {
+      padding-top: 3rem;
+      width: 24rem;
+      .regImage {
+        width: 29.5rem;
+        height: 41rem;
+      }
+      .window {
+        position: relative;
+        width: 7rem;
+        height: 7rem;
+        bottom: 36.5rem;
+        right: -15rem;
+      }
+    }
+  }
+}
+
+//_._.Tablet_._._//
+@media screen and (max-width: 949px) {
+  .page {
+    background-size: 100% 35%;
+    .regPage {
+      margin-top: 4rem;
+    }
+    .image {
+      display: none;
+      .regImage {
+        display: none;
+      }
+      .window {
+        display: none;
+      }
+    }
+  }
+}
+//_._.Large and Medium Screen Mobile Phones_._._//
+@media screen and (min-width: 350px) and (max-width: 599px) {
+  .page {
+    background-size: 100% 35%;
+    .regPage {
+      margin-top: 4rem;
+      .layer1 {
+        padding-top: 1.8rem;
+        .name {
+          width: 19.1rem;
+          height: 2.4rem;
+          padding-left: 0.8rem;
+        }
+      }
+      .layer2 {
+        padding-top: 1rem;
+        .phoneInput {
+          .pc {
+            padding-left: 0.5rem;
+          }
+          .phoneCode {
+            width: 1.8rem;
+            height: 2.4rem;
+            padding-left: 0.4rem;
+          }
+          .phoneNumber {
+            width: 16.3rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+        }
+      }
+      .layer3 {
+        padding-top: 1rem;
+        flex-direction: column;
+        .email1 {
+          flex: 50%;
+        }
+        .e2 {
+          padding-left: 0rem;
+          padding-top: 1rem;
+        }
+        .email2 {
+          flex: 50%;
+        }
+        .enterEmail {
+          //   width: 19.1rem;
+          height: 2.5rem;
+          padding-left: 0.8rem;
+        }
+      }
+      .layer4 {
+        padding-top: 1rem;
+        flex-direction: column;
+        .password {
+          flex: 50% 2;
+          .wrapfield {
+            .shBtn {
+              position: relative;
+              left: -12%;
+              top: 0.6rem;
+            }
+          }
+          .enterPassword {
+            width: 19.1rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+        }
+        .p2 {
+          padding-left: 0rem;
+          padding-top: 1rem;
+        }
+      }
+      .layer5 {
+        // display: flex;
+        flex-direction: column;
+        padding-top: 1rem;
+        .student {
+          display: flex;
+          flex-direction: column;
+          flex: 50% 2;
+          .branch {
+            width: 20rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+          .regdNo {
+            width: 19.1rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+        }
+        .r1 {
+          padding-left: 0rem;
+          padding-top: 1rem;
+        }
+      }
+      .layer6 {
+        display: flex;
+        flex-direction: column;
+        padding-top: 1rem;
+        .membership {
+          display: flex;
+          flex-direction: column;
+          flex: 50% 2;
+          .member {
+            width: 20rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+          .wing {
+            width: 19.1rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+        }
+        .w1 {
+          padding-left: 0rem;
+          padding-top: 1rem;
+        }
+      }
+      .layer7 {
+        .domain {
+          width: 20rem;
+          height: 2.5rem;
+          padding-left: 0.8rem;
+        }
+      }
+      .layer8 {
+        justify-content: center;
+        .btn1 {
+          padding-right: 1.2rem;
+        }
+        .registerBtn {
+          width: 6rem;
+          padding: 0.2rem;
+          height: 2.3rem;
+        }
+        .btn2 {
+          padding-left: 1.2rem;
+          padding-right: 1rem;
+        }
+        .google,
+        .git {
+          width: 4.2rem;
+          padding: 0.2rem;
+          height: 2.32rem;
+        }
+      }
+      .layer9 {
+        justify-content: center;
+        align-content: center;
+      }
+    }
+    .image {
+      display: none;
+      .regImage {
+        display: none;
+      }
+      .window {
+        display: none;
+      }
+    }
+  }
+}
+//_._.Small Screen Mobile Phones_._._//
+@media screen and (min-width: 280px) and (max-width: 349px) {
+  .page {
+    background-size: 100% 35%;
+    .regPage {
+      padding-bottom: 3rem;
+
+      .layer1 {
+        padding-top: 1.8rem;
+        .name {
+          width: 16.1rem;
+          height: 2.4rem;
+          padding-left: 0.8rem;
+        }
+      }
+      .layer2 {
+        padding-top: 1rem;
+        .phoneInput {
+          .pc {
+            padding-left: 0.5rem;
+          }
+          .phoneCode {
+            width: 1.8rem;
+            height: 2.4rem;
+            padding-left: 0.4rem;
+          }
+          .phoneNumber {
+            width: 13.3rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+        }
+      }
+      .layer3 {
+        padding-top: 1rem;
+        flex-direction: column;
+        .email1 {
+          flex: 50%;
+        }
+        .e2 {
+          padding-left: 0rem;
+          padding-top: 1rem;
+        }
+        .email2 {
+          flex: 50%;
+        }
+        .enterEmail {
+          //   width: 16.1rem;
+          height: 2.5rem;
+          padding-left: 0.8rem;
+        }
+      }
+      .layer4 {
+        padding-top: 1rem;
+        flex-direction: column;
+        .password {
+          flex: 50% 2;
+          .wrapfield {
+            .shBtn {
+              position: relative;
+              left: -12%;
+              top: 0.6rem;
+            }
+          }
+          .enterPassword {
+            width: 16.1rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+        }
+        .p2 {
+          padding-left: 0rem;
+          padding-top: 1rem;
+        }
+      }
+      .layer5 {
+        // display: flex;
+        flex-direction: column;
+        padding-top: 1rem;
+        .student {
+          display: flex;
+          flex-direction: column;
+          flex: 50% 2;
+          .branch {
+            width: 17rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+          .regdNo {
+            width: 16.1rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+        }
+        .r1 {
+          padding-left: 0rem;
+          padding-top: 1rem;
+        }
+      }
+      .layer6 {
+        display: flex;
+        flex-direction: column;
+        padding-top: 1rem;
+        .membership {
+          display: flex;
+          flex-direction: column;
+          flex: 50% 2;
+          .member {
+            width: 17rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+          .wing {
+            width: 16.1rem;
+            height: 2.5rem;
+            padding-left: 0.8rem;
+          }
+        }
+        .w1 {
+          padding-left: 0rem;
+          padding-top: 1rem;
+        }
+      }
+      .layer7 {
+        .domain {
+          width: 17rem;
+          height: 2.5rem;
+          padding-left: 0.8rem;
+        }
+      }
+      .layer8 {
+        justify-content: center;
+        .btn1 {
+          padding-right: 1rem;
+        }
+        .registerBtn {
+          width: 5rem;
+          padding: 0.2rem;
+          height: 2rem;
+        }
+        .btn2 {
+          padding-left: 1.1rem;
+          padding-right: 0.5rem;
+        }
+        .google,
+        .git {
+          width: 4.1rem;
+          padding: 0.2rem;
+          height: 2.15rem;
+        }
+      }
+      .layer9 {
+        justify-content: center;
+        align-content: center;
+      }
+    }
+    .image {
+      display: none;
+      .regImage {
+        display: none;
+      }
+      .window {
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (min-height: 1000px) {
+  .page {
+    padding-bottom: 0rem;
+    height: auto;
+  }
+}

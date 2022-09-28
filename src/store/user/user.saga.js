@@ -9,6 +9,8 @@ import {
   signUpFailed,
   signOutSuccess,
   signOutFailed,
+  registerUserSuccess,
+  registerUserFailure,
 } from "./user.action";
 
 import {
@@ -24,13 +26,11 @@ import { createUser, updateUser, loginUser } from "../../utils/api/api.utils";
 
 export function* getUserInfoFromAPI(userAuth) {
   try {
-    console.log("userAuth", userAuth);
     const idToken = yield call(getCurrentUserToken);
-    // console.log("idToken", idToken);
     const userSnapshot = yield call(loginUser, {
       idToken: idToken,
     });
-    yield put(signInSuccess({ ...userSnapshot }));
+    yield put(signInSuccess({ ...userSnapshot}));
   } catch (error) {
     if (
       error.message.includes("Request failed with status code 401") ||
@@ -38,7 +38,7 @@ export function* getUserInfoFromAPI(userAuth) {
     ) {
       const idToken = yield call(getCurrentUserToken);
       const userSnapshot = yield call(createUser, { idToken });
-      yield put(signUpSuccess({ ...userSnapshot }));
+      yield put(signUpSuccess({ ...userSnapshot}));
       toast.success('Successfully Signed Up',{
         position: "top-right",
         autoClose: 2000,
@@ -63,6 +63,8 @@ export function* getUserInfoFromAPI(userAuth) {
     }
   }
 }
+
+
 
 export function* signInWithGoogle() {
   try {
@@ -176,6 +178,42 @@ export function* signOut() {
   }
 }
 
+export function* registerUser({ payload : {user}}){
+
+  try{
+      const idToken = yield call(getCurrentUserToken)
+      const registeredUser = yield call(updateUser,{user,idToken});
+      yield put(registerUserSuccess(registeredUser));
+      toast.success('Successfully Registered Skills User',{
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+  }
+  catch(error){   
+      yield put(registerUserFailure(error));
+      toast.error(error.message,{
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+      
+  }
+}
+export function* registerUserOnStart(){
+  yield takeLatest(USER_ACTION_TYPES.REGISTER_USER_START,registerUser)
+}
+
+
+
 export function* signInAfterSignUp({ payload: { user } }) {
   yield call(getUserInfoFromAPI, user);
 }
@@ -212,5 +250,7 @@ export function* userSagas() {
     call(onSignUpStart),
     call(onSignUpSuccess),
     call(onSignOutStart),
+    call(registerUserOnStart),
+    call(onCheckUserSession)
   ]);
 }

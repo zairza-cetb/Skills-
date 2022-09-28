@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Registration from "./pages/Register/register";
 import LandingPage from "./pages/Landing/landing";
 import { Routes, Route } from "react-router-dom";
@@ -16,16 +16,19 @@ import { checkUserSession } from "./store/user/user.action";
 import { PrivateRoute } from "./components/PrivateRoute/privateRoute";
 import ComingSoon from "./pages/comingSoon/ComingSoon";
 import 'react-toastify/dist/ReactToastify.css';
+import Profile from "./pages/Profile";
+import MentorRegistration from "./pages/Mentor/MentorRegistration";
+import { Mentor } from "./components/Mentor/Mentor";
 function App() {
-  
+
   const dispatch = useDispatch();
   const [display, setDisplay] = useState(false);
   const handleSidebar = () => {
     setDisplay(!display);
   };
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(checkUserSession());
-  },[])
+  }, [])
 
   return (
     <>
@@ -38,13 +41,15 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<PrivateRoute><Registration /></PrivateRoute>} />
-        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
-        <Route path="/coming-soon" element={<PrivateRoute><ComingSoon/></PrivateRoute>}/>
-
-        <Route path="/admin" element={<AdminDashboard />} />
-
-  
+        <Route path="/register" element={<Registration />} />
+        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+        <Route path="/coming-soon" element={<PrivateRoute><ComingSoon /></PrivateRoute>} />
+        <Route path="/me" element={<PrivateRoute><Profile /></PrivateRoute>} />
+        {/* <Route path="/admin" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} /> */}
+        <Route path="/mentor" element={<Mentor/>}>
+          <Route path="register" element={<MentorRegistration/>}/>
+          <Route path="admin" element={<AdminDashboard/>}/>
+        </Route>
       </Routes>
       <Footer />
     </>

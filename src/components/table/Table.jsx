@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import ReviewModal from "../modal/ReviewModal";
 import "./Table.scss";
 
-
 const Table = () => {
-  const [isClicked,setIsClicked] = useState(false)
+  const [isClicked, setIsClicked] = useState(false);
 
   const domains = [
     "Web Development",
@@ -23,10 +22,10 @@ const Table = () => {
   ];
   return (
     <div className="admin-table">
-      <div className="admin-table-header">
+      {/* <div className="admin-table-header">
         <button>Zairza Admin</button>
         <img src="logo" alt="image" />
-      </div>
+      </div> */}
       <div className="admin-table-top-center">
         <p className="domainName">Domain</p>
         <select className="domain-option">
@@ -98,7 +97,7 @@ const Table = () => {
                           <button
                             type="button"
                             className="inline-block text-white bg-green-400 hover:bg-green-600 rounded-full"
-                            onClick={()=>setIsClicked(true)}
+                            onClick={() => setIsClicked(true)}
                           >
                             <svg
                               className="inline-block h-6 w-6 fill-current"
@@ -110,7 +109,7 @@ const Table = () => {
                           <button
                             type="button"
                             className="inline-block text-white bg-red-400 hover:bg-red-600 rounded-full"
-                            onClick={()=>alert("Rejected")}
+                            onClick={() => alert("Rejected")}
                           >
                             <svg
                               className="inline-block h-6 w-6 fill-current"
@@ -189,7 +188,10 @@ const Table = () => {
           </div>
         </div>
       </div>
-      <ReviewModal isOpened={isClicked} handleOpen={()=>setIsClicked(false)}/>
+      <ReviewModal
+        isOpened={isClicked}
+        handleOpen={() => setIsClicked(false)}
+      />
     </div>
   );
 };

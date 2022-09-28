@@ -48,3 +48,12 @@ export const signOutSuccess = () =>
 
 export const signOutFailed = (error) =>
   createAction(USER_ACTION_TYPES.SIGN_OUT_FAILED, error);
+
+  export const registerUserStart = (user) =>
+  createAction(USER_ACTION_TYPES.REGISTER_USER_START, user);
+
+export const registerUserSuccess = (user) =>
+  createAction(USER_ACTION_TYPES.REGISTER_USER_SUCCESS, user);
+
+export const registerUserFailure = (error) =>
+  createAction(USER_ACTION_TYPES.REGISTER_USER_FAILURE, error);

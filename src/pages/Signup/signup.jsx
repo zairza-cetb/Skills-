@@ -35,9 +35,9 @@ const Signup = () => {
   const [err, setError] = useState("");
 
   useEffect(()=>{
-    if(currentUser?.user.isRegistered){
+    if(currentUser?.user.isRegisteredComplete){
       nav('/dashboard')
-    }else if(!currentUser?.user.isRegistered){
+    }else if(currentUser && !currentUser?.user.isRegisteredComplete){
       nav('/register')
     }
   })

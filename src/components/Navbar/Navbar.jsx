@@ -38,54 +38,63 @@ const Navbar = ({ handleSidebar }) => {
         />
       </div>
       <div className="navlist">
-        {location.pathname == "/" ? (
-          <ul>
+        <ul>
+          {location.pathname == "/" && (
+            <>
+              <li>
+                <a href="#domain">Domains</a>
+              </li>
+              <li>
+                <a href="#why">Why skill++</a>
+              </li>
+              <li>
+                <a href="#faq">Contact us</a>
+              </li>
+            </>
+          )}
+
+          {currentUser?.user.isRegisteredComplete && (
             <li>
-              <a href="#domain">Domains</a>
-            </li>
-            <li>
-              <a href="#why">Why skill++</a>
-            </li>
-            <li>
-              <a href="#faq">Contact us</a>
-            </li>
-            <li>
-              {currentUser ? (
-                <button onClick={userSignOut}>Logout</button>
+              {currentUser.user.role == "member" ? (
+                <button onClick={() => nav("/dashboard")}>Dashboard</button>
               ) : (
-                <button onClick={() => nav("/login")}>Login</button>
+                <button onClick={() => nav("/mentor/dashboard")}>
+                  Mentor Dashboard
+                </button>
               )}
             </li>
-          </ul>
-        ) : (
-          currentUser && (
-            <ul>
-              <li>
-                {currentUser.user.role == "member" ? (
-                  <button onClick={()=>nav('dashboard')}>Dashboard</button>
-                ) : (
-                  <button onClick={()=>nav('admin')}>Mentor Dashboard</button>
-                )}
-              </li>
+          )}
 
-              <li>
-                <button onClick={userSignOut}>Logout</button>
-              </li>
-            </ul>
-          )
-        )}
+          <li>
+            {currentUser ? (
+              <button onClick={userSignOut}>Logout</button>
+            ) : location.pathname=="/login" ? <></> : (
+              <button onClick={() => nav("/login")}>Login</button>
+            )}
+          </li>
+        </ul>
       </div>
-      {location.pathname == "/" ? (
-        <div className="menubar-icon">
-          <GiHamburgerMenu size={25} onClick={handleSidebar} />
-        </div>
-      ) : (
+      {/* {location.pathname == "/" ? ( */}
+      <div className="menubar-icon">
+        <GiHamburgerMenu size={25} onClick={handleSidebar} />
+      </div>
+      {/* ) : (
         currentUser && (
-          <button className="menubar-icon" onClick={userSignOut}>
-            Logout
-          </button>
+          <ul>
+            <li>
+              {currentUser.user.role == "member" ? (
+                <button onClick={()=>nav('/dashboard')}>Dashboard</button>
+              ) : (
+                <button onClick={()=>nav('/mentor/dashboard')}>Mentor Dashboard</button>
+              )}
+            </li>
+
+            <li>
+              <button onClick={userSignOut}>Logout</button>
+            </li>
+          </ul>
         )
-      )}
+      )} */}
     </div>
   );
 };

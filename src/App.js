@@ -19,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Profile from "./pages/Profile";
 import MentorRegistration from "./pages/Mentor/MentorRegistration";
 import { Mentor } from "./components/Mentor/Mentor";
+import MentorProfile from "./pages/MentorProfile";
 function App() {
 
   const dispatch = useDispatch();
@@ -48,7 +49,8 @@ function App() {
         {/* <Route path="/admin" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} /> */}
         <Route path="/mentor" element={<Mentor/>}>
           <Route path="register" element={<MentorRegistration/>}/>
-          <Route path="admin" element={<AdminDashboard/>}/>
+          <Route path="dashboard" element={<AdminDashboard/>}/>
+          <Route path="me" element={<PrivateRoute><MentorProfile /></PrivateRoute>} />
         </Route>
       </Routes>
       <Footer />

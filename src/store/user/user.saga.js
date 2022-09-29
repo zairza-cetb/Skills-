@@ -31,6 +31,15 @@ export function* getUserInfoFromAPI(userAuth) {
       idToken: idToken,
     });
     yield put(signInSuccess({ ...userSnapshot}));
+    toast.success('Successfully signed in',{
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   } catch (error) {
     if (
       error.message.includes("Request failed with status code 401") ||
@@ -71,15 +80,7 @@ export function* signInWithGoogle() {
     const { user } = yield call(signInWithGooglePopup);
 
     yield call(getUserInfoFromAPI, user);
-    toast.success('Successfully signed in',{
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    
   } catch (error) {
 
     yield put(signInFailed(error));
@@ -251,6 +252,6 @@ export function* userSagas() {
     call(onSignUpSuccess),
     call(onSignOutStart),
     call(registerUserOnStart),
-    call(onCheckUserSession)
+    
   ]);
 }

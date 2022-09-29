@@ -13,7 +13,6 @@ const MentorRegistration = () => {
   const dispatch = useDispatch();
   const nav = useNavigate();
   const [branch, setBranch] = useState([]);
-  const [answer, setAnswer] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [user, setUser] = useState({
     name: currentUser.user.name ? currentUser.user.name : "",
@@ -24,11 +23,11 @@ const MentorRegistration = () => {
   });
   const [err, setError] = useState(false);
 
-  // useEffect(() => {
-  //   if (currentUser && currentUser.user.isRegisteredComplete) {
-  //     nav("/me");
-  //   }
-  // });
+  useEffect(() => {
+    if (currentUser?.user.isRegisteredComplete) {
+      nav("/mentor/dashboard");
+    }
+  });
 
   const checkPhnNo = (e) => {
     if (!/\D/g.test(e.target.value) && e.target.value <= 9999999999) {
@@ -57,7 +56,7 @@ const MentorRegistration = () => {
               name: user.name,
               phoneNumber: phoneNo,
               registrationNumber: enterRedgNo,
-              zairzaMember: answer == "yes",
+              zairzaMember: true,
               domain: interestedDomain,
               branch: branch,
               role: currentUser.user.role,
@@ -104,20 +103,6 @@ const MentorRegistration = () => {
     "Blockchain",
     "Devops",
   ];
-
-  const handleWing = (e) => {
-    console.log(e.target.value);
-    if (e.target.value) {
-      setUser({
-        ...user,
-        enterWing: e.target.value,
-      });
-    }
-  };
-  const ansHandle = (e) => {
-    e.preventDefault();
-    setAnswer(e.target.value);
-  };
 
   const handleDomain = (e) => {
     e.preventDefault();

@@ -26,9 +26,9 @@ const Registration = () => {
   const [err, setError] = useState(false);
 
   useEffect(()=>{
-    // if(currentUser && currentUser.user.isRegisteredComplete){
-    //   nav("/me");
-    // }
+    if(currentUser && currentUser.user.isRegisteredComplete){
+      nav("/me");
+    }
   })
 
   const checkPhnNo = (e) => {

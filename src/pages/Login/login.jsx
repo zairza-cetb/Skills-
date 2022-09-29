@@ -32,8 +32,14 @@ const Login = () => {
   const [err, setError] = useState(false);
 
   useEffect(()=>{
-    if(currentUser){
+    if(currentUser?.user.isRegisteredComplete && currentUser?.user.role=="member"){
+      nav('/me')
+    }else if(currentUser?.user.isRegisteredComplete && currentUser?.user.role=="mentor"){
+      nav('/mentor/me')
+    }else if(!(currentUser?.user.isRegisteredComplete) && currentUser?.user.role=="member"){
       nav('/register')
+    }else if(!(currentUser?.user.isRegisteredComplete) && currentUser?.user.role=="mentor"){
+      nav('/mentor/register')
     }
   })
 

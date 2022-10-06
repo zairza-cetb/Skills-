@@ -104,15 +104,6 @@ export function* signInWithEmail({ payload: { email, password } }) {
       password
     );
     yield call(getUserInfoFromAPI, user);
-    toast.success('Successfully Signed In',{
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
   } catch (error) {
     yield put(signInFailed(error));
     toast.error(error.message,{
@@ -165,6 +156,15 @@ export function* signOut() {
   try {
     yield call(signOutUser);
     yield put(signOutSuccess());
+    toast.success("Logout successfully", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   } catch (error) {
     yield put(signOutFailed(error));
     toast.error(error.message,{

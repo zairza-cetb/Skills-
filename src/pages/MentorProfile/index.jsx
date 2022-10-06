@@ -4,8 +4,7 @@ import { AiFillLock } from "react-icons/ai";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { useSelector } from "react-redux";
 const MentorProfile = () => {
-  const { user } = useSelector(selectCurrentUser);
-  const { domain } = useSelector(selectCurrentUser);
+  const user = useSelector(selectCurrentUser);
 
   return (
     <div className="md:mt-12 p-4 mx-4 md:mx-20">
@@ -130,7 +129,7 @@ const MentorProfile = () => {
                 id="phone"
                 className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:bg-white"
                 type="text"
-                value={domain}
+                value={typeof(user.domain) === 'string' ? user.domain : user.domain.join(",")}
                 disabled
               />
               <div className="absolute inset-y-0 right-0 flex items-center px-2">

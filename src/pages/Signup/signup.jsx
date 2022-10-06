@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpStart, googleSignInStart } from "../../store/user/user.action";
 import { selectCurrentUser, selectUserReducer } from "../../store/user/user.selector";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { PulseLoader } from "react-spinners";
 
 const override = {
@@ -35,10 +35,14 @@ const Signup = () => {
   const [err, setError] = useState("");
 
   useEffect(()=>{
-    if(currentUser?.user.isRegisteredComplete){
-      nav('/dashboard')
-    }else if(currentUser && !currentUser?.user.isRegisteredComplete){
+    if(currentUser?.isRegisteredComplete && currentUser?.role=="member"){
+      nav('/me')
+    }else if(currentUser?.isRegisteredComplete && currentUser?.role=="mentor"){
+      nav('/mentor/me')
+    }else if(!(currentUser?.isRegisteredComplete) && currentUser?.role=="member"){
       nav('/register')
+    }else if(!(currentUser?.isRegisteredComplete) && currentUser?.role=="mentor"){
+      nav('/mentor/register')
     }
   })
 
@@ -175,7 +179,6 @@ const Signup = () => {
         <img className="regImage" src={registerImage} />
         <img className="window" src={window} />
       </div>
-      <ToastContainer />
     </div>
   );
 };

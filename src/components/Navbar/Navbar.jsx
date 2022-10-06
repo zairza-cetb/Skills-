@@ -2,29 +2,20 @@ import React from "react";
 import Skills from "../../Assets/icons/Skills.svg";
 import "./Navbar.scss";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FaUser } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { signOutStart } from "../../store/user/user.action";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
-import { toast } from "react-toastify";
 const Navbar = ({ handleSidebar }) => {
   const currentUser = useSelector(selectCurrentUser);
-  const domain = currentUser ? currentUser.domain : "";
   const nav = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
 
   const userSignOut = async () => {
     dispatch(signOutStart());
-    toast.success("Logout successfully", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    nav("/")
   };
 
   return (
@@ -53,9 +44,9 @@ const Navbar = ({ handleSidebar }) => {
             </>
           )}
 
-          {currentUser?.user.isRegisteredComplete && (
+          {/* {currentUser?.isRegisteredComplete && (
             <li>
-              {currentUser.user.role == "member" ? (
+              {currentUser.role == "member" ? (
                 <button onClick={() => nav("/dashboard")}>Dashboard</button>
               ) : (
                 <button onClick={() => nav("/mentor/dashboard")}>
@@ -63,12 +54,27 @@ const Navbar = ({ handleSidebar }) => {
                 </button>
               )}
             </li>
-          )}
+          )} */}
 
+          <li>
+            {currentUser?.isRegisteredComplete && (
+              <FaUser
+                size={25}
+                color={"#3370f6"}
+                onClick={() =>
+                  currentUser.role == "member"
+                    ? nav("/me")
+                    : nav("/mentor/me")
+                }
+              />
+            )}
+          </li>
           <li>
             {currentUser ? (
               <button onClick={userSignOut}>Logout</button>
-            ) : location.pathname=="/login" ? <></> : (
+            ) : location.pathname == "/login" ? (
+              <></>
+            ) : (
               <button onClick={() => nav("/login")}>Login</button>
             )}
           </li>
@@ -82,7 +88,7 @@ const Navbar = ({ handleSidebar }) => {
         currentUser && (
           <ul>
             <li>
-              {currentUser.user.role == "member" ? (
+              {currentUser.role == "member" ? (
                 <button onClick={()=>nav('/dashboard')}>Dashboard</button>
               ) : (
                 <button onClick={()=>nav('/mentor/dashboard')}>Mentor Dashboard</button>

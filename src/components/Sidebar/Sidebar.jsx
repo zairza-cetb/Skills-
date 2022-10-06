@@ -46,9 +46,9 @@ const Sidebar = ({ handleSidebar }) => {
           </>
         )}
 
-        {currentUser?.user.isRegisteredComplete && (
+        {/* {currentUser?.isRegisteredComplete && (
           <li>
-            {currentUser.user.role == "member" ? (
+            {currentUser.role == "member" ? (
               <button
                 onClick={() => {
                   handleSidebar();
@@ -68,10 +68,10 @@ const Sidebar = ({ handleSidebar }) => {
               </button>
             )}
           </li>
-        )}
-        {currentUser?.user.isRegisteredComplete && (
+        )} */}
+        {currentUser?.isRegisteredComplete && (
           <li>
-            {currentUser.user.role == "member" && (
+            {currentUser.role == "member" && (
               <button
                 onClick={() => {
                   handleSidebar();

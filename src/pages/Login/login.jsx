@@ -9,7 +9,6 @@ import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
 import { selectCurrentUser, selectUserReducer } from "../../store/user/user.selector";
-import { ToastContainer } from "react-toastify";
 import { PulseLoader } from "react-spinners";
 
 const override = {
@@ -32,13 +31,13 @@ const Login = () => {
   const [err, setError] = useState(false);
 
   useEffect(()=>{
-    if(currentUser?.user.isRegisteredComplete && currentUser?.user.role=="member"){
+    if(currentUser?.isRegisteredComplete && currentUser?.role=="member"){
       nav('/me')
-    }else if(currentUser?.user.isRegisteredComplete && currentUser?.user.role=="mentor"){
+    }else if(currentUser?.isRegisteredComplete && currentUser?.role=="mentor"){
       nav('/mentor/me')
-    }else if(!(currentUser?.user.isRegisteredComplete) && currentUser?.user.role=="member"){
+    }else if(!(currentUser?.isRegisteredComplete) && currentUser?.role=="member"){
       nav('/register')
-    }else if(!(currentUser?.user.isRegisteredComplete) && currentUser?.user.role=="mentor"){
+    }else if(!(currentUser?.isRegisteredComplete) && currentUser?.role=="mentor"){
       nav('/mentor/register')
     }
   })
@@ -127,7 +126,6 @@ const signInWithGoogle = async () => {
         <img className="regImage" src={registerImage} />
         <img className="window" src={window} />
       </div>
-      <ToastContainer />
     </div>
   );
 };

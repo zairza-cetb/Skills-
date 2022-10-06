@@ -3,8 +3,6 @@ import "./register.scss";
 import registerImage from "../../Assets/images/registerImage.png";
 import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import { PulseLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { registerUserStart } from "../../store/user/user.action";
@@ -17,8 +15,8 @@ const Registration = () => {
   const [answer, setAnswer] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [user, setUser] = useState({
-    name: currentUser.user.name ? currentUser.user.name : "",
-    enterEmail: currentUser.user.email ? currentUser.user.email : "",
+    name: currentUser?.name ? currentUser?.name : "",
+    enterEmail: currentUser?.email ? currentUser?.email : "",
     enterRedgNo: "",
     enterWing: "",
     interestedDomain: "",
@@ -26,7 +24,7 @@ const Registration = () => {
   const [err, setError] = useState(false);
 
   useEffect(()=>{
-    if(currentUser && currentUser.user.isRegisteredComplete){
+    if(currentUser && currentUser?.isRegisteredComplete){
       nav("/me");
     }
   })
@@ -60,7 +58,7 @@ const Registration = () => {
         enterEmail &&
         enterRedgNo &&
         phoneNo &&
-        branch
+        branch && interestedDomain
       ) {
         if (answer === "yes" && enterWing === "") {
           alert("Please give the wing details");
@@ -83,7 +81,7 @@ const Registration = () => {
         );
 
       } else {
-        alert("invalid");
+        alert("Fill all Details");
       }
     } catch (err) {
       setError(true);
@@ -182,9 +180,9 @@ const Registration = () => {
             placeholder="Enter your Name"
             className="name"
             name="name"
-            value={currentUser.user.name || user.name}
+            value={currentUser?.name || user.name}
             onChange={changeHandler}
-            disabled={!!currentUser.user.name}
+            disabled={!!currentUser?.name}
           />
         </div>
         <div className="layer2">
@@ -211,9 +209,9 @@ const Registration = () => {
               className="enterEmail"
               placeholder="Enter your Email"
               name="enterEmail"
-              value={currentUser.user.email}
+              value={currentUser?.email}
               onChange={changeHandler}
-              disabled={!!currentUser.user.email}
+              disabled={!!currentUser?.email}
             />
           </div>
         </div>
@@ -313,7 +311,6 @@ const Registration = () => {
         <img className="regImage" src={registerImage} alt={"registerImage"} />
         <img className="window" src={window} alt={"registerImage"} />
       </div>
-      <ToastContainer />
     </div>
   );
 };

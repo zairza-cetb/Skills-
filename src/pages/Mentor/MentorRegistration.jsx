@@ -15,8 +15,8 @@ const MentorRegistration = () => {
   const [branch, setBranch] = useState([]);
   const [phoneNo, setPhoneNo] = useState("");
   const [user, setUser] = useState({
-    name: currentUser.user.name ? currentUser.user.name : "",
-    enterEmail: currentUser.user.email ? currentUser.user.email : "",
+    name: currentUser?.name ? currentUser.name : "",
+    enterEmail: currentUser?.email ? currentUser.email : "",
     enterRedgNo: "",
     enterWing: "",
     interestedDomain: "",
@@ -59,7 +59,7 @@ const MentorRegistration = () => {
               zairzaMember: true,
               domain: interestedDomain,
               branch: branch,
-              role: currentUser.user.role,
+              role: currentUser.role,
             },
           })
         );
@@ -125,9 +125,9 @@ const MentorRegistration = () => {
             placeholder="Enter your Name"
             className="name"
             name="name"
-            value={currentUser.user.name || user.name}
+            value={currentUser?.name || user.name}
             onChange={changeHandler}
-            disabled={!!currentUser.user.name}
+            disabled={!!currentUser?.name}
           />
         </div>
         <div className="layer2">
@@ -154,9 +154,9 @@ const MentorRegistration = () => {
               className="enterEmail"
               placeholder="Enter your Email"
               name="enterEmail"
-              value={currentUser.user.email}
+              value={currentUser?.email}
               onChange={changeHandler}
-              disabled={!!currentUser.user.email}
+              disabled={!!currentUser?.email}
             />
           </div>
         </div>

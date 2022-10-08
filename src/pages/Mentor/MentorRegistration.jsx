@@ -24,8 +24,8 @@ const MentorRegistration = () => {
   const [err, setError] = useState(false);
 
   useEffect(() => {
-    if (currentUser?.user.isRegisteredComplete) {
-      nav("/mentor/dashboard");
+    if (currentUser?.isRegisteredComplete) {
+      nav("/mentor/me"); // navigate to /mentor/dashboard once mentorDashboard is created
     }
   });
 
@@ -59,7 +59,7 @@ const MentorRegistration = () => {
               zairzaMember: true,
               domain: interestedDomain,
               branch: branch,
-              role: currentUser.role,
+              role: "mentor",
             },
           })
         );
@@ -91,17 +91,17 @@ const MentorRegistration = () => {
   const domains = [
     "Web Development",
     "App Development",
-    "UI/UX",
-    "Graphics Designing",
     "Competitive Coding",
     "AI/ML",
+    "UI/UX",
+    "Cybersecurity",
+    "Blockchain",
+    "Devops and Cloud Computing",
     "Game Development",
+    "Graphics Designing",
     "Embedded System & IOT",
     "ROS",
     "3D and Motion Graphics",
-    "Cybersecurity",
-    "Blockchain",
-    "Devops",
   ];
 
   const handleDomain = (e) => {

@@ -11,7 +11,7 @@ export function Mentor() {
     }
 
     // authorized so return child components
-    if(currentUser.role=="member")navigate(-1);
-    else
+    // if(currentUser.role=="member")navigate(-1);
+    // else
     return <Outlet/>;
 }

@@ -4,8 +4,8 @@ import A3 from '../../Assets/icons/simcard.png'
 import A4 from '../../Assets/icons/external-drive.png'
 import A5 from '../../Assets/icons/bitcoin-(btc).png'
 import A6 from '../../Assets/icons/folder-connection.png'
-import A7 from '../../Assets/icons/cloud-add.png'
-import B1 from '../../Assets/icons/airdrop.png'
+import A7 from "../../Assets/icons/airdrop.png"
+import B1 from '../../Assets/icons/cloud-add.png'
 import B2 from '../../Assets/icons/game.png'
 import B3 from '../../Assets/icons/cpu-setting.png'
 import C1 from '../../Assets/icons/monitor-mobbile.png'
@@ -39,33 +39,33 @@ export const Slide3data1 = [
         cName: 'data-item1'
     },
     {
-        title: 'DevOps',
+        title: 'Devops and Cloud Computing',
         icon: A6,
         cName: 'data-item1'
     },
     {
-        title: 'Cloud Computing',
+        title: 'Game Dev',
         icon: A7,
-        cName: 'data-item1'
+        cName : 'data-item1'
     },
+    {
+        title: 'Cybersecurity',
+        icon: B1,
+        cName : 'data-item1'
+    }
 ]
 
 export const Slide3data2 = [
-    {
-        title: 'Internet of Things',
-        icon: B1,
-        cName: 'data-item1'
-    },
     {
         title: 'Robot Operating System',
         icon: B2,
         cName: 'data-item1'
     },
     {
-        title: 'Microcontroller And Embedded Systems',
+        title: 'Embedded Systems and IOT',
         icon: B3,
         cName: 'data-item1'
-    },
+    }
     
 ]
 export const Slide3data3 = [
@@ -80,7 +80,7 @@ export const Slide3data3 = [
         cName: 'data-item1'
     },
     {
-        title: 'Video Editing',
+        title: '3D and Motion Graphics',
         icon: C3,
         cName: 'data-item1'
     },

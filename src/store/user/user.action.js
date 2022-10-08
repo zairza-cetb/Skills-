@@ -35,7 +35,7 @@ export const signUpStart = (email, password) =>
   });
 
 export const signUpSuccess = (user) =>
-  createAction(USER_ACTION_TYPES.SIGN_UP_SUCCESS, { user });
+  createAction(USER_ACTION_TYPES.SIGN_UP_SUCCESS, user);
 
 export const signUpFailed = (error) =>
   createAction(USER_ACTION_TYPES.SIGN_UP_FAILED, error);

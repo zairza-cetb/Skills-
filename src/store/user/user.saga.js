@@ -156,15 +156,6 @@ export function* signOut() {
   try {
     yield call(signOutUser);
     yield put(signOutSuccess());
-    toast.success("Logout successfully", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
   } catch (error) {
     yield put(signOutFailed(error));
     toast.error(error.message,{

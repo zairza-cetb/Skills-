@@ -7,6 +7,10 @@ import { ToastContainer } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { registerUserStart } from "../../store/user/user.action";
+import MultipleSelect from "../../components/Dropdown";
+import { MultiSelectUnstyled } from "@mui/base/SelectUnstyled";
+import UnstyledSelectsMultiple from "../../components/Dropdown";
+import Multiselect from "../../components/MultiSelect";
 
 const MentorRegistration = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -19,8 +23,8 @@ const MentorRegistration = () => {
     enterEmail: currentUser?.email ? currentUser.email : "",
     enterRedgNo: "",
     enterWing: "",
-    interestedDomain: "",
   });
+  const [selectedDomains, setSelectedDomains] = useState([]);
   const [err, setError] = useState(false);
 
   useEffect(() => {
@@ -46,9 +50,15 @@ const MentorRegistration = () => {
   const register = (e) => {
     e.preventDefault();
     try {
-      const { name, enterEmail, enterRedgNo, interestedDomain } =
-        user;
-      if (name && enterEmail && enterRedgNo && phoneNo && branch && interestedDomain) {
+      const { name, enterEmail, enterRedgNo } = user;
+      if (
+        name &&
+        enterEmail &&
+        enterRedgNo &&
+        phoneNo &&
+        branch &&
+        selectedDomains
+      ) {
         dispatch(
           registerUserStart({
             user: {
@@ -57,7 +67,7 @@ const MentorRegistration = () => {
               phoneNumber: phoneNo,
               registrationNumber: enterRedgNo,
               zairzaMember: true,
-              domain: interestedDomain,
+              domain: selectedDomains,
               branch: branch,
               role: "mentor",
             },
@@ -87,28 +97,6 @@ const MentorRegistration = () => {
     "Physics",
     "Chemistry",
   ];
-
-  const domains = [
-    "Web Development",
-    "App Development",
-    "Competitive Coding",
-    "AI/ML",
-    "UI/UX",
-    "Cybersecurity",
-    "Blockchain",
-    "Devops and Cloud Computing",
-    "Game Development",
-    "Graphics Designing",
-    "Embedded System & IOT",
-    "ROS",
-    "3D and Motion Graphics",
-  ];
-
-  const handleDomain = (e) => {
-    e.preventDefault();
-    setUser({ ...user, interestedDomain: e.target.value });
-  };
-
   const handleBranch = (e) => {
     e.preventDefault();
     console.log(e.target.value);
@@ -192,19 +180,11 @@ const MentorRegistration = () => {
         </div>
         <div className="layer7 selectdomain">
           <p>Interested Domain for Skills++ 2022</p>
-          <select
-            className="domain option"
-            name="selectDomain"
-            value={user.selectDomain}
-            onChange={handleDomain}
-          >
-            <option disabled selected="selected">
-              Select your domain
-            </option>
-            {domains.map((domain) => (
-              <option value={domain}>{domain}</option>
-            ))}
-          </select>
+          <Multiselect
+            selectedItems={selectedDomains}
+            addItem={(item) => setSelectedDomains(selectedDomains.concat(item))}
+            setFilteredItems={(filtered) => setSelectedDomains(filtered)}
+          />
         </div>
         <div className="layer8">
           <div className="btn1">

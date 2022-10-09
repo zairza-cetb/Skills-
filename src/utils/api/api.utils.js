@@ -30,10 +30,8 @@ export const loginUser = async ({ idToken }) => {
         },
       }
     );
-    console.log("REsponse",response.data.data)
     return response.data.data;
   } catch (err) {
-    console.log(err.message);
     throw new Error(err.message);
   }
 };

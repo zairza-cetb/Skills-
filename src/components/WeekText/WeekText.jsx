@@ -5,7 +5,6 @@ import { useState } from "react";
 const WeekText = () => {
   const [taskSubmit,setTaskSubmit]=useState("");
   const weekTaskSubmit=()=>{
-    console.log(taskSubmit);
   }
   return (
     <div className="WeekText">

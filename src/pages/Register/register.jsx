@@ -145,7 +145,6 @@ const Registration = () => {
   ];
 
   const handleWing = (e) => {
-    console.log(e.target.value);
     if (e.target.value) {
       setUser({
         ...user,
@@ -165,7 +164,6 @@ const Registration = () => {
 
   const handleBranch = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
     setBranch(e.target.value);
   };
   return (

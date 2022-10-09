@@ -5,7 +5,6 @@ const ReviewModal = ({ isOpened, handleOpen }) => {
   const [submitmodal, setSubmitmodal] =useState("");
   const modalSubmit=(e)=>{
     e.preventDefault();
-    console.log(submitmodal)
   }
   const handleReviewChange=(e)=>{
     setSubmitmodal(e.target.value);

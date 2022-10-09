@@ -11,7 +11,6 @@ const Sidebar = ({ handleSidebar }) => {
   const nav = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
-  console.log(currentUser);
   const userSignOut = async () => {
     dispatch(signOutStart());
   };

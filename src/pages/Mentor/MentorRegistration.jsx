@@ -99,7 +99,6 @@ const MentorRegistration = () => {
   ];
   const handleBranch = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
     setBranch(e.target.value);
   };
   return (

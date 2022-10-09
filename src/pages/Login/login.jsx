@@ -68,7 +68,6 @@ const Login = () => {
 }
 
 const signInWithGoogle = async () => {
-  console.log("google");
   dispatch(googleSignInStart());
 };
 

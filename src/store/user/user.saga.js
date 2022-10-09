@@ -59,7 +59,6 @@ export function* getUserInfoFromAPI(userAuth) {
       });
     } else {
      
-      yield put(signInFailed(error));
       toast.error(error.message,{
         position: "top-right",
         autoClose: 2000,
@@ -69,6 +68,7 @@ export function* getUserInfoFromAPI(userAuth) {
         draggable: true,
         progress: undefined,
       })
+      yield put(signInFailed(error));
     }
   }
 }
@@ -125,7 +125,6 @@ export function* isUserAuthenticated() {
 
     yield call(getUserInfoFromAPI, userAuth);
   } catch (error) {
-    console.log(error);
     yield put(signInFailed(error));
   }
 }

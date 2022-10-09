@@ -91,7 +91,6 @@ const Signup = () => {
   };
 
   const signInWithGoogle = async () => {
-    console.log("google");
     dispatch(googleSignInStart());
   };
 

@@ -28,17 +28,17 @@ const Sidebar = ({ handleSidebar }) => {
         {location.pathname == "/" && (
           <>
             <li>
-              <a href="#domain" onClick={handleSidebar}>
+              <a className="w-full text-center" href="#domain" onClick={handleSidebar}>
                 Domains
               </a>
             </li>
             <li>
-              <a href="#why" onClick={handleSidebar}>
+              <a className="w-full text-center" href="#why" onClick={handleSidebar}>
                 Why skill++
               </a>
             </li>
             <li>
-              <a href="#faq" onClick={handleSidebar}>
+              <a className="w-full text-center" href="#faq" onClick={handleSidebar}>
                 Contact us
               </a>
             </li>

@@ -31,20 +31,20 @@ const Login = () => {
   const [err, setError] = useState(false);
 
   useEffect(()=>{
-    // if(currentUser?.isRegisteredComplete && currentUser?.role=="member"){
-    //   nav('/me')
-    // }else if(currentUser?.isRegisteredComplete && currentUser?.role=="mentor"){
-    //   nav('/mentor/me')
-    // }else if(!(currentUser?.isRegisteredComplete) && currentUser?.role=="member"){
-    //   nav('/register')
-    // }else if(!(currentUser?.isRegisteredComplete) && currentUser?.role=="mentor"){
-    //   nav('/mentor/register')
-    // }
-    if(currentUser?.isRegisteredComplete){
+    if(currentUser?.isRegisteredComplete && currentUser?.role=="member"){
+      nav('/me')
+    }else if(currentUser?.isRegisteredComplete && currentUser?.role=="mentor"){
       nav('/mentor/me')
-    }else if(currentUser && !(currentUser?.isRegisteredComplete)){
+    }else if(!(currentUser?.isRegisteredComplete) && currentUser?.role=="member"){
+      nav('/register')
+    }else if(!(currentUser?.isRegisteredComplete) && currentUser?.role=="mentor"){
       nav('/mentor/register')
     }
+    // if(currentUser?.isRegisteredComplete){
+    //   nav('/mentor/me')
+    // }else if(currentUser && !(currentUser?.isRegisteredComplete)){
+    //   nav('/mentor/register')
+    // }
   })
 
   const buttonHandler = (e) => {

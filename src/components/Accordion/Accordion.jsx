@@ -57,12 +57,12 @@ import {
             >
               <Typography>
                 <h1>
-                  Week 0 -<span>(19/09/2022 - 26/09/2022)</span>
+                  Week 0 -<span>(05/11/2022 - 12/11/2022)</span>
                 </h1>
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <WeekText />
+              <WeekText week={0}/>
             </AccordionDetails>
           </Accordion>
           {/* Week-1 */}
@@ -92,12 +92,12 @@ import {
             >
               <Typography>
                 <h1>
-                  Week 1 -<span>(27/09/2022 - 04/10/2022)</span>
+                  Week 1 -<span>(13/11/2022 - 20/11/2022)</span>
                 </h1>
               </Typography>
             </AccordionSummary>
             {/* <AccordionDetails>
-              <WeekText />
+              <WeekText week={1}/>
             </AccordionDetails> */}
           </Accordion>
           {/* Week-2 */}
@@ -125,12 +125,12 @@ import {
             >
               <Typography>
                 <h1>
-                  Week 2 -<span>(05/10/2022 - 12/10/2022)</span>
+                  Week 2 -<span>(21/11/2022 - 28/11/2022)</span>
                 </h1>
               </Typography>
             </AccordionSummary>
             {/* <AccordionDetails>
-              <WeekText />
+              <WeekText week={2}/>
             </AccordionDetails> */}
           </Accordion>
           {/* Week-3 */}
@@ -158,12 +158,12 @@ import {
             >
               <Typography>
                 <h1>
-                  Week 3 -<span>(13/10/2022 - 20/10/2022)</span>
+                  Week 3 -<span>(29/11/2022 - 05/12/2022)</span>
                 </h1>
               </Typography>
             </AccordionSummary>
             {/* <AccordionDetails>
-              <WeekText />
+              <WeekText week={3}/>
             </AccordionDetails> */}
           </Accordion>
         </div>

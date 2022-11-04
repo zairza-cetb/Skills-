@@ -186,10 +186,10 @@ const MentorRegistration = () => {
           />
         </div>
         <div className="layer8">
-          <div className="btn1">
-            <button className="registerBtn" onClick={register}>
+          <div className="btn1" onClick={register}>
+            <div className="registerBtn">
               Register
-            </button>
+            </div>
           </div>
         </div>
         <div className="layer9">

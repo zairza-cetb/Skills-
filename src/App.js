@@ -17,6 +17,8 @@ import MentorRegistration from "./pages/Mentor/MentorRegistration";
 import { Mentor } from "./components/Mentor/Mentor";
 import MentorProfile from "./pages/MentorProfile";
 import PageNotFound from "./pages/PageNotFound";
+import Dashboard from "./pages/dashboard/Dashboard";
+import ComingSoon from "./pages/comingSoon/ComingSoon";
 function App() {
 
   const dispatch = useDispatch();
@@ -40,7 +42,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registration />} />
-        {/* <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} /> */}
+        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
         {/* <Route path="/coming-soon" element={<PrivateRoute><ComingSoon /></PrivateRoute>} /> */}
         <Route path="/me" element={<PrivateRoute><Profile /></PrivateRoute>} />
         {/* <Route path="/admin" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} /> */}
@@ -48,7 +50,7 @@ function App() {
           <Route index element={<PrivateRoute><MentorProfile /></PrivateRoute>}/>
           <Route path="me" element={<PrivateRoute><MentorProfile /></PrivateRoute>} />
           <Route path="register" element={<PrivateRoute><MentorRegistration/></PrivateRoute>}/>
-          {/* <Route path="dashboard" element={<AdminDashboard/>}/> */}
+          <Route path="dashboard" element={<ComingSoon />}/>
           <Route path="*" element={<PageNotFound/>}/>
         </Route>
         <Route path="*" element={<PageNotFound/>}/>

@@ -293,8 +293,8 @@ const Registration = () => {
           </select>
         </div>
         <div className="layer8">
-          <div className="btn1">
-            <button className="registerBtn" onClick={register}>
+          <div className="btn1" onClick={register}>
+            <button className="registerBtn">
               Register
             </button>
           </div>

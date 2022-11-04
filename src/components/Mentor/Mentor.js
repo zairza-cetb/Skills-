@@ -9,6 +9,7 @@ export function Mentor() {
     if (!currentUser) {
         return <Navigate to="/login" />
     }
+    if(currentUser.role=="member")navigate(-1);
 
     // authorized so return child components
     // if(currentUser.role=="member")navigate(-1);

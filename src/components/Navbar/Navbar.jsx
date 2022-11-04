@@ -44,7 +44,7 @@ const Navbar = ({ handleSidebar }) => {
             </>
           )}
 
-          {/* {currentUser?.isRegisteredComplete && (
+          {currentUser?.isRegisteredComplete && (
             <li>
               {currentUser.role == "member" ? (
                 <button onClick={() => nav("/dashboard")}>Dashboard</button>
@@ -54,7 +54,7 @@ const Navbar = ({ handleSidebar }) => {
                 </button>
               )}
             </li>
-          )} */}
+          )}
 
           <li>
             {currentUser?.isRegisteredComplete && (

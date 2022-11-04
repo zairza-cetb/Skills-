@@ -45,7 +45,7 @@ const Sidebar = ({ handleSidebar }) => {
           </>
         )}
 
-        {/* {currentUser?.isRegisteredComplete && (
+        {currentUser?.isRegisteredComplete && (
           <li>
             {currentUser.role == "member" ? (
               <button
@@ -67,7 +67,7 @@ const Sidebar = ({ handleSidebar }) => {
               </button>
             )}
           </li>
-        )} */}
+        )}
         {currentUser?.isRegisteredComplete && (
           <li>
             {currentUser.role == "member" && (

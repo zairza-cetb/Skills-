@@ -57,7 +57,7 @@ import {
             >
               <Typography>
                 <h1>
-                  Week 0 -<span>(05/11/2022 - 12/11/2022)</span>
+                  Week 0 -<span>(05/11/2022 - 08/11/2022)</span>
                 </h1>
               </Typography>
             </AccordionSummary>
@@ -92,7 +92,7 @@ import {
             >
               <Typography>
                 <h1>
-                  Week 1 -<span>(13/11/2022 - 20/11/2022)</span>
+                  Week 1 -<span>(09/11/2022 - 15/11/2022)</span>
                 </h1>
               </Typography>
             </AccordionSummary>
@@ -125,7 +125,7 @@ import {
             >
               <Typography>
                 <h1>
-                  Week 2 -<span>(21/11/2022 - 28/11/2022)</span>
+                  Week 2 -<span>(16/11/2022 - 22/11/2022)</span>
                 </h1>
               </Typography>
             </AccordionSummary>
@@ -158,7 +158,7 @@ import {
             >
               <Typography>
                 <h1>
-                  Week 3 -<span>(29/11/2022 - 05/12/2022)</span>
+                  Week 3 -<span>(23/11/2022 - 29/12/2022)</span>
                 </h1>
               </Typography>
             </AccordionSummary>

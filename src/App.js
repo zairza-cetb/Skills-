@@ -19,6 +19,7 @@ import MentorProfile from "./pages/MentorProfile";
 import PageNotFound from "./pages/PageNotFound";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ComingSoon from "./pages/comingSoon/ComingSoon";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 function App() {
 
   const dispatch = useDispatch();
@@ -50,7 +51,8 @@ function App() {
           <Route index element={<PrivateRoute><MentorProfile /></PrivateRoute>}/>
           <Route path="me" element={<PrivateRoute><MentorProfile /></PrivateRoute>} />
           <Route path="register" element={<PrivateRoute><MentorRegistration/></PrivateRoute>}/>
-          <Route path="dashboard" element={<ComingSoon />}/>
+          {/* <Route path="dashboard" element={<ComingSoon />}/> */}
+          <Route path="dashboard" element={<PrivateRoute><AdminDashboard /></PrivateRoute>}/>
           <Route path="*" element={<PageNotFound/>}/>
         </Route>
         <Route path="*" element={<PageNotFound/>}/>

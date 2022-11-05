@@ -70,7 +70,7 @@ const Sidebar = ({ handleSidebar }) => {
         )}
         {currentUser?.isRegisteredComplete && (
           <li>
-            {currentUser.role == "member" && (
+            {currentUser.role == "member" ? (
               <button
                 onClick={() => {
                   handleSidebar();
@@ -79,7 +79,14 @@ const Sidebar = ({ handleSidebar }) => {
               >
                 Profile
               </button>
-            )}
+            ) : <button
+            onClick={() => {
+              handleSidebar();
+              nav("/mentor/me");
+            }}
+          >
+            Profile
+          </button>}
           </li>
         )}
         <li>

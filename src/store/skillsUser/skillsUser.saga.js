@@ -4,10 +4,12 @@ import { SKILLS_USER_ACTION_TYPES } from "./skillsUser.types";
 
 import {
   fetchDomainRegistrationFailure,
+  fetchDomainRegistrationStart,
   fetchDomainRegistrationSuccess,
+  submitAssignmentFailure,
 } from "./skillsUser.action";
 import { getCurrentUserToken } from "../../utils/firebase/firebase.utils";
-import { fetchRegisteredDomainSkillUser } from "../../utils/api/api.utils";
+import { fetchRegisteredDomainSkillUser, submitUserAssignment } from "../../utils/api/api.utils";
 
 export function* fetchDomainReg(){
   try{
@@ -30,11 +32,38 @@ catch(error){
 }
 }
 
+export function* submitAssignment(data){
+  try{
+    const idToken = yield call(getCurrentUserToken)
+    const response = yield call(submitUserAssignment,{idToken,submitAssignment:data.payload});
+    console.log(response)
+    yield put(fetchDomainRegistrationStart());
+  }
+  catch(error){
+    yield put(submitAssignmentFailure(error));
+    toast.error(error.message,{
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
+  }
+}
+
 export function* fetchDomainRegistrationOnStart(){
   yield takeLatest(SKILLS_USER_ACTION_TYPES.FETCH_REGISTERED_DOMAIN_START,fetchDomainReg)
 }
+
+export function* submitAssignmentOnStart(){
+  yield takeLatest(SKILLS_USER_ACTION_TYPES.SUBMIT_ASSIGNMENT_START,submitAssignment)
+}
+
 export function* skillUserSagas() {
   yield all([
-    call(fetchDomainRegistrationOnStart)
+    call(fetchDomainRegistrationOnStart),
+    call(submitAssignmentOnStart)
   ]);
 }

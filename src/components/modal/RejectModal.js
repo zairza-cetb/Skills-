@@ -1,16 +1,13 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
 
-
-const ReviewModal = ({ isOpened, handleOpen , submitReview }) => {
-  const [submitmodal, setSubmitmodal] =useState("");
-  const modalSubmit=async (e)=>{
+const RejectModal = ({ isOpened, handleOpen, submitRejectReview }) => {
+  const [comment, setComment] = useState("");
+  const modalSubmit = async (e) => {
     e.preventDefault();
-    await submitReview(submitmodal);
-  }
-  const handleReviewChange=(e)=>{
-    setSubmitmodal(e.target.value);
-  }
+    await submitRejectReview(comment);
+  };
+
   const modalStyle = {
     content: {
       top: "50%",
@@ -35,18 +32,20 @@ const ReviewModal = ({ isOpened, handleOpen , submitReview }) => {
       onRequestClose={handleOpen}
       ariaHideApp={false}
     >
-      <p>Review..</p>
-      <textarea type="text" placeholder="Write your Review" 
-      className="w-full my-2 resize-none focus:outline-none border border-gray-200 bg-gray-100 p-4"
-      value={submitmodal} 
-      onChange={handleReviewChange}
+      <p>Are you sure you want to reject the Submission?</p>
+      <textarea
+        type="text"
+        placeholder="Write your Review"
+        className="w-full my-2 resize-none focus:outline-none border border-gray-200 bg-gray-100 p-4"
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
       />
       <div className="flex justify-center gap-5 items-center ">
         <button
           className="rounded-lg bg-green-600 px-4 py-1 text-sm text-white"
           onClick={modalSubmit}
         >
-          Submit
+          Confirm
         </button>
         <button
           className="rounded-lg bg-red-500 px-4 py-1 text-sm text-white"
@@ -59,4 +58,4 @@ const ReviewModal = ({ isOpened, handleOpen , submitReview }) => {
   );
 };
 
-export default ReviewModal;
+export default RejectModal;

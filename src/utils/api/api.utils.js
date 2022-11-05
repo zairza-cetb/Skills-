@@ -36,7 +36,7 @@ export const loginUser = async ({ idToken }) => {
   }
 };
 
-export const updateUser = async ({ user , idToken}) => {
+export const updateUser = async ({ user, idToken }) => {
   try {
     const response = await axios.post(
       `${API_URL}/api/skill-plus-plus/user/onboardingUser`,
@@ -54,19 +54,90 @@ export const updateUser = async ({ user , idToken}) => {
   }
 };
 
-
 export const fetchRegisteredDomainSkillUser = async ({ idToken }) => {
   try {
     const response = await axios.get(
-        `${API_URL}/api/skill-plus-plus/domainReg/getRegisteredDomain`,
-        {
-          headers: { 
-            Authorization: `Bearer ${idToken}`,
-          }
-        }
-    )
-    return response.data.data
-  }catch(err){
+      `${API_URL}/api/skill-plus-plus/domainReg/getRegisteredDomain`,
+      {
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+        },
+      }
+    );
+    return response.data.data;
+  } catch (err) {
     throw new Error(err.message);
   }
 };
+
+export const submitUserAssignment = async ({ idToken, submitAssignment }) => {
+  try {
+    const response = await axios.post(
+      `${API_URL}/api/skill-plus-plus/user/student/submit`,
+      submitAssignment,
+      {
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+        },
+      }
+    );
+    return response.data.data;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+};
+
+export const submitMentorReview = async ({ idToken, review }) => {
+  try {
+    const response = await axios.post(
+      `${API_URL}/api/skill-plus-plus/user/mentor/submit`,
+      review,
+      {
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+        },
+      }
+    );
+    return response.data.data;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+};
+
+
+export const fetchMentorDashboardService = async ({ idToken , domainId }) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}/api/skill-plus-plus/user/mentor/dashboard`,
+      {
+        params: {
+          domainId,
+        },
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+        },
+      }
+    );
+    return response.data.data;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+};
+
+
+export const submitMentorReviewService = async ({ idToken, review }) => {
+  try {
+    const response = await axios.post(
+      `${API_URL}/api/skill-plus-plus/user/mentor/submit`,
+      review,
+      {
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+        },
+      }
+    );
+    return response.data.message;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+}

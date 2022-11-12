@@ -11,7 +11,7 @@ import Signup from "./pages/Signup/signup";
 
 import { checkUserSession } from "./store/user/user.action";
 import { PrivateRoute } from "./components/PrivateRoute/privateRoute";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import Profile from "./pages/Profile";
 import MentorRegistration from "./pages/Mentor/MentorRegistration";
 import { Mentor } from "./components/Mentor/Mentor";
@@ -21,7 +21,6 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import ComingSoon from "./pages/comingSoon/ComingSoon";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 function App() {
-
   const dispatch = useDispatch();
   const [display, setDisplay] = useState(false);
   const handleSidebar = () => {
@@ -29,7 +28,7 @@ function App() {
   };
   useEffect(() => {
     dispatch(checkUserSession());
-  }, [])
+  }, []);
 
   return (
     <>
@@ -42,20 +41,69 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Registration />} />
-        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+        <Route
+          path="/register"
+          element={
+            <PrivateRoute>
+              <Registration />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
         {/* <Route path="/coming-soon" element={<PrivateRoute><ComingSoon /></PrivateRoute>} /> */}
-        <Route path="/me" element={<PrivateRoute><Profile /></PrivateRoute>} />
+        <Route
+          path="/me"
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
         {/* <Route path="/admin" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} /> */}
-        <Route path="/mentor" element={<Mentor/>}>
-          <Route index element={<PrivateRoute><MentorProfile /></PrivateRoute>}/>
-          <Route path="me" element={<PrivateRoute><MentorProfile /></PrivateRoute>} />
-          <Route path="register" element={<PrivateRoute><MentorRegistration/></PrivateRoute>}/>
+        <Route path="/mentor" element={<Mentor />}>
+          <Route
+            index
+            element={
+              <PrivateRoute>
+                <MentorProfile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="me"
+            element={
+              <PrivateRoute>
+                <MentorProfile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <PrivateRoute>
+                <MentorRegistration />
+              </PrivateRoute>
+            }
+          />
           {/* <Route path="dashboard" element={<ComingSoon />}/> */}
-          <Route path="dashboard" element={<PrivateRoute><AdminDashboard /></PrivateRoute>}/>
-          <Route path="*" element={<PageNotFound/>}/>
+          <Route
+            path="dashboard"
+            element={
+              <PrivateRoute>
+                <AdminDashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
-        <Route path="*" element={<PageNotFound/>}/>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
     </>

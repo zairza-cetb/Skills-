@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
 import { selectCurrentUser, selectUserReducer } from "../../store/user/user.selector";
 import { PulseLoader } from "react-spinners";
+import { ToastContainer } from "react-toastify";
 
 const override = {
   display: "block",
@@ -130,6 +131,7 @@ const signInWithGoogle = async () => {
         <img className="regImage" src={registerImage} />
         <img className="window" src={window} />
       </div>
+      <ToastContainer />
     </div>
   );
 };

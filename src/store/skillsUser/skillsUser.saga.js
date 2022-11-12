@@ -36,10 +36,19 @@ export function* submitAssignment(data){
   try{
     const idToken = yield call(getCurrentUserToken)
     const response = yield call(submitUserAssignment,{idToken,submitAssignment:data.payload});
-    console.log(response)
+    toast.success("Assignment Submitted Successfully" , {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
     yield put(fetchDomainRegistrationStart());
   }
   catch(error){
+    console.log(error)
     yield put(submitAssignmentFailure(error));
     toast.error(error.message,{
         position: "top-right",

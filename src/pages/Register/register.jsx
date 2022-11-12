@@ -4,11 +4,20 @@ import registerImage from "../../Assets/images/registerImage.png";
 import window from "../../Assets/images/browserWindow.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCurrentUser } from "../../store/user/user.selector";
+import { selectCurrentUser, selectUserReducer } from "../../store/user/user.selector";
 import { registerUserStart } from "../../store/user/user.action";
+import { PulseLoader } from "react-spinners";
+import { ToastContainer } from "react-toastify";
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "#FF6E20",
+};
 
 const Registration = () => {
   const currentUser = useSelector(selectCurrentUser)
+  const userReducer = useSelector(selectUserReducer)
   const dispatch = useDispatch();
   const nav = useNavigate();
   const [branch, setBranch] = useState([]);
@@ -295,7 +304,9 @@ const Registration = () => {
         <div className="layer8">
           <div className="btn1" onClick={register}>
             <button className="registerBtn">
-              Register
+            {
+                userReducer.isLoading ? <PulseLoader color={"#FF6E20"} loading={true} cssOverride={override} size={5} /> : "Register"
+              }
             </button>
           </div>
         </div>
@@ -309,6 +320,7 @@ const Registration = () => {
         <img className="regImage" src={registerImage} alt={"registerImage"} />
         <img className="window" src={window} alt={"registerImage"} />
       </div>
+      <ToastContainer />
     </div>
   );
 };

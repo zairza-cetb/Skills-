@@ -18,22 +18,23 @@ const Accordian = () => {
   const [current, setCurrent] = useState(-1);
   const domainDetails = useSelector(selectDomainDetails);
   const currentWeek = getCurrentWeek();
+  console.log(currentWeek)
   const weeks = [
     {
       weekNo: 0,
-      duration: "05/11/2022 - 08/11/2022",
+      duration: "10/11/2022 - 14/11/2022",
     },
     {
       weekNo: 1,
-      duration: "09/11/2022 - 15/11/2022",
+      duration: "14/11/2022 - 20/11/2022",
     },
     {
       weekNo: 2,
-      duration: "16/11/2022 - 22/11/2022",
+      duration: "21/11/2022 - 27/11/2022",
     },
     {
       weekNo: 3,
-      duration: "23/11/2022 - 29/11/2022",
+      duration: "28/11/2022 - 4/12/2022",
     },
   ];
 

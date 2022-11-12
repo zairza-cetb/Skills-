@@ -15,7 +15,7 @@ export const createUser = async ({ idToken }) => {
 
     return response.data.data;
   } catch (err) {
-    throw new Error(err.message);
+    throw err;
   }
 };
 
@@ -32,7 +32,7 @@ export const loginUser = async ({ idToken }) => {
     );
     return response.data.data;
   } catch (err) {
-    throw new Error(err.message);
+    throw err;
   }
 };
 
@@ -66,7 +66,7 @@ export const fetchRegisteredDomainSkillUser = async ({ idToken }) => {
     );
     return response.data.data;
   } catch (err) {
-    throw new Error(err.message);
+    throw new Error(err.response.data.message);
   }
 };
 
@@ -83,7 +83,7 @@ export const submitUserAssignment = async ({ idToken, submitAssignment }) => {
     );
     return response.data.data;
   } catch (err) {
-    throw new Error(err.message);
+    throw new Error(err.response.data.message);
   }
 };
 
@@ -100,7 +100,7 @@ export const submitMentorReview = async ({ idToken, review }) => {
     );
     return response.data.data;
   } catch (err) {
-    throw new Error(err.message);
+    throw new Error(err.response.data.message);
   }
 };
 
@@ -120,7 +120,7 @@ export const fetchMentorDashboardService = async ({ idToken , domainId }) => {
     );
     return response.data.data;
   } catch (err) {
-    throw new Error(err.message);
+    throw new Error(err.response.data.message);
   }
 };
 
@@ -138,6 +138,6 @@ export const submitMentorReviewService = async ({ idToken, review }) => {
     );
     return response.data.message;
   } catch (err) {
-    throw new Error(err.message);
+    throw new Error(err.response.data.message);
   }
 }

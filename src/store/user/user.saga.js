@@ -1,5 +1,5 @@
 import { takeLatest, put, all, call } from "redux-saga/effects";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { USER_ACTION_TYPES } from "./user.types";
 
 import {
@@ -30,8 +30,27 @@ export function* getUserInfoFromAPI(userAuth) {
     const userSnapshot = yield call(loginUser, {
       idToken: idToken,
     });
-    yield put(signInSuccess({ ...userSnapshot}));
-    toast.success('Successfully signed in',{
+    yield put(signInSuccess({ ...userSnapshot }));
+  } catch (error) {
+    if (
+      error.message.includes("Request failed with status code 401") ||
+      error.message.includes("Request failed with status code 404")
+    ) {
+      const idToken = yield call(getCurrentUserToken);
+      const userSnapshot = yield call(createUser, { idToken });
+      yield put(signUpSuccess({ ...userSnapshot }));
+    } else {
+      throw error;
+    }
+  }
+}
+
+export function* signInWithGoogle() {
+  try {
+    const { user } = yield call(signInWithGooglePopup);
+
+    yield call(getUserInfoFromAPI, user);
+    toast.success("Successfully signed in", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
@@ -41,50 +60,8 @@ export function* getUserInfoFromAPI(userAuth) {
       progress: undefined,
     });
   } catch (error) {
-    if (
-      error.message.includes("Request failed with status code 401") ||
-      error.message.includes("Request failed with status code 404")
-    ) {
-      const idToken = yield call(getCurrentUserToken);
-      const userSnapshot = yield call(createUser, { idToken });
-      yield put(signUpSuccess({ ...userSnapshot}));
-      toast.success('Successfully Signed Up',{
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    } else {
-     
-      toast.error(error.message,{
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      })
-      yield put(signInFailed(error));
-    }
-  }
-}
-
-
-
-export function* signInWithGoogle() {
-  try {
-    const { user } = yield call(signInWithGooglePopup);
-
-    yield call(getUserInfoFromAPI, user);
-    
-  } catch (error) {
-
     yield put(signInFailed(error));
-    toast.error(error.message,{
+    toast.error(error.message, {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
@@ -92,7 +69,7 @@ export function* signInWithGoogle() {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-    })
+    });
   }
 }
 
@@ -104,9 +81,7 @@ export function* signInWithEmail({ payload: { email, password } }) {
       password
     );
     yield call(getUserInfoFromAPI, user);
-  } catch (error) {
-    yield put(signInFailed(error));
-    toast.error(error.message,{
+    toast.success("Successfully signed in", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
@@ -114,7 +89,18 @@ export function* signInWithEmail({ payload: { email, password } }) {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-    })
+    });
+  } catch (error) {
+    yield put(signInFailed(error));
+    toast.error(error.message, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   }
 }
 
@@ -137,9 +123,8 @@ export function* signUp({ payload: { email, password } }) {
       password
     );
     yield call(getUserInfoFromAPI, user);
-  } catch (error) {
-    yield put(signUpFailed(error));
-    toast.error(error.message,{
+
+    toast.success("Successfully Signed Up", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
@@ -147,7 +132,18 @@ export function* signUp({ payload: { email, password } }) {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-    })
+    });
+  } catch (error) {
+    yield put(signUpFailed(error));
+    toast.error(error.message, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   }
 }
 
@@ -155,9 +151,7 @@ export function* signOut() {
   try {
     yield call(signOutUser);
     yield put(signOutSuccess());
-  } catch (error) {
-    yield put(signOutFailed(error));
-    toast.error(error.message,{
+    toast.success('Successfully Signed Out',{
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
@@ -165,45 +159,51 @@ export function* signOut() {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-    })
+    });
+  } catch (error) {
+    yield put(signOutFailed(error));
+    toast.error(error.message, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   }
 }
 
-export function* registerUser({ payload : {user}}){
-
-  try{
-      const idToken = yield call(getCurrentUserToken)
-      const registeredUser = yield call(updateUser,{user,idToken});
-      yield put(registerUserSuccess(registeredUser));
-      toast.success('Successfully Registered Skills User',{
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-  }
-  catch(error){   
-      yield put(registerUserFailure(error));
-      toast.error(error.message,{
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        })
-      
+export function* registerUser({ payload: { user } }) {
+  try {
+    const idToken = yield call(getCurrentUserToken);
+    const registeredUser = yield call(updateUser, { user, idToken });
+    yield put(registerUserSuccess(registeredUser));
+    toast.success("Successfully Registered Skills User", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  } catch (error) {
+    yield put(registerUserFailure(error));
+    toast.error(error.message, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   }
 }
-export function* registerUserOnStart(){
-  yield takeLatest(USER_ACTION_TYPES.REGISTER_USER_START,registerUser)
+export function* registerUserOnStart() {
+  yield takeLatest(USER_ACTION_TYPES.REGISTER_USER_START, registerUser);
 }
-
-
 
 export function* signInAfterSignUp({ payload: { user } }) {
   yield call(getUserInfoFromAPI, user);
@@ -242,6 +242,5 @@ export function* userSagas() {
     call(onSignUpSuccess),
     call(onSignOutStart),
     call(registerUserOnStart),
-    
   ]);
 }

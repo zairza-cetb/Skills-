@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpStart, googleSignInStart } from "../../store/user/user.action";
 import { selectCurrentUser, selectUserReducer } from "../../store/user/user.selector";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { PulseLoader } from "react-spinners";
 
 const override = {
@@ -183,6 +183,7 @@ const Signup = () => {
         <img className="regImage" src={registerImage} />
         <img className="window" src={window} />
       </div>
+      <ToastContainer />
     </div>
   );
 };

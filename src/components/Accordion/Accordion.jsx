@@ -30,7 +30,7 @@ const Accordian = () => {
     },
     {
       weekNo: 2,
-      duration: "28/11/2022 - 4/11/2022",
+      duration: "28/11/2022 - 4/12/2022",
     },
     {
       weekNo: 3,

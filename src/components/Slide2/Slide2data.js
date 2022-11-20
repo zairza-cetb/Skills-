@@ -5,7 +5,7 @@ import three from '../../Assets/icons/favorite-chart.png'
 export const Slide2data1 = [
     {
         title: 'Certificate',
-        content: 'Get certified from Zairza, and post it in social media to let your recruiter know about your skills.',
+        content: 'Get certified from Zairza, and post it in social media to let recruiters know about your skills.',
         path: one,
         cName: 'item-list'
     },

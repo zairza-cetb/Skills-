@@ -22,19 +22,19 @@ const Accordian = () => {
   const weeks = [
     {
       weekNo: 0,
-      duration: "14/11/2022 - 19/11/2022",
+      duration: "14/11/2022 - 20/11/2022",
     },
     {
       weekNo: 1,
-      duration: "20/11/2022 - 26/11/2022",
+      duration: "21/11/2022 - 27/11/2022",
     },
     {
       weekNo: 2,
-      duration: "27/11/2022 - 3/11/2022",
+      duration: "28/11/2022 - 4/11/2022",
     },
     {
       weekNo: 3,
-      duration: "4/12/2022 - 10/12/2022",
+      duration: "5/12/2022 - 11/12/2022",
     },
   ];
 

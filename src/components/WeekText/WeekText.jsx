@@ -54,7 +54,7 @@ const WeekText = ({ weekNo }) => {
               </a>{" "}
             </p>
           ) : (
-            <span>No resource for this week</span>
+            <span>Resource link will be uploaded soon</span>
           )}
         </li>
 
@@ -75,7 +75,7 @@ const WeekText = ({ weekNo }) => {
                   </a>{" "}
                 </p>
               ) : (
-                <span>No task for this week</span>
+                <span>Task link will be uploaded soon</span>
               )}
             </li>
             <br />
@@ -93,7 +93,7 @@ const WeekText = ({ weekNo }) => {
                   onChange={(e) => setTaskSubmit(e.target.value)}
                 />
                 <button
-                  disabled={submissionDetails?.approved != null}
+                  disabled={domainDetails?.tasks[weekNo]?.taskLink==null || submissionDetails?.approved != null}
                   className="mt-2 md:mt-0 md:ml-8 bg-blue-600 px-4 py-2 text-white hover:bg-blue-400"
                   onClick={weekTaskSubmit}
                 >

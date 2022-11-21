@@ -88,7 +88,7 @@ const WeekText = ({ weekNo }) => {
                 <input
                   className="h-full focus:outline-none border border-gray-500 p-2 w-full"
                   placeholder="Google drive link here"
-                  disabled={submissionDetails?.approved != null}
+                  disabled={domainDetails?.tasks[weekNo]?.taskLink==null || submissionDetails?.approved != null}
                   value={taskSubmit}
                   onChange={(e) => setTaskSubmit(e.target.value)}
                 />

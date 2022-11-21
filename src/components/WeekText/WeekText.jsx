@@ -13,10 +13,13 @@ const WeekText = ({ weekNo }) => {
   const dispatch = useDispatch();
   const domainDetails = useSelector(selectDomainDetails);
   const submissionDetailsFromSelector = useSelector(selectSubmissionDetails);
-  const [taskSubmit, setTaskSubmit] = useState('');
+  const [taskSubmit, setTaskSubmit] = useState("");
   const [submissionDetails, setSubmissionDetails] = useState(null);
   useEffect(() => {
-    if (submissionDetailsFromSelector && submissionDetailsFromSelector.length>0) {
+    if (
+      submissionDetailsFromSelector &&
+      submissionDetailsFromSelector.length > 0
+    ) {
       setSubmissionDetails(
         submissionDetailsFromSelector.filter(
           (submission) => submission.weekNo === weekNo
@@ -25,18 +28,29 @@ const WeekText = ({ weekNo }) => {
     }
   }, [submissionDetailsFromSelector]);
 
-  useEffect(()=>{
-    if(submissionDetails){
+  useEffect(() => {
+    if (submissionDetails) {
       setTaskSubmit(submissionDetails.submissionLink);
     }
-  },[submissionDetails])
+  }, [submissionDetails]);
 
   const weekTaskSubmit = (e) => {
     e.preventDefault();
-    dispatch(submitAssignmentStart({ weekNo, submissionLink:taskSubmit }));
+    if (!taskSubmit) {
+      toast.error("No submission link found", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    dispatch(submitAssignmentStart({ weekNo, submissionLink: taskSubmit }));
   };
-  
-  
+
   return (
     <div className="WeekText">
       <ul>
@@ -88,12 +102,18 @@ const WeekText = ({ weekNo }) => {
                 <input
                   className="h-full focus:outline-none border border-gray-500 p-2 w-full"
                   placeholder="Google drive link here"
-                  disabled={domainDetails?.tasks[weekNo]?.taskLink==null || submissionDetails?.approved != null}
+                  disabled={
+                    domainDetails?.tasks[weekNo]?.taskLink == null ||
+                    submissionDetails?.approved != null
+                  }
                   value={taskSubmit}
                   onChange={(e) => setTaskSubmit(e.target.value)}
                 />
                 <button
-                  disabled={domainDetails?.tasks[weekNo]?.taskLink==null || submissionDetails?.approved != null}
+                  disabled={
+                    domainDetails?.tasks[weekNo]?.taskLink == null ||
+                    submissionDetails?.approved != null
+                  }
                   className="mt-2 md:mt-0 md:ml-8 bg-blue-600 px-4 py-2 text-white hover:bg-blue-400"
                   onClick={weekTaskSubmit}
                 >

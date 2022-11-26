@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser, selectUserReducer } from "../../store/user/user.selector";
 import { registerUserStart } from "../../store/user/user.action";
 import { PulseLoader } from "react-spinners";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import { schedule } from "../../utils/agenda/agenda";
 
 const override = {
   display: "block",
@@ -54,6 +55,19 @@ const Registration = () => {
   };
   const register = (e) => {
     e.preventDefault();
+    const weekStart = schedule.weekStart;
+    if(Date.now() > weekStart) {
+      toast.error("Registration is closed", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
     try {
       const {
         name,

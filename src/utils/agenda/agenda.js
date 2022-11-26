@@ -1,4 +1,4 @@
-const schedule = {
+export const schedule = {
   registrationStart: new Date("2022-11-14 19:30:00"), // Registration starts for skills++
   registrationEnd: new Date("2022-11-20 00:00:00"), // Registration stops for skills++
   eventStart: new Date("2022-11-14 00:00:00"), // Skills++ event starts

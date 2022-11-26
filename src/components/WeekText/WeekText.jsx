@@ -96,7 +96,7 @@ const WeekText = ({ weekNo }) => {
             <li>
               <h3 className="WeekText-heading">Submission : </h3>
               <p>
-                Upload your Project to a Google Drive and Paste the link here
+                Upload your Project link here
               </p>
               <div className="flex flex-col md:flex-row md:items-center justify-left md:w-2/3">
                 <input
